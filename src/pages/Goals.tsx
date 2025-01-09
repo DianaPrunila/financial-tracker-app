@@ -1,5 +1,5 @@
 const Goals = () => {
-  return <div>Goals</div>;
+  return <div className="text-red-700">Goals</div>;
 };
 
 export default Goals;
