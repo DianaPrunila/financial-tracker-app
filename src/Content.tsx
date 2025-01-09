@@ -1,6 +1,3 @@
-import { StrictMode } from "react";
-// import { createRoot } from "react-dom/client";
-import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
 import {
@@ -17,7 +14,7 @@ import Support from "./pages/Support.tsx";
 import Wallets from "./pages/Wallets.tsx";
 import Profile from "./pages/Profile.tsx";
 
-const routes = createBrowserRouter(
+const Content = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index element={<Dashboard />} />
@@ -39,9 +36,4 @@ const routes = createBrowserRouter(
     </Route>
   )
 );
-
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <RouterProvider router={routes} />
-  </StrictMode>
-);
+export default Content;
