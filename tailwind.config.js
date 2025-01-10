@@ -6,13 +6,17 @@ export default {
       colors: {
         sidebarColor: "#2f2cd8",
         framesColor: "#ffffff",
-        bigWritingColor: "#1f2c73",
-        smallWritingColor: "#7184ad",
+        big: "#1f2c73",
+        small: "#7184ad",
         riseingPercentageColor: "#12a347",
         fallingPercentageColor: "#dc2626",
       },
       fontSize: {
-        pageTitle: "size-6",
+        pageTitle: "text-2xl", //h3, 24px
+        framesTitle: "text-lg", //h4, 18px
+        categTitle: "text-base", //h5, 16px
+        weelsDashboardTitle: "text-sm", //h6, 14px
+        textGraySmall: "text-sm", //14px
       },
     },
   },
