@@ -21,6 +21,7 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
+
         <div className="outer-frame-first-row">
           <div className="total-period-change-frame">
             <p className="total-period-change big">Total Period Change</p>
@@ -30,6 +31,7 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
+
         <div className="outer-frame-first-row">
           <div className="total-period-expenses-frame">
             <p className="total-period-expenses big">Total Period Expenses</p>
@@ -39,6 +41,7 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
+
         <div className="outer-frame-first-row">
           <div className="total-period-income-frame">
             <p className="total-period-income big">Total Period Income</p>
@@ -49,6 +52,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+
       <div className="outer-frame-balance-trends">
         <div className="balance-trends-frame">
           <h4 className="title-balance-trends big">Balance Treends</h4>
@@ -59,6 +63,7 @@ const Dashboard = () => {
           <div className="graph"> graph</div>
         </div>
       </div>
+
       <div className="outer-frame-monthly-breakdown">
         <div className="monthly-brakdown-frame">
           <h4 className="monthly-brakdown-title big">
@@ -77,6 +82,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+
       <div className="outer-frame-monthly-budgets">
         <div className="monthly-budgets-frame">
           <div className="monthly-budgets-title-frame">
@@ -94,6 +100,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+
       <div className="outer-frame-income-vs-expenses">
         <div className="income-vs-expenses-frame">
           <div className="income-vs-expenses-title-frame">
@@ -104,6 +111,7 @@ const Dashboard = () => {
           <div className="income-vs-expenses-graph">Graph</div>
         </div>
       </div>
+
       <div className="outer-frame-weekly-expenses">
         <div className="weekly-expenses-frame">
           <div className="weekly-expenses-title-frame">
@@ -112,6 +120,7 @@ const Dashboard = () => {
           <div className="weekly-expenses-graph">Graph</div>
         </div>
       </div>
+
       <div className="outer-frame-payements-history">
         <div className="frame-payement-history">
           <div className="frame-payement-history-title">
