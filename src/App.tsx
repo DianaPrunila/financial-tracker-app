@@ -6,11 +6,13 @@ import NavBar from "./parts/NavBar";
 
 function App() {
   return (
-    <div className="App">
-      <NavBar />
+    <div className="App flex">
       <SideBar />
-      <Outlet />
-      <Footer />
+      <div>
+        <NavBar />
+        <Outlet />
+        <Footer />
+      </div>
     </div>
   );
 }

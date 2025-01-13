@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      width: {
+        "5prc": "5%",
+      },
       colors: {
         sidebarColor: "#2f2cd8",
         framesColor: "#ffffff",
