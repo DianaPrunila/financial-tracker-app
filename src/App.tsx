@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 
 import Footer from "./parts/Footer";
 import SideBar from "./parts/SideBar";
-import NavBar from "./parts/Navbar";
+import NavBar from "./parts/NavBar";
 
 function App() {
   return (
