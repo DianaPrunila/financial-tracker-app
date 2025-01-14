@@ -6,9 +6,9 @@ import NavBar from "./parts/NavBar";
 
 function App() {
   return (
-    <div className="App flex">
+    <div className="App flex ">
       <SideBar />
-      <div>
+      <div className="">
         <NavBar />
         <Outlet />
         <Footer />
