@@ -13,6 +13,7 @@ export default {
         small: "#7184ad",
         riseingPercentageColor: "#12a347",
         fallingPercentageColor: "#dc2626",
+        bkGd: "#F6F9FC",
       },
       fontSize: {
         pageTitle: "text-2xl", //h3, 24px

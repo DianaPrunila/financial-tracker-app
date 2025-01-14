@@ -11,7 +11,7 @@ import { MdSupportAgent } from "react-icons/md";
 
 const SideBar = () => {
   return (
-    <div className=" bg-sidebarColor w-5prc h-screen flex justify-center">
+    <div className=" bg-sidebarColor w-20 h-screen flex justify-center">
       <SidebarMenu className="">
         <SidebarMenu.Header className="mt-8">
           <SidebarMenu.Nav.Link href="/">
