@@ -6,7 +6,7 @@ import { FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <MDBFooter className="flex  justify-between w-max  bg-bkGd text-lg-start text-small ">
+    <MDBFooter className="flex  justify-between  bg-bkGd text-lg-start text-small ">
       <div className=" text-center p-4 ">
         © Copyright 2025
         <a className="text-reset fw-bold" href="/">
@@ -21,6 +21,7 @@ const Footer = () => {
         <div className="twitter">
           <FaTwitter />
         </div>
+
         <div className="likedIn">
           <FaLinkedin />
         </div>
