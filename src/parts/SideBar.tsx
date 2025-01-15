@@ -13,7 +13,7 @@ const SideBar = () => {
   return (
     <div className="bg-sidebarColor w-20 h-screen flex justify-center">
       <SidebarMenu className="flex flex-col h-full">
-        <SidebarMenu.Header className="mt-8 mb-4">
+        <SidebarMenu.Header className="mt-7 mb-4">
           <SidebarMenu.Nav.Link href="/">
             <SidebarMenu.Brand className="text-4xl text-white ">
               {<FaShieldCat />}
@@ -22,7 +22,7 @@ const SideBar = () => {
           <SidebarMenu.Toggle />
         </SidebarMenu.Header>
 
-        <div className="side-bar-icons-group flex flex-col justify-between flex-grow">
+        <div className="side-bar-icons-group flex flex-col justify-between flex-grow mb-4">
           <SidebarMenu.Body className="flex flex-grow flex-col justify-between text-3xl text-small ">
             <SidebarMenu.Nav>
               <SidebarMenu.Nav.Link href="/">
