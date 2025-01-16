@@ -8,9 +8,11 @@ function App() {
   return (
     <div className="App flex ">
       <SideBar />
-      <div className="">
+      <div className="ml-20 my-24">
         <NavBar />
-        <Outlet />
+        <div className="ml-10">
+          <Outlet />
+        </div>
         <Footer />
       </div>
     </div>

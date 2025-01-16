@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import Dashboard from "./pages/Dashboard.tsx";
 import Analytics from "./pages/Analytics.tsx";
+import Affiliates from "./pages/Affiliates.tsx";
 import Budgets from "./pages/Budgets.tsx";
 import Goals from "./pages/Goals.tsx";
 import Support from "./pages/Support.tsx";
@@ -27,6 +28,7 @@ const routes = createBrowserRouter(
       <Route path="/Support" element={<Support />} />
       <Route path="/Wallets" element={<Wallets />} />
       <Route path="/Profile" element={<Profile />} />
+      <Route path="/Affiliates" element={<Affiliates />} />
 
       <Route
         path="*"

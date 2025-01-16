@@ -1,6 +1,0 @@
-.dropdown-toggle::after {
-  display: none !important;
-}
-#dropdown-basic.drpdown-toggle.show.bth.btn.primary {
-  padding: 0;
-}

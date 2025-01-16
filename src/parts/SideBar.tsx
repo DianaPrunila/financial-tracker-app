@@ -1,5 +1,6 @@
 import SidebarMenu from "react-bootstrap-sidebar-menu";
-// import "../App.css";
+import { MDBTooltip } from "mdb-react-ui-kit";
+import "../index.css";
 import { LuWalletMinimal } from "react-icons/lu";
 import { FaShieldCat } from "react-icons/fa6";
 import { LuRadar } from "react-icons/lu";
@@ -8,11 +9,54 @@ import { TbTargetArrow } from "react-icons/tb";
 import { FaRegUser } from "react-icons/fa";
 import { GoGraph } from "react-icons/go";
 import { MdSupportAgent } from "react-icons/md";
+import { TbAffiliateFilled } from "react-icons/tb";
 
+const iconsSidebar = [
+  {
+    sect: <LuRadar />,
+    title: "Home",
+    address: "/",
+  },
+  {
+    sect: <LuWalletMinimal />,
+    title: "Wallets",
+    address: "/Wallets",
+  },
+  {
+    sect: <BsCoin />,
+    title: "Budgets",
+    address: "/Budgets",
+  },
+  {
+    sect: <TbTargetArrow />,
+    title: "Goals",
+    address: "/Goals",
+  },
+  {
+    sect: <FaRegUser />,
+    title: "Profile",
+    address: "/Profile",
+  },
+  {
+    sect: <GoGraph />,
+    title: "Analytics",
+    address: "/Analytics",
+  },
+  {
+    sect: <MdSupportAgent />,
+    title: "Support",
+    address: "/Support",
+  },
+  {
+    sect: <TbAffiliateFilled />,
+    title: "Affiliates",
+    address: "/Affiliates",
+  },
+];
 const SideBar = () => {
   return (
-    <div className="bg-sidebarColor w-20 h-screen flex justify-center">
-      <SidebarMenu className="flex flex-col h-full">
+    <div className="bg-sidebarColor w-20 h-screen flex  fixed z-20 justify-center">
+      <SidebarMenu className="flex flex-col ">
         <SidebarMenu.Header className="mt-7 mb-4">
           <SidebarMenu.Nav.Link href="/">
             <SidebarMenu.Brand className="text-4xl text-white ">
@@ -24,61 +68,19 @@ const SideBar = () => {
 
         <div className="side-bar-icons-group flex flex-col justify-between flex-grow mb-4">
           <SidebarMenu.Body className="flex flex-grow flex-col justify-between text-3xl text-small ">
-            <SidebarMenu.Nav>
-              <SidebarMenu.Nav.Link href="/">
-                <SidebarMenu.Nav.Icon className="hover:text-white">
-                  {<LuRadar />}
-                </SidebarMenu.Nav.Icon>
-              </SidebarMenu.Nav.Link>
-            </SidebarMenu.Nav>
-
-            <SidebarMenu.Nav>
-              <SidebarMenu.Nav.Link href="Wallets">
-                <SidebarMenu.Nav.Icon className="hover:text-white">
-                  {<LuWalletMinimal />}
-                </SidebarMenu.Nav.Icon>
-              </SidebarMenu.Nav.Link>
-            </SidebarMenu.Nav>
-
-            <SidebarMenu.Nav>
-              <SidebarMenu.Nav.Link href="Budgets">
-                <SidebarMenu.Nav.Icon className="hover:text-white">
-                  {<BsCoin />}
-                </SidebarMenu.Nav.Icon>
-              </SidebarMenu.Nav.Link>
-            </SidebarMenu.Nav>
-
-            <SidebarMenu.Nav>
-              <SidebarMenu.Nav.Link href="Goals">
-                <SidebarMenu.Nav.Icon className="hover:text-white">
-                  {<TbTargetArrow />}
-                </SidebarMenu.Nav.Icon>
-              </SidebarMenu.Nav.Link>
-            </SidebarMenu.Nav>
-
-            <SidebarMenu.Nav>
-              <SidebarMenu.Nav.Link href="Profile">
-                <SidebarMenu.Nav.Icon className="hover:text-white">
-                  {<FaRegUser />}
-                </SidebarMenu.Nav.Icon>
-              </SidebarMenu.Nav.Link>
-            </SidebarMenu.Nav>
-
-            <SidebarMenu.Nav>
-              <SidebarMenu.Nav.Link href="Analytics">
-                <SidebarMenu.Nav.Icon className="hover:text-white">
-                  {<GoGraph />}
-                </SidebarMenu.Nav.Icon>
-              </SidebarMenu.Nav.Link>
-            </SidebarMenu.Nav>
-
-            <SidebarMenu.Nav>
-              <SidebarMenu.Nav.Link href="Support">
-                <SidebarMenu.Nav.Icon className="hover:text-white">
-                  {<MdSupportAgent />}
-                </SidebarMenu.Nav.Icon>
-              </SidebarMenu.Nav.Link>
-            </SidebarMenu.Nav>
+            {iconsSidebar.map((i) => (
+              <SidebarMenu.Nav>
+                <p className="mb-0">
+                  <MDBTooltip tag="a" placement="right" title={i.title}>
+                    <SidebarMenu.Nav.Link href={i.address}>
+                      <SidebarMenu.Nav.Icon className="hover:text-white">
+                        {i.sect}
+                      </SidebarMenu.Nav.Icon>
+                    </SidebarMenu.Nav.Link>
+                  </MDBTooltip>
+                </p>
+              </SidebarMenu.Nav>
+            ))}
           </SidebarMenu.Body>
         </div>
       </SidebarMenu>

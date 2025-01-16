@@ -7,47 +7,70 @@ import { LuWalletMinimal } from "react-icons/lu";
 import { IoSettingsOutline } from "react-icons/io5";
 import { IoLogOutOutline } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
-import "../App.css";
 
 const NavBar = () => {
   return (
-    <nav className="flex fixed justify-between flex-wrap w-full items-center top-0 px-4 py-3 z-10 bg-bkGd">
+    <nav className="flex fixed justify-between flex-wrap w-full items-center top-0 px-4 py-3  bg-bkGd">
       <div className="nav-left flex">
         <form className="flex ml-4 border-x border-y rounded-l-md">
           <input
             type="text"
             placeholder="Search Here"
-            className="p-2 px-5 text-base rounded-l-md focus:outline-none"
+            className=" pl-5 pr-44 text-base rounded-l-md focus:outline-none"
           />
         </form>
-        <button className="bg-sidebarColor  text-white text-2xl p-2 rounded-r-md border-x border-y">
+        <button className="bg-sidebarColor  text-white text-xl p-2.5 rounded-r-md border-x border-y">
           <FaSearch />
         </button>
       </div>
 
       <div
-        className="nav-right flex  text-2xl text-small"
+        className="nav-right flex  text-center text-2xl text-small"
         style={{ marginRight: "6rem" }}
       >
         <button className="sun m-2">
           <IoSunny />
         </button>
 
-        <Dropdown className="notification-button p-0 " style={{ padding: "0" }}>
-          <Dropdown.Toggle id="dropdown-basic ">
+        <Dropdown className="notification-button  ">
+          <Dropdown.Toggle
+            id="bell"
+            className=" text-lg text-small border-0 bg-transparent p-0 shadow-none"
+          >
             <IoMdNotificationsOutline />
           </Dropdown.Toggle>
 
-          <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+          <Dropdown.Menu className="px-2 py-3">
+            <div className="flex  flex-nowrap">
+              <h4 className="mb-3 mx-3 text-big font-bold text-lg ">
+                Recent Notification
+              </h4>
+            </div>
+            <Dropdown.Item className="flex  py-0 mr-3">
+              <div className="pic flex mr-2 items-center ">
+                <CgProfile />
+              </div>
+              <div className="">
+                <p className="notification  text-big font-bold">Name</p>
+                <p className="time">yyyy-mm-dd hh:mm</p>
+              </div>
+            </Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+            <Dropdown.Item className="flex py-0">
+              <div className="pic flex mr-2 items-center ">
+                <CgProfile />
+              </div>
+              <div className="">
+                <p className="notification  text-big font-bold">Name</p>
+                <p className="time">yyyy-mm-dd hh:mm</p>
+              </div>
+            </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
-        <Dropdown className=" profile-buttn rounded-full bg-sidebarColor text-white ">
+        <Dropdown className="  text-small ">
           <Dropdown.Toggle
             id="dropdown-basic"
-            className="rounded-full bg-sidebarColor text-white"
+            className=" rounded-full bg-sidebarColor text-small border-0 shadow-none hover:bg-sidebarColor hover:text-small focus:bg-sidebarColor focus:text-small active:bg-sidebarColor active:text-small"
           >
             <CiUser />
           </Dropdown.Toggle>
@@ -57,10 +80,10 @@ const NavBar = () => {
               href="#/action-1"
               className="flex pb-0  pointer-events-none"
             >
-              <div className="pic flex items-center mr-3">
+              <div className="pic flex mr-2 items-center ">
                 <CgProfile />
               </div>
-              <div className="mr-3">
+              <div className="">
                 <p className="name">Name</p>
                 <p className="mail">hallo@email.com</p>
               </div>
@@ -68,7 +91,7 @@ const NavBar = () => {
             <Dropdown.Divider />
             <Dropdown.Item
               href="#/action-1"
-              className="flex items-center py-0 hover:bg-sidebarColor hover:text-white"
+              className="flex items-center py-0 hover:bg-sidebarColor hover:text-small"
             >
               <div className="mr-2">
                 <CiUser />

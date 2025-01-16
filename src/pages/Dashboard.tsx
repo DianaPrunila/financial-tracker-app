@@ -10,7 +10,7 @@ const Dashboard = () => {
           <p className=" small">Home --- Dashboard</p>
         </div>
       </div>
-      {/* 
+
       <div className="first-row-frames">
         <div className="outer-frame-first-row">
           <div className="total-balance-frame">
@@ -142,7 +142,7 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };

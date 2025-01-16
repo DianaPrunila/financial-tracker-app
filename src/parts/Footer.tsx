@@ -7,8 +7,8 @@ import { FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="flex fixed justify-between items-center bottom-0 w-full text-textGraySmall text-small bg-bkGd p-4">
-      <div className="copy-right text-center">
+    <footer className="flex fixed justify-between flex-wrap items-center bottom-0 w-full text-textGraySmall text-small bg-bkGd p-4">
+      <div className="copy-right text-center ml-4">
         © Copyright 2025{" "}
         <a className="text-reset fw-bold" href="/">
           Diana{" "}
