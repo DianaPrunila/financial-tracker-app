@@ -6,71 +6,67 @@ import { CiUser } from "react-icons/ci";
 import { LuWalletMinimal } from "react-icons/lu";
 import { IoSettingsOutline } from "react-icons/io5";
 import { IoLogOutOutline } from "react-icons/io5";
-import { CgProfile } from "react-icons/cg";
 
 const NavBar = () => {
   return (
-    <nav className="flex fixed justify-between flex-wrap w-full items-center top-0 px-4 py-3  bg-bkGd">
-      <div className="nav-left flex">
-        <form className="flex ml-4 border-x border-y rounded-l-md">
+    <nav className="fixed top-0 flex w-full flex-wrap items-center justify-between bg-bkGd px-4 py-3">
+      <div id="nav-left" className="flex">
+        <form className="ml-4 flex rounded-l-md border-x border-y">
           <input
             type="text"
             placeholder="Search Here"
-            className=" pl-5 pr-44 text-base rounded-l-md focus:outline-none"
+            className="rounded-l-md pl-5 pr-44 text-base focus:outline-none"
           />
         </form>
-        <button className="bg-sidebarColor  text-white text-xl p-2.5 rounded-r-md border-x border-y">
+        <button className="rounded-r-md border-x border-y bg-sidebarColor p-2.5 text-xl text-white">
           <FaSearch />
         </button>
       </div>
 
       <div
-        className="nav-right flex  text-center text-2xl text-small"
-        style={{ marginRight: "6rem" }}
+        id="nav-right "
+        className="flex text-center text-2xl text-small"
+        style={{ marginRight: "5.5rem" }}
       >
-        <button className="sun m-2">
+        <button className="sun mx-2">
           <IoSunny />
         </button>
 
-        <Dropdown className="notification-button  ">
+        <Dropdown className="notification-button">
           <Dropdown.Toggle
             id="bell"
-            className=" text-lg text-small border-0 bg-transparent p-0 shadow-none"
+            className="m-2 mb-0 border-0 bg-transparent p-0 text-2xl text-small shadow-none hover:text-small"
           >
             <IoMdNotificationsOutline />
           </Dropdown.Toggle>
 
-          <Dropdown.Menu className="px-2 py-3">
-            <div className="flex  flex-nowrap">
-              <h4 className="mb-3 mx-3 text-big font-bold text-lg ">
+          <Dropdown.Menu className="shadow-md">
+            <div className="mt-3 flex">
+              <h4 className="mx-3 mb-3 text-lg font-bold text-big">
                 Recent Notification
               </h4>
             </div>
-            <Dropdown.Item className="flex  py-0 mr-3">
-              <div className="pic flex mr-2 items-center ">
-                <CgProfile />
-              </div>
+            <Dropdown.Item className="mr-3 flex py-0">
+              <div className="pic mr-2 flex items-center">XXXX</div>
               <div className="">
-                <p className="notification  text-big font-bold">Name</p>
+                <p className="notification font-bold text-big">Name</p>
                 <p className="time">yyyy-mm-dd hh:mm</p>
               </div>
             </Dropdown.Item>
             <Dropdown.Divider />
             <Dropdown.Item className="flex py-0">
-              <div className="pic flex mr-2 items-center ">
-                <CgProfile />
-              </div>
+              <div className="pic mr-2 flex items-center">XXXX</div>
               <div className="">
-                <p className="notification  text-big font-bold">Name</p>
+                <p className="notification font-bold text-big">Name</p>
                 <p className="time">yyyy-mm-dd hh:mm</p>
               </div>
             </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
-        <Dropdown className="  text-small ">
+        <Dropdown className="">
           <Dropdown.Toggle
-            id="dropdown-basic"
-            className=" rounded-full bg-sidebarColor text-small border-0 shadow-none hover:bg-sidebarColor hover:text-small focus:bg-sidebarColor focus:text-small active:bg-sidebarColor active:text-small"
+            id="navBar-profile-icon "
+            className="mx-2 rounded-full border-0 bg-sidebarColor p-2 text-2xl text-white shadow-none hover:bg-sidebarColor hover:text-white"
           >
             <CiUser />
           </Dropdown.Toggle>
@@ -78,11 +74,9 @@ const NavBar = () => {
           <Dropdown.Menu>
             <Dropdown.Item
               href="#/action-1"
-              className="flex pb-0  pointer-events-none"
+              className="pointer-events-none flex pb-0"
             >
-              <div className="pic flex mr-2 items-center ">
-                <CgProfile />
-              </div>
+              <div className="pic mr-2 flex items-center">YYY</div>
               <div className="">
                 <p className="name">Name</p>
                 <p className="mail">hallo@email.com</p>
@@ -91,7 +85,7 @@ const NavBar = () => {
             <Dropdown.Divider />
             <Dropdown.Item
               href="#/action-1"
-              className="flex items-center py-0 hover:bg-sidebarColor hover:text-small"
+              className="flex items-center py-0 hover:bg-sidebarColor hover:text-white"
             >
               <div className="mr-2">
                 <CiUser />
@@ -121,9 +115,9 @@ const NavBar = () => {
             <Dropdown.Divider />
             <Dropdown.Item
               href="#/action-1"
-              className="flex items-center py-0 text-fallingPercentageColor hover:bg-sidebarColor hover:text-white rounded-b-md"
+              className="flex items-center rounded-b-md py-0 text-fallingPercentageColor hover:bg-sidebarColor hover:text-white"
             >
-              <div className="mr-2  rounded-full ">
+              <div className="mr-2 rounded-full">
                 <IoLogOutOutline />
               </div>
               Logout
