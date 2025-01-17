@@ -2,7 +2,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
-import "./index.css";
+// import "./index.css";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -22,7 +22,7 @@ const routes = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index element={<Dashboard />} />
-      <Route path="/Analiytics" element={<Analytics />} />
+      <Route path="/Analytics" element={<Analytics />} />
       <Route path="/Budgets" element={<Budgets />} />
       <Route path="/Goals" element={<Goals />} />
       <Route path="/Support" element={<Support />} />
@@ -33,7 +33,7 @@ const routes = createBrowserRouter(
       <Route
         path="*"
         element={
-          <div className="text-red-700 font-extrabold d-flex justify-center">
+          <div className="d-flex justify-center font-extrabold text-red-700">
             404
           </div>
         }
