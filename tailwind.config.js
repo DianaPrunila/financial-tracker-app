@@ -16,11 +16,11 @@ export default {
         bkGd: "#F6F9FC",
       },
       fontSize: {
-        pageTitle: "text-2xl", //h3, 24px
-        framesTitle: "text-lg", //h4, 18px
-        categTitle: "text-base", //h5, 16px
-        weelsDashboardTitle: "text-sm", //h6, 14px
-        textGraySmall: "text-sm", //14px
+        pageTitle: "1.5rem", //h3, 24px
+        framesTitle: "1.125rem", //h4, 18px
+        categTitle: "1rem", //h5, 16px
+        weelsDashboardTitle: "0.875rem", //h6, 14px
+        textGraySmall: "0.875rem", //14px
       },
     },
   },
