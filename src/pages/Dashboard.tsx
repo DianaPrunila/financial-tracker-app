@@ -1,131 +1,179 @@
+import Dropdown from "react-bootstrap/Dropdown";
+import { GoDotFill } from "react-icons/go";
 const Dashboard = () => {
+  const firtsRow = [
+    {
+      title: "Total Balance",
+      sum: "$",
+      perc: "not sure how",
+    },
+    {
+      title: "Total Period Change",
+      sum: "$",
+      perc: "not sure how",
+    },
+    {
+      title: "Total Period Expenses",
+      sum: "$",
+      perc: "not sure how",
+    },
+    {
+      title: "Total period Income",
+      sum: "$",
+      perc: "not sure how",
+    },
+  ];
+  const secondRow = [
+    { id: 1, title: "Food", color: "#DD2626", sum: "sum", perc: "perc" },
+    { id: 2, title: "Transport", color: "#F97316", sum: "sum", perc: "perc" },
+    { id: 3, title: "Healthcare", color: "#ffcc00", sum: "sum", perc: "perc" },
+    { id: 4, title: "Education", color: "#F7ED4C", sum: "sum", perc: "perc" },
+    { id: 5, title: "Clothes", color: "#84CC16", sum: "sum", perc: "perc" },
+    { id: 6, title: "Pets", color: "#22C55E", sum: "sum", perc: "perc" },
+    {
+      id: 7,
+      title: "Entertainment",
+      color: "#06B6D4 ",
+      sum: "sum",
+      perc: "perc",
+    },
+    { id: 8, title: "Other", color: "#78716C", sum: "sum", perc: "perc" },
+  ];
   return (
-    <div id="dashboard-page" className="">
-      <div id="page-up-info" className="">
-        <div id="dashboard-up-left" className="">
-          <h3 id="title-page" className="\ big">
+    <div
+      id="dashboard-page"
+      // Home---Dashboard se duce in sus cand e pe exran mic
+      className="juss flex w-[calc(100vw-11rem)] flex-col flex-wrap"
+    >
+      <div id="page-up-info" className="flex flex-wrap-reverse justify-between">
+        <div id="dashboard-up-left" className="mb-2">
+          <h3 id="title-page" className="text-pageTitle font-medium text-big">
             Dashboard
           </h3>
-          <p id="owner-page" className="small">
+          <p
+            id="owner-page"
+            className="text-textGraySmall leading-7 text-small"
+          >
             Welcome to Prunila finance Management
           </p>
         </div>
         <div id="dashboard-up-right" className="">
-          <p className="small">Home --- Dashboard</p>
+          <p className="text-small">Home --- Dashboard</p>
         </div>
       </div>
 
-      <div id="first-row-frames" className="">
-        <div id="outer-frame-first-row-1" className="">
-          <div id="total-balance-frame" className="">
-            <p id="total-balance " className="big">
-              Total Balance
-            </p>
-            <p id="sum-total-balance " className="sum-total-balance big">
-              $
-            </p>
-            <div id="percentage-1" className="">
-              <p id="percentage-text-1" className="">
-                %
+      <div
+        id="first-row-frames"
+        className="mt-4 flex flex-wrap justify-between"
+      >
+        {firtsRow.map((f) => (
+          <div
+            id="outer-frame-first-row"
+            className="mb-4 rounded-md bg-white p-4 shadow-md"
+          >
+            <div id="total-balance-frame" className="">
+              <p id="total-balance " className="font-medium text-big">
+                {f.title}
               </p>
+              <div id="first-row-sum" className="my-2.5">
+                <p
+                  id="sum-total-balance "
+                  className="my-2.5 text-3xl font-medium text-big"
+                >
+                  $
+                </p>
+              </div>
+              <Dropdown.Divider />
+              <div id="percentage-1" className="pt-2.5">
+                <p id="percentage-text-1" className="text-small">
+                  2.47% Last month $24,478
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-
-        <div id="outer-frame-first-row-2" className="">
-          <div id="total-period-change-frame" className="">
-            <p id="total-period-change" className="big">
-              Total Period Change
-            </p>
-            <p id="sum-total-period-change" className="big">
-              $
-            </p>
-            <div id="percentage-2" className="">
-              <p id="percentage-text-2" className="">
-                %
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div id="outer-frame-first-row-3" className="">
-          <div id="total-period-expenses-frame" className="">
-            <p id="total-period-expenses" className="big">
-              Total Period Expenses
-            </p>
-            <p id="sum-total-period-expenses big" className="">
-              $
-            </p>
-            <div id="percentage-3" className="">
-              <p id="percentage-text-3" className="">
-                %
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div id="outer-frame-first-row-4" className="">
-          <div id="total-period-income-frame" className="">
-            <p id="total-period-income" className="big">
-              Total Period Income
-            </p>
-            <p id="sum-total-period-income" className="big">
-              $
-            </p>
-            <div id="percentage-4" className="">
-              <p id="percentage-text-4" className="">
-                %
-              </p>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
 
-      <div id="outer-frame-balance-trends" className="">
-        <div id="balance-trends-frame" className="">
-          <h4 id="title-balance-trends" className="big">
-            Balance Treends
-          </h4>
-          <div id="balance-trands-frame-up" className="">
-            <p id="last-month" className="small">
-              Last Month
-            </p>
-            <p id="balance-trends-percentage" className="">
-              %
-            </p>
+      <div id="second-row" className="flex justify-between">
+        <div
+          id="outer-frame-balance-trends"
+          className="mb-4 w-fit rounded-md bg-white p-4 shadow-md"
+        >
+          <div
+            id="balance-trends-frame-up"
+            className="mb-4 flex flex-wrap justify-between"
+          >
+            <div id="balance-trends-frame-left">
+              <h6
+                id="title-balance-trends"
+                className="text-framesTitle font-medium text-big"
+              >
+                Balance Treends
+              </h6>
+              <p className="text-[2rem] font-medium text-big">$</p>
+            </div>
+
+            <div id="balance-trands-frame-right" className="">
+              <p id="last-month" className="text-small">
+                Last Month
+              </p>
+              <p id="balance-trends-percentage" className="">
+                xx.yy%
+              </p>
+            </div>
           </div>
           <div id="balance-trends-graph" className="">
-            {" "}
-            graph
+            <img src="/images/GRAPH.png" alt="Graph" />
           </div>
         </div>
-      </div>
 
-      <div id="outer-frame-monthly-breakdown" className="">
-        <div id="monthly-brakdown-frame" className="">
-          <h4 id="monthly-brakdown-title" className="big">
-            Monthly Expense Breakdown
-          </h4>
-          <div id="bar-expenses" className="">
-            bar expenses
-          </div>
-          <div id="monthly-expenses-catergories" className="">
-            <div id="dots" className="">
-              dot{" "}
+        <div
+          id="outer-frame-monthly-breakdown"
+          className="h-fit rounded-md bg-white p-4 shadow-md"
+        >
+          <div id="monthly-brakdown-frame" className="">
+            <h4
+              id="monthly-brakdown-title"
+              className="text-framesTitle font-medium text-big"
+            >
+              Monthly Expense Breakdown
+            </h4>
+            <div id="bar-expenses" className="">
+              bar expenses
             </div>
-            <div id="category-name-div" className="small">
-              <p id="category-name-title" className="">
-                {" "}
-                FOOD
-              </p>
-            </div>
-            <div id="right-breakdown" className="">
-              <p id="category-sum" className="">
-                $
-              </p>
-              <p id="category-percentage" className="">
-                %
-              </p>
+            <div id="monthly-expenses-catergories" className="">
+              {secondRow.map((s) => (
+                <div
+                  key={s.id}
+                  id="monthly-expenses-down"
+                  className="flex justify-between pt-2.5"
+                >
+                  <div id="monthly-expenses-left" className="flex">
+                    <div
+                      id="dots"
+                      className="text-3xl"
+                      style={{ color: s.color }}
+                    >
+                      <GoDotFill />
+                    </div>
+                    <div id="category-name-div" className="text-small">
+                      <p id="category-name-title" className="font-medium">
+                        {s.title}
+                      </p>
+                    </div>{" "}
+                  </div>{" "}
+                  <div id="monthly-expenses-right" className="flex">
+                    <div id="right-breakdown" className="">
+                      <p id="category-sum" className="pr-2.5">
+                        {s.sum} $
+                      </p>
+                    </div>
+                    <div id="category-percentage">
+                      <p className="font-medium"> {s.perc}%</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

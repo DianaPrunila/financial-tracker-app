@@ -6,9 +6,9 @@ import NavBar from "./parts/NavBar";
 
 function App() {
   return (
-    <div className="App flex ">
+    <div className="App flex">
       <SideBar />
-      <div className="ml-20 my-24">
+      <div className="my-24 ml-20">
         <NavBar />
         <div className="ml-10">
           <Outlet />
