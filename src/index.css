@@ -4,8 +4,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 * {
   font-family: Rubik;
+}
+
+body {
+  background-color: #f6f9fc;
 }
 
 .dropdown-toggle::after {
