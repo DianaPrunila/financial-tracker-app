@@ -50,7 +50,7 @@ const FirstRow = () => {
           <div id="bar-expenses" className="">
             bar expenses
           </div>
-          <div id="monthly-expenses-catergories" className="">
+          <div id="monthly-expenses-catergories">
             {secondRow.map((s) => (
               <div
                 key={s.id}

@@ -96,7 +96,6 @@ const Dashboard = () => {
               </Row>
               <Dropdown.Divider />
               <Row id="percentage-1" className="flex pt-2.5">
-                <Col></Col>
                 <span className="mr-1 text-xl text-riseingPercentageColor">
                   <AiOutlineRise />
                 </span>
@@ -110,72 +109,101 @@ const Dashboard = () => {
       </Container>
 
       <Container id="second-row">
-        <Row
-          id="outer-frame-balance-trends"
-          className="mb-4 w-fit rounded-md bg-white p-4 shadow-md"
-        >
-          {/* Left Section */}
-          <Col id="balance-trends-frame-up" xs={6}>
-            <Row id="balance-trends-frame-left">
-              <h6
-                id="title-balance-trends"
-                className="text-framesTitle font-medium text-big"
-              >
-                Balance Trends
-              </h6>
-              <p className="text-[2rem] font-medium text-big">$</p>
-            </Row>
-          </Col>
-
-          {/* Right Section */}
-          <Col id="balance-trends-frame-right" xs={6}>
-            <Row>
-              <p id="last-month" className="text-small">
-                Last Month
-              </p>
-              <p id="balance-trends-percentage">xx.yy%</p>
-            </Row>
-          </Col>
-
-          {/* Image Below */}
-          <Col xs={12} className="text-center">
-            <img
-              src="/images/GRAPH.png"
-              alt="Graph"
-              id="balance-trends-graph"
-              className="w-fit"
-            />
-          </Col>
-        </Row>
-        <Row
-          id="outer-frame-monthly-breakdown"
-          className="h-fit rounded-md bg-white p-4 shadow-md"
-        >
-          <Col id="monthly-brakdown-frame">
-            <h4
-              id="monthly-brakdown-title"
-              className="text-framesTitle font-medium text-big"
+        <Row className="gap-x-6">
+          <Col id="balance-trends-col" className="gap-9">
+            <Row
+              id="outer-frame-balance-trends"
+              className="mb-4 w-fit rounded-md bg-white p-4 shadow-md"
             >
-              Monthly Expense Breakdown
-            </h4>
-          </Col>
-          <Row id="bar-expenses">bar expenses</Row>
-          <Row id="monthly-expenses-catergories">
-            {secondRow.map((s) => (
-              <Col key={s.id} id="monthly-expenses-down" className="pt-2.5">
-                <Col id="monthly-expenses-left">
-                  {" "}
-                  <Col
-                    id="dots"
-                    className="text-3xl"
-                    style={{ color: s.color }}
+              <Col id="balance-trends-frame-up" xs={6}>
+                <Row id="balance-trends-frame-left">
+                  <h6
+                    id="title-balance-trends"
+                    className="text-framesTitle font-medium text-big"
                   >
-                    <GoDotFill />
-                  </Col>
-                </Col>
+                    Balance Trends
+                  </h6>
+                  <p className="text-[2rem] font-medium text-big">$</p>
+                </Row>
               </Col>
-            ))}
-          </Row>
+
+              <Col id="balance-trends-frame-right" xs={6}>
+                <Row>
+                  <p id="last-month" className="text-small">
+                    Last Month
+                  </p>
+                  <p id="balance-trends-percentage">xx.yy%</p>
+                </Row>
+              </Col>
+
+              <Col xs={12} className="text-center">
+                <img
+                  src="/images/GRAPH.png"
+                  alt="Graph"
+                  id="balance-trends-graph"
+                  className="w-fit"
+                />
+              </Col>
+            </Row>
+          </Col>
+          <Col id="monthly-expenses-col" md={4}>
+            <Row
+              id="outer-frame-monthly-breakdown"
+              className="h-fit rounded-md bg-white p-4 shadow-md"
+            >
+              <Col id="monthly-brakdown-frame">
+                <h4
+                  id="monthly-brakdown-title"
+                  className="text-framesTitle font-medium text-big"
+                >
+                  Monthly Expenses Breakdown
+                </h4>
+              </Col>
+              <Row id="bar-expenses">bar expenses</Row>
+
+              <Row id="monthly-expenses-categories" className="">
+                {secondRow.map((s) => (
+                  <Col key={s.id} id="monthly-expenses-down" className="pt-2.5">
+                    <Row className="d-flex flex-nowrap">
+                      <Col
+                        id="monthly-expenses-left"
+                        xs={6}
+                        className="d-flex flex-nowrap"
+                      >
+                        <Row className="d-flex flex-nowrap">
+                          <Col
+                            id="dots"
+                            className="text-3xl"
+                            style={{ color: s.color }}
+                          >
+                            <GoDotFill />
+                          </Col>
+                          <Col id="category-name-div" className="text-small">
+                            <p id="category-name-title" className="font-medium">
+                              {s.title}
+                            </p>
+                          </Col>
+                        </Row>
+                      </Col>
+
+                      <Col id="B" className="grid justify-items-end">
+                        <Row className="flex flex-nowrap justify-end">
+                          <Col id="right-breakdown " className="">
+                            <p id="category-sum" className="pr-2.5">
+                              {s.sum} $
+                            </p>
+                          </Col>
+                          <Col id="category-percentage">
+                            <p className="font-medium"> {s.perc}%</p>
+                          </Col>
+                        </Row>
+                      </Col>
+                    </Row>
+                  </Col>
+                ))}
+              </Row>
+            </Row>
+          </Col>
         </Row>
       </Container>
 
