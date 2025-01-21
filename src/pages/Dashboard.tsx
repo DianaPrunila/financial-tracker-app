@@ -1,23 +1,32 @@
 import Dropdown from "react-bootstrap/Dropdown";
 import { GoDotFill } from "react-icons/go";
+import { AiOutlineRise } from "react-icons/ai";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 const Dashboard = () => {
-  const firtsRow = [
+  const firstRow = [
     {
+      id: 1,
       title: "Total Balance",
       sum: "$",
       perc: "not sure how",
     },
     {
+      id: 2,
       title: "Total Period Change",
       sum: "$",
       perc: "not sure how",
     },
     {
+      id: 3,
       title: "Total Period Expenses",
       sum: "$",
       perc: "not sure how",
     },
     {
+      id: 4,
       title: "Total period Income",
       sum: "$",
       perc: "not sure how",
@@ -62,122 +71,113 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div
-        id="first-row-frames"
-        className="mt-4 flex flex-wrap justify-between"
-      >
-        {firtsRow.map((f) => (
-          <div
-            id="outer-frame-first-row"
-            className="mb-4 rounded-md bg-white p-4 shadow-md"
-          >
-            <div id="total-balance-frame" className="">
-              <p id="total-balance " className="font-medium text-big">
-                {f.title}
-              </p>
-              <div id="first-row-sum" className="my-2.5">
+      <Container id="outer-frame-first-row" className="mb-4">
+        <Row className="gap-4">
+          {firstRow.map((f) => (
+            <Col
+              className="rounded-md bg-white p-3 shadow-md"
+              key={f.id}
+              xs={"auto"}
+              sm={"auto"}
+              md={"auto"}
+            >
+              <Row>
+                <p id="total-balance" className="font-medium text-big">
+                  {f.title}
+                </p>
+              </Row>
+              <Row id="first-row-sum" className="my-2.5">
                 <p
-                  id="sum-total-balance "
+                  id="sum-total-balance"
                   className="my-2.5 text-3xl font-medium text-big"
                 >
                   $
                 </p>
-              </div>
+              </Row>
               <Dropdown.Divider />
-              <div id="percentage-1" className="pt-2.5">
+              <Row id="percentage-1" className="flex pt-2.5">
+                <Col></Col>
+                <span className="mr-1 text-xl text-riseingPercentageColor">
+                  <AiOutlineRise />
+                </span>
                 <p id="percentage-text-1" className="text-small">
                   2.47% Last month $24,478
                 </p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+              </Row>
+            </Col>
+          ))}
+        </Row>
+      </Container>
 
-      <div id="second-row" className="flex justify-between">
-        <div
+      <Container id="second-row">
+        <Row
           id="outer-frame-balance-trends"
           className="mb-4 w-fit rounded-md bg-white p-4 shadow-md"
         >
-          <div
-            id="balance-trends-frame-up"
-            className="mb-4 flex flex-wrap justify-between"
-          >
-            <div id="balance-trends-frame-left">
+          {/* Left Section */}
+          <Col id="balance-trends-frame-up" xs={6}>
+            <Row id="balance-trends-frame-left">
               <h6
                 id="title-balance-trends"
                 className="text-framesTitle font-medium text-big"
               >
-                Balance Treends
+                Balance Trends
               </h6>
               <p className="text-[2rem] font-medium text-big">$</p>
-            </div>
+            </Row>
+          </Col>
 
-            <div id="balance-trands-frame-right" className="">
+          {/* Right Section */}
+          <Col id="balance-trends-frame-right" xs={6}>
+            <Row>
               <p id="last-month" className="text-small">
                 Last Month
               </p>
-              <p id="balance-trends-percentage" className="">
-                xx.yy%
-              </p>
-            </div>
-          </div>
-          <div id="balance-trends-graph" className="">
-            <img src="/images/GRAPH.png" alt="Graph" />
-          </div>
-        </div>
+              <p id="balance-trends-percentage">xx.yy%</p>
+            </Row>
+          </Col>
 
-        <div
+          {/* Image Below */}
+          <Col xs={12} className="text-center">
+            <img
+              src="/images/GRAPH.png"
+              alt="Graph"
+              id="balance-trends-graph"
+              className="w-fit"
+            />
+          </Col>
+        </Row>
+        <Row
           id="outer-frame-monthly-breakdown"
           className="h-fit rounded-md bg-white p-4 shadow-md"
         >
-          <div id="monthly-brakdown-frame" className="">
+          <Col id="monthly-brakdown-frame">
             <h4
               id="monthly-brakdown-title"
               className="text-framesTitle font-medium text-big"
             >
               Monthly Expense Breakdown
             </h4>
-            <div id="bar-expenses" className="">
-              bar expenses
-            </div>
-            <div id="monthly-expenses-catergories" className="">
-              {secondRow.map((s) => (
-                <div
-                  key={s.id}
-                  id="monthly-expenses-down"
-                  className="flex justify-between pt-2.5"
-                >
-                  <div id="monthly-expenses-left" className="flex">
-                    <div
-                      id="dots"
-                      className="text-3xl"
-                      style={{ color: s.color }}
-                    >
-                      <GoDotFill />
-                    </div>
-                    <div id="category-name-div" className="text-small">
-                      <p id="category-name-title" className="font-medium">
-                        {s.title}
-                      </p>
-                    </div>{" "}
-                  </div>{" "}
-                  <div id="monthly-expenses-right" className="flex">
-                    <div id="right-breakdown" className="">
-                      <p id="category-sum" className="pr-2.5">
-                        {s.sum} $
-                      </p>
-                    </div>
-                    <div id="category-percentage">
-                      <p className="font-medium"> {s.perc}%</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+          </Col>
+          <Row id="bar-expenses">bar expenses</Row>
+          <Row id="monthly-expenses-catergories">
+            {secondRow.map((s) => (
+              <Col key={s.id} id="monthly-expenses-down" className="pt-2.5">
+                <Col id="monthly-expenses-left">
+                  {" "}
+                  <Col
+                    id="dots"
+                    className="text-3xl"
+                    style={{ color: s.color }}
+                  >
+                    <GoDotFill />
+                  </Col>
+                </Col>
+              </Col>
+            ))}
+          </Row>
+        </Row>
+      </Container>
 
       <div id="outer-frame-monthly-budgets" className="">
         <div id="monthly-budgets-frame" className="">
