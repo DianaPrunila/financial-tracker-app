@@ -52,7 +52,7 @@ const Dashboard = () => {
     <div
       id="dashboard-page"
       // Home---Dashboard se duce in sus cand e pe exran mic
-      className="juss flex w-[calc(100vw-11rem)] flex-col flex-wrap"
+      className="w-fit ml-4 mr-7"
     >
       <div id="page-up-info" className="flex flex-wrap-reverse justify-between">
         <div id="dashboard-up-left" className="mb-2">
@@ -71,16 +71,10 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <Container id="outer-frame-first-row" className="mb-4">
-        <Row className="gap-4">
+      <Container fluid id="outer-frame-first-row" className="firts mb-4  px-0 ">
+        <Row className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7 w-full">
           {firstRow.map((f) => (
-            <Col
-              className="rounded-md bg-white p-3 shadow-md"
-              key={f.id}
-              xs={"auto"}
-              sm={"auto"}
-              md={"auto"}
-            >
+            <Col className="rounded-md bg-white p-3 shadow-md" key={f.id}>
               <Row>
                 <p id="total-balance" className="font-medium text-big">
                   {f.title}
@@ -108,14 +102,14 @@ const Dashboard = () => {
         </Row>
       </Container>
 
-      <Container id="second-row">
-        <Row className="gap-x-6">
-          <Col id="balance-trends-col" className="gap-9">
+      {/* <Container id="second-row" className="px-0 ">
+        <Row className="gap-x-6 grid grid-cols-1  lg:grid-cols-[60%_40%] w-full">
+          <Col id="balance-trends-col">
             <Row
               id="outer-frame-balance-trends"
-              className="mb-4 w-fit rounded-md bg-white p-4 shadow-md"
+              className="mb-4 rounded-md bg-white p-4 shadow-md"
             >
-              <Col id="balance-trends-frame-up" xs={6}>
+              <Col id="balance-trends-frame-up">
                 <Row id="balance-trends-frame-left">
                   <h6
                     id="title-balance-trends"
@@ -127,7 +121,7 @@ const Dashboard = () => {
                 </Row>
               </Col>
 
-              <Col id="balance-trends-frame-right" xs={6}>
+              <Col id="balance-trends-frame-right">
                 <Row>
                   <p id="last-month" className="text-small">
                     Last Month
@@ -146,10 +140,10 @@ const Dashboard = () => {
               </Col>
             </Row>
           </Col>
-          <Col id="monthly-expenses-col" md={4}>
+          <Col id="monthly-expenses-col" className="mr-6 ">
             <Row
               id="outer-frame-monthly-breakdown"
-              className="h-fit rounded-md bg-white p-4 shadow-md"
+              className="rounded-md bg-white p-4  shadow-md w-fit"
             >
               <Col id="monthly-brakdown-frame">
                 <h4
@@ -159,26 +153,35 @@ const Dashboard = () => {
                   Monthly Expenses Breakdown
                 </h4>
               </Col>
-              <Row id="bar-expenses">bar expenses</Row>
+              <Row id="bar-expenses" className="my-3">
+                bar expenses
+              </Row>
 
-              <Row id="monthly-expenses-categories" className="">
+              <div id="monthly-expenses-categories">
                 {secondRow.map((s) => (
-                  <Col key={s.id} id="monthly-expenses-down" className="pt-2.5">
-                    <Row className="d-flex flex-nowrap">
+                  <Col
+                    key={s.id}
+                    id="monthly-expenses-down"
+                    className="flex-none"
+                  >
+                    <Row className="">
                       <Col
                         id="monthly-expenses-left"
                         xs={6}
-                        className="d-flex flex-nowrap"
+                        className="flex flex-nowrap px-0 min-w-max"
                       >
-                        <Row className="d-flex flex-nowrap">
+                        <Row className="">
                           <Col
                             id="dots"
-                            className="text-3xl"
+                            className="text-2xl px-0 flex flex-nowrap"
                             style={{ color: s.color }}
                           >
                             <GoDotFill />
                           </Col>
-                          <Col id="category-name-div" className="text-small">
+                          <Col
+                            id="category-name-div"
+                            className="text-small p-0 flex flex-nowrap"
+                          >
                             <p id="category-name-title" className="font-medium">
                               {s.title}
                             </p>
@@ -186,26 +189,35 @@ const Dashboard = () => {
                         </Row>
                       </Col>
 
-                      <Col id="B" className="grid justify-items-end">
-                        <Row className="flex flex-nowrap justify-end">
-                          <Col id="right-breakdown " className="">
-                            <p id="category-sum" className="pr-2.5">
+                      <Col
+                        id="monthly-expenses-right"
+                        className="justify-items-end flex-none"
+                      >
+                        <Row className="flex justify-end">
+                          <Col
+                            id="right-breakdown"
+                            className="px-0 flex flex-nowrap min-w-max"
+                          >
+                            <p id="category-sum" className="mx-3">
                               {s.sum} $
                             </p>
                           </Col>
-                          <Col id="category-percentage">
-                            <p className="font-medium"> {s.perc}%</p>
+                          <Col
+                            id="category-percentage"
+                            className="px-0 flex flex-nowrap min-w-max"
+                          >
+                            <p className="font-medium">{s.perc}%</p>
                           </Col>
                         </Row>
                       </Col>
                     </Row>
                   </Col>
                 ))}
-              </Row>
+              </div>
             </Row>
           </Col>
         </Row>
-      </Container>
+      </Container> */}
 
       <div id="outer-frame-monthly-budgets" className="">
         <div id="monthly-budgets-frame" className="">
