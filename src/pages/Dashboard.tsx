@@ -1,5 +1,6 @@
 import Dropdown from "react-bootstrap/Dropdown";
 import { GoDotFill } from "react-icons/go";
+// import "../index.css";
 import { AiOutlineRise } from "react-icons/ai";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -52,11 +53,14 @@ const Dashboard = () => {
     <div
       id="dashboard-page"
       // Home---Dashboard se duce in sus cand e pe exran mic
-      className="w-fit ml-4 mr-7"
+      className="ml-4 mr-7 w-fit"
     >
       <div id="page-up-info" className="flex flex-wrap-reverse justify-between">
         <div id="dashboard-up-left" className="mb-2">
-          <h3 id="title-page" className="text-pageTitle font-medium text-big">
+          <h3
+            id="title-page"
+            className="text-r text-pageTitle font-medium text-big"
+          >
             Dashboard
           </h3>
           <p
@@ -71,8 +75,8 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <Container fluid id="outer-frame-first-row" className="firts mb-4  px-0 ">
-        <Row className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7 w-full">
+      <Container fluid id="outer-frame-first-row" className="firts mb-4 px-0">
+        <Row className="grid w-full grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-4">
           {firstRow.map((f) => (
             <Col className="rounded-md bg-white p-3 shadow-md" key={f.id}>
               <Row>
@@ -102,8 +106,8 @@ const Dashboard = () => {
         </Row>
       </Container>
 
-      {/* <Container id="second-row" className="px-0 ">
-        <Row className="gap-x-6 grid grid-cols-1  lg:grid-cols-[60%_40%] w-full">
+      <Container id="second-row" className="px-0">
+        <Row className="grid w-full grid-cols-1 gap-x-6 lg:grid-cols-[60%_40%]">
           <Col id="balance-trends-col">
             <Row
               id="outer-frame-balance-trends"
@@ -140,10 +144,10 @@ const Dashboard = () => {
               </Col>
             </Row>
           </Col>
-          <Col id="monthly-expenses-col" className="mr-6 ">
+          <Col id="monthly-expenses-col" className="mr-6">
             <Row
               id="outer-frame-monthly-breakdown"
-              className="rounded-md bg-white p-4  shadow-md w-fit"
+              className="w-fit rounded-md bg-white p-4 shadow-md"
             >
               <Col id="monthly-brakdown-frame">
                 <h4
@@ -168,21 +172,24 @@ const Dashboard = () => {
                       <Col
                         id="monthly-expenses-left"
                         xs={6}
-                        className="flex flex-nowrap px-0 min-w-max"
+                        className="flex min-w-max flex-nowrap px-0"
                       >
                         <Row className="">
                           <Col
                             id="dots"
-                            className="text-2xl px-0 flex flex-nowrap"
+                            className="flex flex-nowrap px-0 text-2xl"
                             style={{ color: s.color }}
                           >
                             <GoDotFill />
                           </Col>
                           <Col
                             id="category-name-div"
-                            className="text-small p-0 flex flex-nowrap"
+                            className="flex flex-nowrap p-0 text-small"
                           >
-                            <p id="category-name-title" className="font-medium">
+                            <p
+                              id="category-name-title"
+                              className="font-medium text-sideBar"
+                            >
                               {s.title}
                             </p>
                           </Col>
@@ -191,12 +198,12 @@ const Dashboard = () => {
 
                       <Col
                         id="monthly-expenses-right"
-                        className="justify-items-end flex-none"
+                        className="flex-none justify-items-end"
                       >
                         <Row className="flex justify-end">
                           <Col
                             id="right-breakdown"
-                            className="px-0 flex flex-nowrap min-w-max"
+                            className="flex min-w-max flex-nowrap px-0"
                           >
                             <p id="category-sum" className="mx-3">
                               {s.sum} $
@@ -204,7 +211,7 @@ const Dashboard = () => {
                           </Col>
                           <Col
                             id="category-percentage"
-                            className="px-0 flex flex-nowrap min-w-max"
+                            className="flex min-w-max flex-nowrap px-0"
                           >
                             <p className="font-medium">{s.perc}%</p>
                           </Col>
@@ -217,7 +224,7 @@ const Dashboard = () => {
             </Row>
           </Col>
         </Row>
-      </Container> */}
+      </Container>
 
       <div id="outer-frame-monthly-budgets" className="">
         <div id="monthly-budgets-frame" className="">

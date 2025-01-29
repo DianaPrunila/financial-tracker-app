@@ -55,7 +55,10 @@ const iconsSidebar = [
 ];
 const SideBar = () => {
   return (
-    <div className="fixed z-20 flex h-screen w-20 justify-center bg-sidebarColor">
+    <div
+      className="fixed z-20 flex h-screen w-20 justify-center bg-[var(--color-sideBar)]"
+      style={{ backgroundColor: "color-mint-500" }}
+    >
       <SidebarMenu className="flex flex-col">
         <SidebarMenu.Header className="mb-3 mt-7">
           <SidebarMenu.Nav.Link href="/">
