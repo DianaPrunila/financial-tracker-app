@@ -1,6 +1,6 @@
 import SidebarMenu from "react-bootstrap-sidebar-menu";
 import { MDBTooltip } from "mdb-react-ui-kit";
-import "../index.css";
+// import "../index.css";
 import { LuWalletMinimal } from "react-icons/lu";
 import { FaShieldCat } from "react-icons/fa6";
 import { LuRadar } from "react-icons/lu";
@@ -55,10 +55,7 @@ const iconsSidebar = [
 ];
 const SideBar = () => {
   return (
-    <div
-      className="fixed z-20 flex h-screen w-20 justify-center bg-[var(--color-sideBar)]"
-      style={{ backgroundColor: "color-mint-500" }}
-    >
+    <div className="fixed z-20 flex h-screen w-20 justify-center bg-sidebarColor">
       <SidebarMenu className="flex flex-col">
         <SidebarMenu.Header className="mb-3 mt-7">
           <SidebarMenu.Nav.Link href="/">
