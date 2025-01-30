@@ -53,17 +53,17 @@ const Dashboard = () => {
     <div
       id="dashboard-page"
       // Home---Dashboard se duce in sus cand e pe exran mic
-      className="ml-4 mr-7 w-fit"
+      className="ml-4 w-full"
     >
       <div id="page-up-info" className="flex flex-wrap-reverse justify-between">
-        <div id="dashboard-up-left" className="mb-2">
+        <div id="dashboard-up-left" className="-ml-3 mb-5">
           <h3
             id="title-page"
-            className="text-r text-pageTitle font-medium text-big"
+            className="mt-2 text-pageTitle font-medium text-big"
           >
             Dashboard
           </h3>
-          <p id="owner-page" className="leading-7 text-small">
+          <p id="owner-page" className="mt-1 leading-7 text-small">
             Welcome to Prunila finance Management
           </p>
         </div>
@@ -72,10 +72,10 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <Container fluid id="outer-frame-first-row" className="firts mb-4 px-0">
-        <Row className="grid w-full grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-4">
+      <Container fluid id="outer-frame-first-row" className="mb-4 px-0">
+        <Row className="grid grid-cols-1 gap-7 pr-3 sm:grid-cols-2 lg:grid-cols-4">
           {firstRow.map((f) => (
-            <Col className="rounded-md bg-white p-3 shadow-md" key={f.id}>
+            <Col className="rounded-md bg-white px-4 py-6 shadow-md" key={f.id}>
               <Row>
                 <p id="total-balance" className="font-medium text-big">
                   {f.title}
@@ -84,27 +84,27 @@ const Dashboard = () => {
               <Row id="first-row-sum" className="my-2.5">
                 <p
                   id="sum-total-balance"
-                  className="my-2.5 text-3xl font-medium text-big"
+                  className="text-3xl font-medium text-big"
                 >
                   $
                 </p>
               </Row>
               <Dropdown.Divider />
-              <Row id="percentage-1" className="flex pt-2.5">
-                <span className="mr-1 text-xl text-riseingPercentageColor">
+              <div id="percentage-1" className="flex items-center gap-1 pt-2.5">
+                <span className="text-xl text-riseingPercentageColor">
                   <AiOutlineRise />
                 </span>
                 <p id="percentage-text-1" className="text-small">
                   2.47% Last month $24,478
                 </p>
-              </Row>
+              </div>
             </Col>
           ))}
         </Row>
       </Container>
 
       <Container id="second-row" className="px-0">
-        <Row className="grid h-auto grid-cols-1 gap-x-7 lg:grid-cols-[65%_33%]">
+        <Row className="grid w-fit grid-cols-1 gap-x-7 lg:grid-cols-[65%_36%]">
           <div
             id="outer-frame-balance-trends"
             className="mb-4 rounded-md bg-white p-4 shadow-md"
@@ -123,11 +123,11 @@ const Dashboard = () => {
                   </h4>
                   <p className="my-3 text-3xl font-medium text-big">$</p>
                 </div>
-                <div id="balance-trends-frame-right">
+                <div id="balance-trends-frame-right" className="">
                   <p id="period " className="text-categTitle">
                     Last Month
                   </p>
-                  <p id="percentage" className="my-2">
+                  <p id="percentage" className="my-2 justify-self-end">
                     %
                   </p>
                 </div>
@@ -142,6 +142,7 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
+
           <div
             id="outer-frame-monthly-breakdown"
             className="h-fit rounded-md bg-white p-4 shadow-md"
