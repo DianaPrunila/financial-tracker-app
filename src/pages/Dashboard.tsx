@@ -1,6 +1,6 @@
 import Dropdown from "react-bootstrap/Dropdown";
 import { GoDotFill } from "react-icons/go";
-// import "../index.css";
+import "../index.css";
 import { AiOutlineRise } from "react-icons/ai";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -143,116 +143,59 @@ const Dashboard = () => {
                 />
               </Col>
             </Row>
-          </Col>
-          <Col id="monthly-expenses-col" className="mr-6">
-            <Row
-              id="outer-frame-monthly-breakdown"
-              className="w-fit rounded-md bg-white p-4 shadow-md"
-            >
-              <Col id="monthly-brakdown-frame">
-                <h4
-                  id="monthly-brakdown-title"
-                  className="text-framesTitle font-medium text-big"
-                >
-                  Monthly Expenses Breakdown
-                </h4>
-              </Col>
-              <Row id="bar-expenses" className="my-3">
+          </Col>{" "}
+          <div
+            id="outer-frame-monthly-breakdown"
+            className="mr-5 h-fit rounded-md bg-white p-4 shadow-md"
+          >
+            <div id="monthly-brakdown-frame" className="">
+              <h4
+                id="monthly-brakdown-title"
+                className="text-framesTitle font-medium text-big"
+              >
+                Monthly Expense Breakdown
+              </h4>
+              <div id="bar-expenses" className="">
                 bar expenses
-              </Row>
-
-              <div id="monthly-expenses-categories">
+              </div>
+              <div id="monthly-expenses-catergories" className="">
                 {secondRow.map((s) => (
-                  <Col
+                  <div
                     key={s.id}
                     id="monthly-expenses-down"
-                    className="flex-none"
+                    className="flex justify-between pt-2.5"
                   >
-                    <Row className="">
-                      <Col
-                        id="monthly-expenses-left"
-                        xs={6}
-                        className="flex min-w-max flex-nowrap px-0"
+                    <div id="monthly-expenses-left" className="flex">
+                      <div
+                        id="dots"
+                        className="text-3xl"
+                        style={{ color: s.color }}
                       >
-                        <Row className="">
-                          <Col
-                            id="dots"
-                            className="flex flex-nowrap px-0 text-2xl"
-                            style={{ color: s.color }}
-                          >
-                            <GoDotFill />
-                          </Col>
-                          <Col
-                            id="category-name-div"
-                            className="flex flex-nowrap p-0 text-small"
-                          >
-                            <p
-                              id="category-name-title"
-                              className="font-medium text-sideBar"
-                            >
-                              {s.title}
-                            </p>
-                          </Col>
-                        </Row>
-                      </Col>
-
-                      <Col
-                        id="monthly-expenses-right"
-                        className="flex-none justify-items-end"
-                      >
-                        <Row className="flex justify-end">
-                          <Col
-                            id="right-breakdown"
-                            className="flex min-w-max flex-nowrap px-0"
-                          >
-                            <p id="category-sum" className="mx-3">
-                              {s.sum} $
-                            </p>
-                          </Col>
-                          <Col
-                            id="category-percentage"
-                            className="flex min-w-max flex-nowrap px-0"
-                          >
-                            <p className="font-medium">{s.perc}%</p>
-                          </Col>
-                        </Row>
-                      </Col>
-                    </Row>
-                  </Col>
+                        <GoDotFill />
+                      </div>
+                      <div id="category-name-div" className="text-small">
+                        <p id="category-name-title" className="font-medium">
+                          {s.title}
+                        </p>
+                      </div>{" "}
+                    </div>{" "}
+                    <div id="monthly-expenses-right" className="flex">
+                      <div id="right-breakdown" className="">
+                        <p id="category-sum" className="pr-2.5">
+                          {s.sum} $
+                        </p>
+                      </div>
+                      <div id="category-percentage">
+                        <p className="font-medium"> {s.perc}%</p>
+                      </div>
+                    </div>
+                  </div>
                 ))}
-              </div>
-            </Row>
-          </Col>
-        </Row>
-      </Container>
-
-      <div id="outer-frame-monthly-budgets" className="">
-        <div id="monthly-budgets-frame" className="">
-          <div id="monthly-budgets-title-frame" className="">
-            <h4 id="monthly-budget-title" className="big">
-              Monthly Budget
-            </h4>
-          </div>
-          <div id="budgets-categories" className="">
-            <div id="categ-1" className="">
-              <div id="logo" className="">
-                logo
-              </div>
-              <div id="categ-writing" className="">
-                <p id="" className="">
-                  Grocery Stores
-                </p>
-                <p id="slash" className="">
-                  75/100
-                </p>
-              </div>
-              <div id="bar" className="">
-                bar
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </Row>
+      </Container>
 
       <div id="outer-frame-income-vs-expenses" className="">
         <div id="income-vs-expenses-frame" className="">
