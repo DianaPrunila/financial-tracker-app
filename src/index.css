@@ -1,41 +1,9 @@
-@import "tailwindcss";
 @import "mdb-react-ui-kit/dist/css/mdb.min.css";
 @import "@fortawesome/fontawesome-free/css/all.min.css";
-
-
-@theme: {
-
-    /* COLORS */
-      --color-sideBar: oklch(44.41% 0.2464 271.04);
-      --color-mint-500: oklch(0.72 0.11 178);
-      --color-frames: #ffffff,
-      --color-big: #1f2c73,
-      --color-small: #7184ad,
-      --color-riseingPercentage: #12a347,
-      --color-fallingPercentage: #dc2626,
-      --color-bkGd: #F6F9FC,
-    
-    /* FONT-SIZES:  */
-
-    /* h3, 24px */
-      --text-pageTitle: 1.5rem, 
-    /* h4, 18px */
-      --text-framesTitle: 1.125rem, 
-    /* h5, 16px */
-      --text-categTitle: 1rem, 
-    /* h6, 14px */
-      --text-weelsDashboardTitle: 0.875rem,
-    /* 14px  */
-      --text-textGraySmall: 0.875rem,
-
-      --width: 
-      --5prc: 5%,
-    
-}
-/* @plugins:{ [require("daisyui")],
-}; */
-
-
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
   font-family: Rubik;
