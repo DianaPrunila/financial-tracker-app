@@ -53,7 +53,7 @@ const Dashboard = () => {
     <div
       id="dashboard-page"
       // Home---Dashboard se duce in sus cand e pe exran mic
-      className="ml-4 w-full"
+      className="ml-4"
     >
       <div id="page-up-info" className="flex flex-wrap-reverse justify-between">
         <div id="dashboard-up-left" className="-ml-3 mb-5">
@@ -105,7 +105,7 @@ const Dashboard = () => {
 
       <Container id="second-row" className="px-0">
         <Row className="grid w-fit grid-cols-1 gap-x-7 lg:grid-cols-[65%_36%]">
-          <div
+          <Col
             id="outer-frame-balance-trends"
             className="mb-4 rounded-md bg-white p-4 shadow-md"
           >
@@ -141,9 +141,9 @@ const Dashboard = () => {
                 />
               </div>
             </div>
-          </div>
+          </Col>
 
-          <div
+          <Col
             id="outer-frame-monthly-breakdown"
             className="h-fit rounded-md bg-white p-4 shadow-md"
           >
@@ -195,7 +195,7 @@ const Dashboard = () => {
                 ))}
               </div>
             </div>
-          </div>
+          </Col>
         </Row>
       </Container>
 
