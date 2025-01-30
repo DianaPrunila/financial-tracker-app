@@ -10,6 +10,8 @@
 
 body {
   background-color: #f6f9fc;
+  font-size: 0.875rem;
+  color: #7184ad;
 }
 
 .dropdown-toggle::after {

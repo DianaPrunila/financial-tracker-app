@@ -63,10 +63,7 @@ const Dashboard = () => {
           >
             Dashboard
           </h3>
-          <p
-            id="owner-page"
-            className="text-textGraySmall leading-7 text-small"
-          >
+          <p id="owner-page" className="leading-7 text-small">
             Welcome to Prunila finance Management
           </p>
         </div>
@@ -107,46 +104,47 @@ const Dashboard = () => {
       </Container>
 
       <Container id="second-row" className="px-0">
-        <Row className="grid w-full grid-cols-1 gap-x-6 lg:grid-cols-[60%_40%]">
-          <Col id="balance-trends-col">
-            <Row
-              id="outer-frame-balance-trends"
-              className="mb-4 rounded-md bg-white p-4 shadow-md"
-            >
-              <Col id="balance-trends-frame-up">
-                <Row id="balance-trends-frame-left">
-                  <h6
+        <Row className="grid h-auto grid-cols-1 gap-x-7 lg:grid-cols-[65%_33%]">
+          <div
+            id="outer-frame-balance-trends"
+            className="mb-4 rounded-md bg-white p-4 shadow-md"
+          >
+            <div id="balance-trends-frame" className="">
+              <div
+                id="balance-trands-frame-up"
+                className="flex justify-between"
+              >
+                <div id="balance-trends-frame-left">
+                  <h4
                     id="title-balance-trends"
                     className="text-framesTitle font-medium text-big"
                   >
-                    Balance Trends
-                  </h6>
-                  <p className="text-[2rem] font-medium text-big">$</p>
-                </Row>
-              </Col>
-
-              <Col id="balance-trends-frame-right">
-                <Row>
-                  <p id="last-month" className="text-small">
+                    Balance Treends
+                  </h4>
+                  <p className="my-3 text-3xl font-medium text-big">$</p>
+                </div>
+                <div id="balance-trends-frame-right">
+                  <p id="period " className="text-categTitle">
                     Last Month
                   </p>
-                  <p id="balance-trends-percentage">xx.yy%</p>
-                </Row>
-              </Col>
-
-              <Col xs={12} className="text-center">
+                  <p id="percentage" className="my-2">
+                    %
+                  </p>
+                </div>
+              </div>
+              <div id="graph" className="">
                 <img
                   src="/images/GRAPH.png"
                   alt="Graph"
                   id="balance-trends-graph"
                   className="w-fit"
                 />
-              </Col>
-            </Row>
-          </Col>{" "}
+              </div>
+            </div>
+          </div>
           <div
             id="outer-frame-monthly-breakdown"
-            className="mr-5 h-fit rounded-md bg-white p-4 shadow-md"
+            className="h-fit rounded-md bg-white p-4 shadow-md"
           >
             <div id="monthly-brakdown-frame" className="">
               <h4
@@ -155,17 +153,20 @@ const Dashboard = () => {
               >
                 Monthly Expense Breakdown
               </h4>
-              <div id="bar-expenses" className="">
+              <div id="bar-expenses" className="mb-2 mt-3">
                 bar expenses
               </div>
-              <div id="monthly-expenses-catergories" className="">
+              <div
+                id="monthly-expenses-catergories"
+                className="divide-y divide-solid"
+              >
                 {secondRow.map((s) => (
                   <div
                     key={s.id}
                     id="monthly-expenses-down"
                     className="flex justify-between pt-2.5"
                   >
-                    <div id="monthly-expenses-left" className="flex">
+                    <div id="monthly-expenses-left" className="-ml-2 flex">
                       <div
                         id="dots"
                         className="text-3xl"
