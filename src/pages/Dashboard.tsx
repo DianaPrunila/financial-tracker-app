@@ -1,6 +1,5 @@
 import Dropdown from "react-bootstrap/Dropdown";
 import { GoDotFill } from "react-icons/go";
-import "../index.css";
 import { AiOutlineRise } from "react-icons/ai";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -53,7 +52,7 @@ const Dashboard = () => {
     <div
       id="dashboard-page"
       // Home---Dashboard se duce in sus cand e pe exran mic
-      className="ml-4"
+      className=""
     >
       <div id="page-up-info" className="flex flex-wrap-reverse justify-between">
         <div id="dashboard-up-left" className="-ml-3 mb-5">
@@ -104,7 +103,7 @@ const Dashboard = () => {
       </Container>
 
       <Container id="second-row" className="px-0">
-        <Row className="grid w-fit grid-cols-1 gap-x-7 lg:grid-cols-[65%_36%]">
+        <Row className="grid grid-cols-1 gap-x-7 lg:grid-cols-[65%_36%]">
           <Col
             id="outer-frame-balance-trends"
             className="mb-4 rounded-md bg-white p-4 shadow-md"
