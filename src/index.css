@@ -15,8 +15,30 @@ body {
   width: 100%;
 }
 
+h3 {
+  color: #1f2c73;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+h4 {
+  color: #1f2c73;
+  font-weight: 500;
+  font-size: 1.125rem;
+}
+h5 {
+  color: #1f2c73;
+  font-weight: 500;
+  font-size: 1rem;
+}
+h6 {
+  color: #1f2c73;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
 p {
   color: #7184ad;
+
   font-size: 0.875rem;
 }
 

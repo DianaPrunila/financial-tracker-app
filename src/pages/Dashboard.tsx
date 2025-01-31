@@ -56,10 +56,7 @@ const Dashboard = () => {
     >
       <div id="page-up-info" className="flex justify-between">
         <div id="dashboard-up-left" className="-ml-3 mb-5">
-          <h3
-            id="title-page"
-            className="mt-2 text-pageTitle font-medium text-big"
-          >
+          <h3 id="title-page" className="mt-2 text-big">
             Dashboard
           </h3>
           <p id="owner-page" className="mt-1 leading-7">
@@ -71,20 +68,17 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <Container fluid id="outer-frame-first-row" className="mb-4 px-0">
-        <Row className="grid grid-cols-1 gap-7 pr-3 sm:grid-cols-2 lg:grid-cols-4">
+      <Container id="outer-frame-first-row" className="mb-4 px-0">
+        <Row className="grid grid-cols-1 gap-6 pr-3 sm:grid-cols-2 lg:grid-cols-4">
           {firstRow.map((f) => (
             <Col className="rounded-md bg-white px-4 py-6 shadow-md" key={f.id}>
               <Row>
-                <p id="total-balance" className="font-medium text-big">
+                <h6 id="total-balance" className="text-big">
                   {f.title}
-                </p>
+                </h6>
               </Row>
               <Row id="first-row-sum" className="my-2.5">
-                <p
-                  id="sum-total-balance"
-                  className="text-3xl font-medium text-big"
-                >
+                <p id="sum-total-balance" className="text-3xl text-big">
                   $
                 </p>
               </Row>
@@ -102,7 +96,7 @@ const Dashboard = () => {
         </Row>
       </Container>
 
-      <Container id="second-row" className="px-0">
+      <Container id="outer-frame-second-row" className="px-0">
         <Row className="grid w-full grid-cols-1 gap-x-8 lg:grid-cols-[65%_33.5%]">
           <Col id="balance-trends-col" className="pr-1">
             <Row
@@ -114,13 +108,10 @@ const Dashboard = () => {
                 className="flex justify-between"
               >
                 <div id="balance-trends-frame-left">
-                  <h6
-                    id="title-balance-trends"
-                    className="text-framesTitle font-medium text-big"
-                  >
+                  <h6 id="title-balance-trends" className="text- text-big">
                     Balance Trends
                   </h6>
-                  <p className="text-[2rem] font-medium text-big">$</p>
+                  <p className="text-[2rem] text-big">$</p>
                 </div>
 
                 <div id="balance-trends-frame-right">
@@ -146,16 +137,13 @@ const Dashboard = () => {
             className="h-fit rounded-md bg-white p-4 shadow-md"
           >
             <Row id="monthly-brakdown-frame" className="">
-              <h4
-                id="monthly-brakdown-title"
-                className="text-framesTitle font-medium text-big"
-              >
+              <h4 id="monthly-brakdown-title" className="text- text-big">
                 Monthly Expense Breakdown
               </h4>
-              <div id="bar-expenses" className="">
+              <div id="bar-expenses" className="my-3">
                 bar expenses
               </div>
-              <div id="monthly-expenses-catergories" className="">
+              <div id="monthly-expenses-catergories" className="divide-y">
                 {secondRow.map((s) => (
                   <div
                     key={s.id}
@@ -170,7 +158,7 @@ const Dashboard = () => {
                       >
                         <GoDotFill />
                       </div>
-                      <div id="category-name-div" className=" ">
+                      <div id="category-name-div" className="">
                         <p id="category-name-title" className="font-medium">
                           {s.title}
                         </p>
@@ -194,64 +182,71 @@ const Dashboard = () => {
         </Row>
       </Container>
 
-      <div id="outer-frame-income-vs-expenses" className="">
-        <div id="income-vs-expenses-frame" className="">
-          <div id="income-vs-expenses-title-frame" className="">
-            <h4 id="income-vs-expenses-title" className="big">
-              Monty Income vs Expenses
-            </h4>
-          </div>
-          <div id="income-vs-expenses-graph" className="">
-            Graph
-          </div>
-        </div>
-      </div>
-
-      <div id="outer-frame-weekly-expenses" className="">
-        <div id="weekly-expenses-frame" className="">
-          <div id="weekly-expenses-title-frame" className="">
-            <h4 id="weekly-expenses-title" className="big">
-              Weekly Expenses
-            </h4>
-          </div>
-          <div id="weekly-expenses-graph" className="">
-            Graph
-          </div>
-        </div>
-      </div>
-
-      <div id="outer-frame-payements-history" className="">
-        <div id="frame-payement-history" className="">
-          <div id="frame-payement-history-title" className="">
-            <h4 id="payement-history-title" className="big">
-              Payement History
-            </h4>
-            <p>See more</p>
-          </div>
-          <div id="-categories" className="">
-            <div id="payement-history-categ -1" className="">
-              <div id="frame-categ-1-tile+time" className="">
-                <h5 id="payement-history-caterg-1-title" className="">
-                  Electity
-                </h5>
-                <p id="payement-history-categor-1-time" className="">
-                  January
-                </p>
-              </div>
-              <div id="payement-history-frame-categ-1-sum+state" className="">
-                <h5 id="payement-history-caterg-1-sum" className="">
-                  +450.00
-                </h5>
-                <div id="payement-history-paid-padding" className="">
-                  <p id="payement-history-categor-1-state" className="">
-                    Paid
-                  </p>
-                </div>
-              </div>
+      <Container id="outer-frame-third-row" className="">
+        <Row className="my-6 grid grid-cols-1 gap-6 lg:grid-cols-[38.5%_60%]">
+          <Col
+            id="monthly-budget-col"
+            className="rounded-md bg-white p-4 shadow-md"
+          >
+            <div id="title-monthly-budget" className="">
+              <h4> Monthly Budget</h4>
             </div>
-          </div>
-        </div>
-      </div>
+          </Col>
+          <Col
+            id="income-vs-expenses-col"
+            className="rounded-md bg-white p-4 shadow-md"
+          >
+            <div id="title-income-vs-expenses" className="">
+              <h4> Monthly Income vs Expenses</h4>
+            </div>
+            <div className=""> GRAPH</div>
+          </Col>
+        </Row>
+      </Container>
+
+      <Container id="outer-frame-forth-row" className="">
+        <Row className="my-6 grid grid-cols-1 gap-6 lg:grid-cols-[65%_33.5%]">
+          <Col
+            id="weekly-expenses-col"
+            className="rounded-md bg-white p-4 shadow-md"
+          >
+            <div id="title-weekly-expenses" className="">
+              <h4> Weekly Expenses</h4>
+            </div>
+          </Col>
+          <Col
+            id="payment-history-col"
+            className="rounded-md bg-white p-4 shadow-md"
+          >
+            <div id="title-payment-history" className="">
+              <h4> Payment History</h4>
+            </div>
+            <div className=""> GRAPH</div>
+          </Col>
+        </Row>
+      </Container>
+
+      <Container id="outer-frame-fifth-row" className="">
+        <Row className="-mb-4 mt-6 grid grid-cols-1 gap-6 lg:grid-cols-[38.5%_60%]">
+          <Col
+            id="saving-goals-col"
+            className="rounded-md bg-white p-4 shadow-md"
+          >
+            <div id="title-saving-goals" className="">
+              <h4> Saving Goals</h4>
+            </div>
+          </Col>
+          <Col
+            id="transacrion-history-col"
+            className="rounded-md bg-white p-4 shadow-md"
+          >
+            <div id="title-transacrion-history" className="">
+              <h4> Transaction history</h4>
+            </div>
+            <div className=""> GRAPH</div>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 };
