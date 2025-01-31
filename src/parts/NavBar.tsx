@@ -25,7 +25,7 @@ const NavBar = () => {
 
       <div
         id="nav-right "
-        className="flex text-center text-2xl text-small"
+        className="flex text-center text-2xl  "
         style={{ marginRight: "5.5rem" }}
       >
         <button className="sun mx-2">
@@ -35,7 +35,7 @@ const NavBar = () => {
         <Dropdown className="notification-button">
           <Dropdown.Toggle
             id="bell"
-            className="m-2 mb-0 border-0 bg-transparent p-0 text-2xl text-small shadow-none hover:text-small"
+            className="m-2 mb-0 border-0 bg-transparent p-0 text-2xl   shadow-none hover: "
           >
             <IoMdNotificationsOutline />
           </Dropdown.Toggle>

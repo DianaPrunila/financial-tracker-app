@@ -20,7 +20,7 @@ export default {
         framesTitle: "1.125rem", //h4, 18px
         categTitle: "1rem", //h5, 16px
         weelsDashboardTitle: "0.875rem", //h6, 14px
-        textGraySmall: "0.875rem", //14px
+        textGraySmallSmall: "0.875rem", //14px
       },
     },
   },

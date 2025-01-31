@@ -6,11 +6,11 @@ import NavBar from "./parts/NavBar";
 
 function App() {
   return (
-    <div className="flex">
+    <div className="App flex">
       <SideBar />
       <div className="my-24 ml-20">
         <NavBar />
-        <div className="ml-14">
+        <div className="ml-14 mr-10">
           <Outlet />
         </div>
         <Footer />

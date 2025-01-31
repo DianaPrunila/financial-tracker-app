@@ -54,7 +54,7 @@ const Dashboard = () => {
       // Home---Dashboard se duce in sus cand e pe exran mic
       className=""
     >
-      <div id="page-up-info" className="flex flex-wrap-reverse justify-between">
+      <div id="page-up-info" className="flex justify-between">
         <div id="dashboard-up-left" className="-ml-3 mb-5">
           <h3
             id="title-page"
@@ -62,12 +62,12 @@ const Dashboard = () => {
           >
             Dashboard
           </h3>
-          <p id="owner-page" className="mt-1 leading-7 text-small">
+          <p id="owner-page" className="mt-1 leading-7">
             Welcome to Prunila finance Management
           </p>
         </div>
         <div id="dashboard-up-right" className="">
-          <p className="text-small">Home --- Dashboard</p>
+          <p className=" ">Home --- Dashboard</p>
         </div>
       </div>
 
@@ -93,7 +93,7 @@ const Dashboard = () => {
                 <span className="text-xl text-riseingPercentageColor">
                   <AiOutlineRise />
                 </span>
-                <p id="percentage-text-1" className="text-small">
+                <p id="percentage-text-1" className=" ">
                   2.47% Last month $24,478
                 </p>
               </div>
@@ -103,70 +103,66 @@ const Dashboard = () => {
       </Container>
 
       <Container id="second-row" className="px-0">
-        <Row className="grid grid-cols-1 gap-x-7 lg:grid-cols-[65%_36%]">
-          <Col
-            id="outer-frame-balance-trends"
-            className="mb-4 rounded-md bg-white p-4 shadow-md"
-          >
-            <div id="balance-trends-frame" className="">
+        <Row className="grid w-full grid-cols-1 gap-x-8 lg:grid-cols-[65%_33.5%]">
+          <Col id="balance-trends-col" className="pr-1">
+            <Row
+              id="outer-frame-balance-trends"
+              className="mb-4 rounded-md bg-white p-4 shadow-md"
+            >
               <div
-                id="balance-trands-frame-up"
+                id="balance-trends-frame-up"
                 className="flex justify-between"
               >
                 <div id="balance-trends-frame-left">
-                  <h4
+                  <h6
                     id="title-balance-trends"
                     className="text-framesTitle font-medium text-big"
                   >
-                    Balance Treends
-                  </h4>
-                  <p className="my-3 text-3xl font-medium text-big">$</p>
+                    Balance Trends
+                  </h6>
+                  <p className="text-[2rem] font-medium text-big">$</p>
                 </div>
-                <div id="balance-trends-frame-right" className="">
-                  <p id="period " className="text-categTitle">
+
+                <div id="balance-trends-frame-right">
+                  <p id="last-month" className=" ">
                     Last Month
                   </p>
-                  <p id="percentage" className="my-2 justify-self-end">
-                    %
-                  </p>
+                  <p id="balance-trends-percentage">xx.yy%</p>
                 </div>
               </div>
-              <div id="graph" className="">
+
+              <Col className="text-center">
                 <img
                   src="/images/GRAPH.png"
                   alt="Graph"
                   id="balance-trends-graph"
                   className="w-fit"
                 />
-              </div>
-            </div>
+              </Col>
+            </Row>
           </Col>
-
           <Col
-            id="outer-frame-monthly-breakdown"
+            id="monthly-breakdown-col"
             className="h-fit rounded-md bg-white p-4 shadow-md"
           >
-            <div id="monthly-brakdown-frame" className="">
+            <Row id="monthly-brakdown-frame" className="">
               <h4
                 id="monthly-brakdown-title"
                 className="text-framesTitle font-medium text-big"
               >
                 Monthly Expense Breakdown
               </h4>
-              <div id="bar-expenses" className="mb-2 mt-3">
+              <div id="bar-expenses" className="">
                 bar expenses
               </div>
-              <div
-                id="monthly-expenses-catergories"
-                className="divide-y divide-solid"
-              >
+              <div id="monthly-expenses-catergories" className="">
                 {secondRow.map((s) => (
                   <div
                     key={s.id}
                     id="monthly-expenses-down"
                     className="flex justify-between pt-2.5"
                   >
-                    <div id="monthly-expenses-left" className="-ml-2 flex">
+                    <div id="monthly-expenses-left" className="flex">
                       <div
                         id="dots"
                         className="text-3xl"
@@ -174,7 +170,7 @@ const Dashboard = () => {
                       >
                         <GoDotFill />
                       </div>
-                      <div id="category-name-div" className="text-small">
+                      <div id="category-name-div" className=" ">
                         <p id="category-name-title" className="font-medium">
                           {s.title}
                         </p>
@@ -193,7 +189,7 @@ const Dashboard = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </Row>
           </Col>
         </Row>
       </Container>

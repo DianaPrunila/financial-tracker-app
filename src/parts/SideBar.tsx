@@ -12,42 +12,15 @@ import { MdSupportAgent } from "react-icons/md";
 import { TbAffiliateFilled } from "react-icons/tb";
 
 const iconsSidebar = [
+  { id: 1, sect: <LuRadar />, title: "Home", address: "/" },
+  { id: 2, sect: <LuWalletMinimal />, title: "Wallets", address: "/Wallets" },
+  { id: 3, sect: <BsCoin />, title: "Budgets", address: "/Budgets" },
+  { id: 4, sect: <TbTargetArrow />, title: "Goals", address: "/Goals" },
+  { id: 5, sect: <FaRegUser />, title: "Profile", address: "/Profile" },
+  { id: 6, sect: <GoGraph />, title: "Analytics", address: "/Analytics" },
+  { id: 7, sect: <MdSupportAgent />, title: "Support", address: "/Support" },
   {
-    sect: <LuRadar />,
-    title: "Home",
-    address: "/",
-  },
-  {
-    sect: <LuWalletMinimal />,
-    title: "Wallets",
-    address: "/Wallets",
-  },
-  {
-    sect: <BsCoin />,
-    title: "Budgets",
-    address: "/Budgets",
-  },
-  {
-    sect: <TbTargetArrow />,
-    title: "Goals",
-    address: "/Goals",
-  },
-  {
-    sect: <FaRegUser />,
-    title: "Profile",
-    address: "/Profile",
-  },
-  {
-    sect: <GoGraph />,
-    title: "Analytics",
-    address: "/Analytics",
-  },
-  {
-    sect: <MdSupportAgent />,
-    title: "Support",
-    address: "/Support",
-  },
-  {
+    id: 8,
     sect: <TbAffiliateFilled />,
     title: "Affiliates",
     address: "/Affiliates",
@@ -67,13 +40,13 @@ const SideBar = () => {
         </SidebarMenu.Header>
 
         <div className="side-bar-icons-group mb-3 flex flex-grow flex-col justify-between">
-          <SidebarMenu.Body className="flex flex-grow flex-col justify-between text-3xl text-small">
+          <SidebarMenu.Body className="flex flex-grow flex-col justify-between text-3xl  ">
             {iconsSidebar.map((i) => (
-              <SidebarMenu.Nav>
+              <SidebarMenu.Nav key={i.id}>
                 <p className="mb-0">
                   <MDBTooltip tag="a" placement="right" title={i.title}>
                     <SidebarMenu.Nav.Link href={i.address}>
-                      <SidebarMenu.Nav.Icon className="hover:text-white">
+                      <SidebarMenu.Nav.Icon className="flex text-3xl hover:text-white">
                         {i.sect}
                       </SidebarMenu.Nav.Icon>
                     </SidebarMenu.Nav.Link>
