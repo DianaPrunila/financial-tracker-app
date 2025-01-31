@@ -1,4 +1,5 @@
 import Dropdown from "react-bootstrap/Dropdown";
+import { MDBTable, MDBTableHead, MDBTableBody } from "mdb-react-ui-kit";
 import { GoDotFill } from "react-icons/go";
 import { AiOutlineRise } from "react-icons/ai";
 import Container from "react-bootstrap/Container";
@@ -32,7 +33,7 @@ const Dashboard = () => {
       perc: "not sure how",
     },
   ];
-  const secondRow = [
+  const monthlyBreakdown = [
     { id: 1, title: "Food", color: "#DD2626", sum: "sum", perc: "perc" },
     { id: 2, title: "Transport", color: "#F97316", sum: "sum", perc: "perc" },
     { id: 3, title: "Healthcare", color: "#ffcc00", sum: "sum", perc: "perc" },
@@ -47,6 +48,25 @@ const Dashboard = () => {
       perc: "perc",
     },
     { id: 8, title: "Other", color: "#78716C", sum: "sum", perc: "perc" },
+  ];
+  const transactionHistory = [
+    {
+      id: 1,
+      icon: "icon",
+      name: "name",
+      date: "date",
+      description: "description",
+      amount: "amount",
+      currency: "currency",
+    },
+  ];
+  const savingGoals = [
+    {
+      id: 1,
+      color: "#2f2cd8",
+      goal: "goal",
+      percentage: "percentage",
+    },
   ];
   return (
     <div
@@ -144,7 +164,7 @@ const Dashboard = () => {
                 bar expenses
               </div>
               <div id="monthly-expenses-catergories" className="divide-y">
-                {secondRow.map((s) => (
+                {monthlyBreakdown.map((s) => (
                   <div
                     key={s.id}
                     id="monthly-expenses-down"
@@ -213,15 +233,18 @@ const Dashboard = () => {
             <div id="title-weekly-expenses" className="">
               <h4> Weekly Expenses</h4>
             </div>
+            <div className=""> GRAPH</div>
           </Col>
           <Col
             id="payment-history-col"
             className="rounded-md bg-white p-4 shadow-md"
           >
-            <div id="title-payment-history" className="">
+            <div id="title-payment-history" className="flex justify-between">
               <h4> Payment History</h4>
+              <a href="" className="">
+                See more
+              </a>
             </div>
-            <div className=""> GRAPH</div>
           </Col>
         </Row>
       </Container>
@@ -235,6 +258,14 @@ const Dashboard = () => {
             <div id="title-saving-goals" className="">
               <h4> Saving Goals</h4>
             </div>
+            <div id="wheels">
+              {savingGoals.map((s) => (
+                <div id="wheel-1" key={s.id}>
+                  <div>{s.percentage}</div>
+                  <h6> {s.goal}</h6>
+                </div>
+              ))}
+            </div>
           </Col>
           <Col
             id="transacrion-history-col"
@@ -243,7 +274,40 @@ const Dashboard = () => {
             <div id="title-transacrion-history" className="">
               <h4> Transaction history</h4>
             </div>
-            <div className=""> GRAPH</div>
+            <MDBTable>
+              <MDBTableHead>
+                <tr>
+                  <th id="title-category" scope="col">
+                    Category
+                  </th>
+                  <th id="title-date" scope="col">
+                    Date
+                  </th>
+                  <th id="title-description" scope="col">
+                    Description
+                  </th>
+                  <th id="title-amount" scope="col">
+                    Amount
+                  </th>
+                  <th id="title-currency" scope="col">
+                    Currency
+                  </th>
+                </tr>
+              </MDBTableHead>
+              {transactionHistory.map((t) => (
+                <MDBTableBody>
+                  <tr>
+                    <th scope="row" className="font-light text-small">
+                      {t.icon} {t.name}
+                    </th>
+                    <td>{t.date}</td>
+                    <td>{t.description}</td>
+                    <td>{t.amount}</td>
+                    <td>{t.currency}</td>
+                  </tr>
+                </MDBTableBody>
+              ))}
+            </MDBTable>
           </Col>
         </Row>
       </Container>
