@@ -5,6 +5,18 @@ import { AiOutlineRise } from "react-icons/ai";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { RiBillLine } from "react-icons/ri";
+import { FaCarSide } from "react-icons/fa";
+import { GoMortarBoard } from "react-icons/go";
+import { LuClapperboard } from "react-icons/lu";
+import { BsScissors } from "react-icons/bs";
+import {
+  CircularProgressbar,
+  CircularProgressbarWithChildren,
+  buildStyles,
+} from "react-circular-progressbar";
+
+import "react-circular-progressbar/dist/styles.css";
 
 const Dashboard = () => {
   const firstRow = [
@@ -52,10 +64,51 @@ const Dashboard = () => {
   const transactionHistory = [
     {
       id: 1,
-      icon: "icon",
-      name: "name",
+      iconColor: "#10B981",
+      icon: <BsScissors />,
+      name: "Beauty",
       date: "date",
-      description: "description",
+      description: "description of the transaction",
+      amount: "amount",
+      currency: "currency",
+    },
+    {
+      id: 2,
+      iconColor: "#14B8A6",
+      icon: <RiBillLine />,
+      name: "Bills & Fees",
+      date: "date",
+      description: "description of the transaction",
+      amount: "amount",
+      currency: "currency",
+    },
+    {
+      id: 3,
+      iconColor: "#06B6D4",
+      icon: <FaCarSide />,
+      name: "Car",
+      date: "date",
+      description: "description of the transaction",
+      amount: "amount",
+      currency: "currency",
+    },
+    {
+      id: 4,
+      iconColor: "#0EA5E9",
+      icon: <GoMortarBoard />,
+      name: "Education",
+      date: "date",
+      description: "description of the transaction",
+      amount: "amount",
+      currency: "currency",
+    },
+    {
+      id: 5,
+      iconColor: "#3B82F6",
+      icon: <LuClapperboard />,
+      name: "Entertainment",
+      date: "date",
+      description: "description of the transaction",
       amount: "amount",
       currency: "currency",
     },
@@ -64,8 +117,30 @@ const Dashboard = () => {
     {
       id: 1,
       color: "#2f2cd8",
-      goal: "goal",
-      percentage: "percentage",
+      goal: "Vacantion",
+      value: 80,
+      percentage: 80,
+    },
+    {
+      id: 2,
+      color: "#2f2cd8",
+      goal: "Gift",
+      value: 60,
+      percentage: 60,
+    },
+    {
+      id: 3,
+      color: "#2f2cd8",
+      goal: "New Car",
+      value: 30,
+      percentage: 30,
+    },
+    {
+      id: 4,
+      color: "#2f2cd8",
+      goal: "Laptop",
+      value: 90,
+      percentage: 90,
     },
   ];
   return (
@@ -251,30 +326,44 @@ const Dashboard = () => {
 
       <Container id="outer-frame-fifth-row" className="">
         <Row className="-mb-4 mt-6 grid grid-cols-1 gap-6 lg:grid-cols-[38.5%_60%]">
+          {/* Saving Goals Section */}
           <Col
             id="saving-goals-col"
             className="rounded-md bg-white p-4 shadow-md"
           >
-            <div id="title-saving-goals" className="">
-              <h4> Saving Goals</h4>
+            <div id="title-saving-goals" className="mb-4">
+              <h4>Saving Goals</h4>
             </div>
-            <div id="wheels">
+            <div id="wheels" className="flex flex-wrap justify-between">
               {savingGoals.map((s) => (
-                <div id="wheel-1" key={s.id}>
-                  <div>{s.percentage}</div>
-                  <h6> {s.goal}</h6>
+                <div id="wheel-1" key={s.id} className="w-28">
+                  <CircularProgressbar
+                    value={s.percentage}
+                    text={`${s.percentage}%`}
+                    className="font-bold"
+                    styles={buildStyles({
+                      pathColor: "#2f2cd8",
+                      textColor: "#7184ad",
+                      textSize: "0.875rem",
+                    })}
+                  />
+                  <div className="m-2 flex justify-center">
+                    <h6>{s.goal}</h6>
+                  </div>
                 </div>
               ))}
             </div>
           </Col>
+
+          {/* Transaction History Section */}
           <Col
-            id="transacrion-history-col"
-            className="rounded-md bg-white p-4 shadow-md"
+            id="transaction-history-col"
+            className="overflow-x-scroll rounded-md bg-white p-4 pb-0 shadow-md"
           >
-            <div id="title-transacrion-history" className="">
-              <h4> Transaction history</h4>
+            <div id="title-transaction-history">
+              <h4>Transaction History</h4>
             </div>
-            <MDBTable>
+            <MDBTable className="w-full">
               <MDBTableHead>
                 <tr>
                   <th id="title-category" scope="col">
@@ -294,19 +383,27 @@ const Dashboard = () => {
                   </th>
                 </tr>
               </MDBTableHead>
-              {transactionHistory.map((t) => (
-                <MDBTableBody>
-                  <tr>
-                    <th scope="row" className="font-light text-small">
-                      {t.icon} {t.name}
+              <MDBTableBody>
+                {transactionHistory.map((t) => (
+                  <tr key={t.id} className="text-small">
+                    <th scope="row" className="font-light text-black">
+                      <div className="flex">
+                        <div
+                          className="mr-2 rounded-full p-2 text-xl text-white"
+                          style={{ backgroundColor: t.iconColor }}
+                        >
+                          {t.icon}
+                        </div>
+                        <div className="font-normal text-small">{t.name}</div>
+                      </div>
                     </th>
                     <td>{t.date}</td>
                     <td>{t.description}</td>
                     <td>{t.amount}</td>
                     <td>{t.currency}</td>
                   </tr>
-                </MDBTableBody>
-              ))}
+                ))}
+              </MDBTableBody>
             </MDBTable>
           </Col>
         </Row>
