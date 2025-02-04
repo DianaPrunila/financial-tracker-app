@@ -47,20 +47,20 @@ const Dashboard = () => {
     },
   ];
   const monthlyBreakdown = [
-    { id: 1, title: "Food", color: "#DD2626", sum: "sum", perc: "perc" },
-    { id: 2, title: "Transport", color: "#F97316", sum: "sum", perc: "perc" },
-    { id: 3, title: "Healthcare", color: "#ffcc00", sum: "sum", perc: "perc" },
-    { id: 4, title: "Education", color: "#F7ED4C", sum: "sum", perc: "perc" },
-    { id: 5, title: "Clothes", color: "#84CC16", sum: "sum", perc: "perc" },
-    { id: 6, title: "Pets", color: "#22C55E", sum: "sum", perc: "perc" },
+    { id: 1, title: "Food", color: "#DD2626", sum: "500", perc: 12.5 },
+    { id: 2, title: "Transport", color: "#F97316", sum: "500", perc: 12.5 },
+    { id: 3, title: "Healthcare", color: "#ffcc00", sum: "500", perc: 12.5 },
+    { id: 4, title: "Education", color: "#F7ED4C", sum: "500", perc: 12.5 },
+    { id: 5, title: "Clothes", color: "#84CC16", sum: "500", perc: 12.5 },
+    { id: 6, title: "Pets", color: "#22C55E", sum: "500", perc: 12.5 },
     {
       id: 7,
       title: "Entertainment",
       color: "#06B6D4 ",
-      sum: "sum",
-      perc: "perc",
+      sum: 500,
+      perc: 12.5,
     },
-    { id: 8, title: "Other", color: "#78716C", sum: "sum", perc: "perc" },
+    { id: 8, title: "Other", color: "#78716C", sum: 500, perc: 12.5 },
   ];
   const monthlyBudget = [
     {
@@ -102,7 +102,7 @@ const Dashboard = () => {
       date: "12.12.2025",
       description: "Description of the transaction",
       amount: "-45.20",
-      currency: "USD",
+      currency: "EUR",
     },
     {
       id: 2,
@@ -122,7 +122,7 @@ const Dashboard = () => {
       date: "12.12.2025",
       description: "Description of the transaction",
       amount: "-62.20",
-      currency: "USD",
+      currency: "EUR",
     },
     {
       id: 4,
@@ -142,7 +142,7 @@ const Dashboard = () => {
       date: "12.12.2025",
       description: "Description of the transaction",
       amount: "-37.70",
-      currency: "USD",
+      currency: "EUR",
     },
   ];
 
@@ -236,10 +236,10 @@ const Dashboard = () => {
                 className="flex justify-between"
               >
                 <div id="balance-trends-frame-left">
-                  <h6 id="title-balance-trends" className="text- text-big">
+                  <h6 id="title-balance-trends" className="text-big">
                     Balance Trends
                   </h6>
-                  <p className="text-[2rem] text-big">$</p>
+                  <p className="text-[2rem] font-medium text-big">€</p>
                 </div>
 
                 <div id="balance-trends-frame-right">
@@ -269,7 +269,55 @@ const Dashboard = () => {
                 Monthly Expense Breakdown
               </h4>
               <div id="bar-expenses" className="my-3">
-                bar expenses
+                <ProgressBar>
+                  {monthlyBreakdown.map((br) => (
+                    <ProgressBar
+                      key={br.id}
+                      now={br.perc}
+                      style={{ backgroundColor: br.color }}
+                    />
+                  ))}
+                  {/* <ProgressBar
+                    now={monthlyBreakdown[0].perc}
+                    key={1}
+                    style={{ backgroundColor: monthlyBreakdown[0].color }}
+                  />
+                  <ProgressBar
+                    now={monthlyBreakdown[0].perc}
+                    key={2}
+                    style={{ backgroundColor: monthlyBreakdown[0].color }}
+                  />
+                  <ProgressBar
+                    now={monthlyBreakdown[0].perc}
+                    key={3}
+                    style={{ backgroundColor: monthlyBreakdown[0].color }}
+                  />
+                  <ProgressBar
+                    now={monthlyBreakdown[0].perc}
+                    key={4}
+                    style={{ backgroundColor: monthlyBreakdown[0].color }}
+                  />
+                  <ProgressBar
+                    now={monthlyBreakdown[0].perc}
+                    key={5}
+                    style={{ backgroundColor: monthlyBreakdown[0].color }}
+                  />
+                  <ProgressBar
+                    now={monthlyBreakdown[0].perc}
+                    key={6}
+                    style={{ backgroundColor: monthlyBreakdown[0].color }}
+                  />
+                  <ProgressBar
+                    now={monthlyBreakdown[0].perc}
+                    key={7}
+                    style={{ backgroundColor: monthlyBreakdown[0].color }}
+                  />
+                  <ProgressBar
+                    now={monthlyBreakdown[0].perc}
+                    key={8}
+                    style={{ backgroundColor: monthlyBreakdown[0].color }}
+                  /> */}
+                </ProgressBar>
               </div>
               <div id="monthly-expenses-catergories" className="divide-y">
                 {monthlyBreakdown.map((s) => (
@@ -295,11 +343,11 @@ const Dashboard = () => {
                     <div id="monthly-expenses-right" className="flex">
                       <div id="right-breakdown" className="">
                         <p id="category-sum" className="pr-2.5">
-                          {s.sum} $
+                          {s.sum} €
                         </p>
                       </div>
                       <div id="category-percentage">
-                        <p className="font-medium"> {s.perc}%</p>
+                        <p className="font-semibold text-big"> {s.perc}%</p>
                       </div>
                     </div>
                   </div>
