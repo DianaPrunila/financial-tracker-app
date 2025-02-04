@@ -9,6 +9,7 @@
 }
 
 body {
+  box-sizing: border-box;
   background-color: #f6f9fc;
   font-size: 0.875rem;
   color: #7184ad;
@@ -30,17 +31,25 @@ h5 {
   font-weight: 500;
   font-size: 1rem;
 }
-h6,
-th {
+h6 {
   color: #1f2c73;
   font-weight: 500;
   font-size: 1rem;
+}
+th {
+  color: #1f2c73;
+  font-weight: 700;
+  font-size: 0.875rem;
 }
 
 p {
   color: #7184ad;
 
   font-size: 0.875rem;
+}
+
+.progress-bar {
+  background-color: #2f2cd8;
 }
 
 .dropdown-toggle::after {

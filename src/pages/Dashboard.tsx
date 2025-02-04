@@ -10,11 +10,12 @@ import { FaCarSide } from "react-icons/fa";
 import { GoMortarBoard } from "react-icons/go";
 import { LuClapperboard } from "react-icons/lu";
 import { BsScissors } from "react-icons/bs";
-import {
-  CircularProgressbar,
-  CircularProgressbarWithChildren,
-  buildStyles,
-} from "react-circular-progressbar";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import { LuCarrot } from "react-icons/lu";
+import { FaBusAlt } from "react-icons/fa";
+import { FaCat } from "react-icons/fa6";
+import { IoShirtOutline } from "react-icons/io5";
+import ProgressBar from "react-bootstrap/ProgressBar";
 
 import "react-circular-progressbar/dist/styles.css";
 
@@ -61,58 +62,90 @@ const Dashboard = () => {
     },
     { id: 8, title: "Other", color: "#78716C", sum: "sum", perc: "perc" },
   ];
+  const monthlyBudget = [
+    {
+      id: 1,
+      iconColor: "#22C55E",
+      icon: <LuCarrot />,
+      title: "Grocery Stores",
+      nr: 75,
+    },
+    {
+      id: 2,
+      iconColor: "#06B6D4",
+      icon: <FaBusAlt />,
+      title: "Transportation",
+      nr: 25,
+    },
+    { id: 3, iconColor: "#0EA5E9", icon: <FaCat />, title: "Pets", nr: 50 },
+    {
+      id: 4,
+      iconColor: "#6366F1",
+      icon: <GoMortarBoard />,
+      title: "Education",
+      nr: 45,
+    },
+    {
+      id: 5,
+      iconColor: "#8B5CF6",
+      icon: <IoShirtOutline />,
+      title: "Clothes",
+      nr: 35,
+    },
+  ];
   const transactionHistory = [
     {
       id: 1,
       iconColor: "#10B981",
       icon: <BsScissors />,
       name: "Beauty",
-      date: "date",
-      description: "description of the transaction",
-      amount: "amount",
-      currency: "currency",
+      date: "12.12.2025",
+      description: "Description of the transaction",
+      amount: "-45.20",
+      currency: "USD",
     },
     {
       id: 2,
       iconColor: "#14B8A6",
       icon: <RiBillLine />,
       name: "Bills & Fees",
-      date: "date",
-      description: "description of the transaction",
-      amount: "amount",
-      currency: "currency",
+      date: "12.12.2025",
+      description: "Description of the transaction",
+      amount: "-24.30",
+      currency: "EUR",
     },
     {
       id: 3,
       iconColor: "#06B6D4",
       icon: <FaCarSide />,
       name: "Car",
-      date: "date",
-      description: "description of the transaction",
-      amount: "amount",
-      currency: "currency",
+      date: "12.12.2025",
+      description: "Description of the transaction",
+      amount: "-62.20",
+      currency: "USD",
     },
     {
       id: 4,
       iconColor: "#0EA5E9",
       icon: <GoMortarBoard />,
       name: "Education",
-      date: "date",
-      description: "description of the transaction",
-      amount: "amount",
-      currency: "currency",
+      date: "12.12.2025",
+      description: "Description of the transaction",
+      amount: "-120.00",
+      currency: "EUR",
     },
     {
       id: 5,
       iconColor: "#3B82F6",
       icon: <LuClapperboard />,
       name: "Entertainment",
-      date: "date",
-      description: "description of the transaction",
-      amount: "amount",
-      currency: "currency",
+      date: "12.12.2025",
+      description: "Description of the transaction",
+      amount: "-37.70",
+      currency: "USD",
     },
   ];
+
   const savingGoals = [
     {
       id: 1,
@@ -277,16 +310,8 @@ const Dashboard = () => {
         </Row>
       </Container>
 
-      <Container id="outer-frame-third-row" className="">
+      <Container id="outer-frame-third-row">
         <Row className="my-6 grid grid-cols-1 gap-6 lg:grid-cols-[38.5%_60%]">
-          <Col
-            id="monthly-budget-col"
-            className="rounded-md bg-white p-4 shadow-md"
-          >
-            <div id="title-monthly-budget" className="">
-              <h4> Monthly Budget</h4>
-            </div>
-          </Col>
           <Col
             id="income-vs-expenses-col"
             className="rounded-md bg-white p-4 shadow-md"
@@ -294,7 +319,7 @@ const Dashboard = () => {
             <div id="title-income-vs-expenses" className="">
               <h4> Monthly Income vs Expenses</h4>
             </div>
-            <div className=""> GRAPH</div>
+            <div className=""></div>
           </Col>
         </Row>
       </Container>
@@ -326,17 +351,23 @@ const Dashboard = () => {
 
       <Container id="outer-frame-fifth-row" className="">
         <Row className="-mb-4 mt-6 grid grid-cols-1 gap-6 lg:grid-cols-[38.5%_60%]">
-          {/* Saving Goals Section */}
           <Col
             id="saving-goals-col"
-            className="rounded-md bg-white p-4 shadow-md"
+            className="h-fit rounded-md bg-white p-4 shadow-md"
           >
             <div id="title-saving-goals" className="mb-4">
               <h4>Saving Goals</h4>
             </div>
-            <div id="wheels" className="flex flex-wrap justify-between">
+            <div
+              id="wheels"
+              className="flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-around"
+            >
               {savingGoals.map((s) => (
-                <div id="wheel-1" key={s.id} className="w-28">
+                <div
+                  id="wheel-1"
+                  key={s.id}
+                  className="flex w-28 flex-col items-center"
+                >
                   <CircularProgressbar
                     value={s.percentage}
                     text={`${s.percentage}%`}
@@ -355,56 +386,64 @@ const Dashboard = () => {
             </div>
           </Col>
 
-          {/* Transaction History Section */}
           <Col
             id="transaction-history-col"
-            className="overflow-x-scroll rounded-md bg-white p-4 pb-0 shadow-md"
+            className="rounded-md bg-white p-4 pb-0 shadow-md"
           >
-            <div id="title-transaction-history">
+            <div id="title-transaction-history" className="mb-2">
               <h4>Transaction History</h4>
             </div>
-            <MDBTable className="w-full">
-              <MDBTableHead>
-                <tr>
-                  <th id="title-category" scope="col">
-                    Category
-                  </th>
-                  <th id="title-date" scope="col">
-                    Date
-                  </th>
-                  <th id="title-description" scope="col">
-                    Description
-                  </th>
-                  <th id="title-amount" scope="col">
-                    Amount
-                  </th>
-                  <th id="title-currency" scope="col">
-                    Currency
-                  </th>
-                </tr>
-              </MDBTableHead>
-              <MDBTableBody>
-                {transactionHistory.map((t) => (
-                  <tr key={t.id} className="text-small">
-                    <th scope="row" className="font-light text-black">
-                      <div className="flex">
-                        <div
-                          className="mr-2 rounded-full p-2 text-xl text-white"
-                          style={{ backgroundColor: t.iconColor }}
-                        >
-                          {t.icon}
-                        </div>
-                        <div className="font-normal text-small">{t.name}</div>
-                      </div>
+
+            <div className="overflow-x-scroll">
+              <MDBTable className="w-full min-w-max">
+                <MDBTableHead>
+                  <tr>
+                    <th id="title-category" scope="col">
+                      Category
                     </th>
-                    <td>{t.date}</td>
-                    <td>{t.description}</td>
-                    <td>{t.amount}</td>
-                    <td>{t.currency}</td>
+                    <th id="title-date" scope="col">
+                      Date
+                    </th>
+                    <th id="title-description" scope="col">
+                      Description
+                    </th>
+                    <th id="title-amount" scope="col">
+                      Amount
+                    </th>
+                    <th id="title-currency" scope="col">
+                      Currency
+                    </th>
                   </tr>
-                ))}
-              </MDBTableBody>
-            </MDBTable>
+                </MDBTableHead>
+                <MDBTableBody>
+                  {transactionHistory.map((t) => (
+                    <tr key={t.id} className="align-middle text-small">
+                      <th scope="row" className="font-light text-black">
+                        <div className="flex items-center">
+                          <div
+                            id="table-icons"
+                            className="mr-2 rounded-full p-2 text-xl text-white"
+                            style={{ backgroundColor: t.iconColor }}
+                          >
+                            {t.icon}
+                          </div>
+                          <div
+                            id="transaction-category-title"
+                            className="font-normal text-small"
+                          >
+                            {t.name}
+                          </div>
+                        </div>
+                      </th>
+                      <td>{t.date}</td>
+                      <td>{t.description}</td>
+                      <td>{t.amount}</td>
+                      <td>{t.currency}</td>
+                    </tr>
+                  ))}
+                </MDBTableBody>
+              </MDBTable>
+            </div>
           </Col>
         </Row>
       </Container>
