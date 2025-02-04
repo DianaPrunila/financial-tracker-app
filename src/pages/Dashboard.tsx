@@ -313,6 +313,54 @@ const Dashboard = () => {
       <Container id="outer-frame-third-row">
         <Row className="my-6 grid grid-cols-1 gap-6 lg:grid-cols-[38.5%_60%]">
           <Col
+            id="monthly-budget-col"
+            className="rounded-md bg-white p-4 shadow-md"
+          >
+            <div id="title-monthly-budget" className="mb-4">
+              <h4> Monthly Budget</h4>
+            </div>
+            <div id="conte" className="">
+              {monthlyBudget.map((b) => (
+                <div
+                  key={b.id}
+                  id="budgets-category"
+                  className="mr-2 mt-4 flex"
+                >
+                  <div
+                    id="budgets-left"
+                    className="mr-3 rounded-full p-2 text-base text-white"
+                    style={{ backgroundColor: b.iconColor }}
+                  >
+                    {b.icon}
+                  </div>
+                  <div
+                    id="budgets-right"
+                    className="flex w-full flex-col justify-around"
+                  >
+                    <div
+                      id="budgets-right-up"
+                      className="flex w-full justify-between"
+                    >
+                      <div id="budgets-text">
+                        <h5>{b.title}</h5>
+                      </div>
+                      <div id="budge-nr" className="flex">
+                        <p className="font-medium text-big">{b.nr} </p>
+                        <p>/100</p>
+                      </div>
+                    </div>
+                    <div id="budgets-right-down" className="w-full">
+                      <ProgressBar
+                        className="h-2 w-full rounded-full"
+                        now={b.nr}
+                      />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Col>
+          <Col
             id="income-vs-expenses-col"
             className="rounded-md bg-white p-4 shadow-md"
           >
