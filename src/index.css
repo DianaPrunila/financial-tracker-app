@@ -48,8 +48,12 @@ p {
   font-size: 0.875rem;
 }
 
-.progress-bar {
-  background-color: #2f2cd8;
+.css-1qdzy9k-MuiBarElement-root {
+  fill: #2f2cd8;
+}
+
+.css-3dcfwk-MuiBarElement-root {
+  fill: #cdccfb;
 }
 
 .dropdown-toggle::after {

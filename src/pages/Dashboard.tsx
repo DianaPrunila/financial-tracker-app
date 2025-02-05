@@ -16,6 +16,7 @@ import { FaBusAlt } from "react-icons/fa";
 import { FaCat } from "react-icons/fa6";
 import { IoShirtOutline } from "react-icons/io5";
 import ProgressBar from "react-bootstrap/ProgressBar";
+import { BarChart } from "@mui/x-charts/BarChart";
 
 import "react-circular-progressbar/dist/styles.css";
 
@@ -46,7 +47,7 @@ const Dashboard = () => {
       perc: "not sure how",
     },
   ];
-  const monthlyBreakdown = [
+  const Breakdown = [
     { id: 1, title: "Food", color: "#DD2626", sum: "500", perc: 12.5 },
     { id: 2, title: "Transport", color: "#F97316", sum: "500", perc: 12.5 },
     { id: 3, title: "Healthcare", color: "#ffcc00", sum: "500", perc: 12.5 },
@@ -62,7 +63,7 @@ const Dashboard = () => {
     },
     { id: 8, title: "Other", color: "#78716C", sum: 500, perc: 12.5 },
   ];
-  const monthlyBudget = [
+  const Budget = [
     {
       id: 1,
       iconColor: "#22C55E",
@@ -93,6 +94,81 @@ const Dashboard = () => {
       nr: 35,
     },
   ];
+  const IncomeVsExpenses = [
+    {
+      id: 1,
+      month: "Jan",
+      income: 2500,
+      expenses: 1500,
+    },
+    {
+      id: 2,
+      month: "Feb",
+      income: 2500,
+      expenses: 1500,
+    },
+    {
+      id: 3,
+      month: "Mar",
+      income: 2500,
+      expenses: 1500,
+    },
+    {
+      id: 4,
+      month: "Apr",
+      income: 2500,
+      expenses: 1500,
+    },
+    {
+      id: 5,
+      month: "May",
+      income: 2500,
+      expenses: 1500,
+    },
+    {
+      id: 6,
+      month: "Jun",
+      income: 2500,
+      expenses: 1500,
+    },
+    {
+      id: 7,
+      month: "Jul",
+      income: 5000,
+      expenses: 3000,
+    },
+    {
+      id: 8,
+      month: "Aug",
+      income: 2500,
+      expenses: 1500,
+    },
+    {
+      id: 10,
+      month: "Sep",
+      income: 2500,
+      expenses: 1500,
+    },
+    {
+      id: 11,
+      month: "Oct",
+      income: 2500,
+      expenses: 1500,
+    },
+    {
+      id: 11,
+      month: "Nov",
+      income: 5000,
+      expenses: 1500,
+    },
+    {
+      id: 12,
+      month: "Dec",
+      income: 2500,
+      expenses: 3000,
+    },
+  ];
+
   const transactionHistory = [
     {
       id: 1,
@@ -269,58 +345,18 @@ const Dashboard = () => {
                 Monthly Expense Breakdown
               </h4>
               <div id="bar-expenses" className="my-3">
-                <ProgressBar>
-                  {monthlyBreakdown.map((br) => (
+                <ProgressBar className="h-1.5 rounded-full">
+                  {Breakdown.map((br) => (
                     <ProgressBar
                       key={br.id}
                       now={br.perc}
                       style={{ backgroundColor: br.color }}
                     />
                   ))}
-                  {/* <ProgressBar
-                    now={monthlyBreakdown[0].perc}
-                    key={1}
-                    style={{ backgroundColor: monthlyBreakdown[0].color }}
-                  />
-                  <ProgressBar
-                    now={monthlyBreakdown[0].perc}
-                    key={2}
-                    style={{ backgroundColor: monthlyBreakdown[0].color }}
-                  />
-                  <ProgressBar
-                    now={monthlyBreakdown[0].perc}
-                    key={3}
-                    style={{ backgroundColor: monthlyBreakdown[0].color }}
-                  />
-                  <ProgressBar
-                    now={monthlyBreakdown[0].perc}
-                    key={4}
-                    style={{ backgroundColor: monthlyBreakdown[0].color }}
-                  />
-                  <ProgressBar
-                    now={monthlyBreakdown[0].perc}
-                    key={5}
-                    style={{ backgroundColor: monthlyBreakdown[0].color }}
-                  />
-                  <ProgressBar
-                    now={monthlyBreakdown[0].perc}
-                    key={6}
-                    style={{ backgroundColor: monthlyBreakdown[0].color }}
-                  />
-                  <ProgressBar
-                    now={monthlyBreakdown[0].perc}
-                    key={7}
-                    style={{ backgroundColor: monthlyBreakdown[0].color }}
-                  />
-                  <ProgressBar
-                    now={monthlyBreakdown[0].perc}
-                    key={8}
-                    style={{ backgroundColor: monthlyBreakdown[0].color }}
-                  /> */}
                 </ProgressBar>
               </div>
               <div id="monthly-expenses-catergories" className="divide-y">
-                {monthlyBreakdown.map((s) => (
+                {Breakdown.map((s) => (
                   <div
                     key={s.id}
                     id="monthly-expenses-down"
@@ -368,7 +404,7 @@ const Dashboard = () => {
               <h4> Monthly Budget</h4>
             </div>
             <div id="conte" className="">
-              {monthlyBudget.map((b) => (
+              {Budget.map((b) => (
                 <div
                   key={b.id}
                   id="budgets-category"
@@ -399,9 +435,18 @@ const Dashboard = () => {
                     </div>
                     <div id="budgets-right-down" className="w-full">
                       <ProgressBar
-                        className="h-2 w-full rounded-full"
+                        key={b.id}
                         now={b.nr}
-                      />
+                        className="h-1.5 rounded-full"
+                      >
+                        <div
+                          className="progress-bar"
+                          style={{
+                            width: `${b.nr}%`,
+                            backgroundColor: b.iconColor,
+                          }}
+                        />
+                      </ProgressBar>
                     </div>
                   </div>
                 </div>
@@ -415,7 +460,29 @@ const Dashboard = () => {
             <div id="title-income-vs-expenses" className="">
               <h4> Monthly Income vs Expenses</h4>
             </div>
-            <div className=""></div>
+            <div id="bar-chart" className="w-full">
+              <BarChart
+                className="min-w-fit"
+                xAxis={[
+                  {
+                    scaleType: "band",
+                    data: IncomeVsExpenses.map((IE) => IE.month),
+                  },
+                ]}
+                series={[
+                  {
+                    data: IncomeVsExpenses.map((IE) => IE.income),
+                    color: "#0400EB",
+                  },
+                  {
+                    data: IncomeVsExpenses.map((IE) => IE.expenses),
+                    color: "#CDCCFB",
+                  },
+                ]}
+                width={500}
+                height={300}
+              />
+            </div>
           </Col>
         </Row>
       </Container>
