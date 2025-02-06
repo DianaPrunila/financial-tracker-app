@@ -17,6 +17,7 @@ import { FaCat } from "react-icons/fa6";
 import { IoShirtOutline } from "react-icons/io5";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import { BarChart } from "@mui/x-charts/BarChart";
+import { LineChart } from "@mui/x-charts/LineChart";
 
 import "react-circular-progressbar/dist/styles.css";
 
@@ -181,28 +182,28 @@ const Dashboard = () => {
       id: 1,
       name: "Electricity",
       date: "2 february 2025",
-      amount: "30",
+      amount: "30.00",
       status: "Paid",
     },
     {
       id: 2,
       name: "Internet",
       date: "2 february 2025",
-      amount: "20",
+      amount: "20.00",
       status: "Due",
     },
     {
       id: 3,
       name: "Spoify",
       date: "2 february 2025",
-      amount: "10",
-      status: "Cancelles",
+      amount: "10.00",
+      status: "Cancelled",
     },
     {
       id: 4,
       name: "Groceries",
       date: "2 february 2025",
-      amount: "50",
+      amount: "50.00",
       status: "Paid",
     },
   ];
@@ -526,7 +527,7 @@ const Dashboard = () => {
       </Container>
 
       <Container id="outer-frame-forth-row" className="">
-        <Row className="my-6 grid grid-cols-1 gap-6 lg:grid-cols-[65%_33.5%]">
+        <Row className="grid grid-cols-1 gap-6 lg:grid-cols-[65%_33.5%]">
           <Col
             id="weekly-expenses-col"
             className="rounded-md bg-white p-4 shadow-md"
@@ -538,7 +539,7 @@ const Dashboard = () => {
           </Col>
           <Col
             id="payment-history-col"
-            className="rounded-md bg-white p-4 shadow-md"
+            className="h-full rounded-md bg-white p-4 pb-0 shadow-md"
           >
             <div id="title-payment-history" className="flex justify-between">
               <h4> Payment History</h4>
@@ -546,6 +547,33 @@ const Dashboard = () => {
                 See more
               </a>
             </div>
+            <ul
+              id="payement-history-expenses"
+              className="h-[85%] divide-y overflow-y-auto"
+            >
+              {PayementHistory.map((h) => (
+                <li key={h.id} id="payement-history-expenses-model">
+                  <div
+                    id="payement-history-expenses-model-up"
+                    className="mb-1 mt-3 flex justify-between"
+                  >
+                    <h5> {h.name}</h5>
+                    <p className="text-[1rem] font-medium text-big">
+                      {"-"} {h.amount}
+                    </p>
+                  </div>
+                  <div
+                    id="payement-history-expenses-model-down"
+                    className="mb-3 flex justify-between"
+                  >
+                    <p>{h.date}</p>
+                    <span className="rounded-full bg-sidebarColor p-1 px-2">
+                      <p className="text-white">{h.status}</p>
+                    </span>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </Col>
         </Row>
       </Container>
