@@ -168,6 +168,44 @@ const Dashboard = () => {
       expenses: 3000,
     },
   ];
+  const WeeklyExpenses = [
+    { id: 1, expense: "Food", amount: "300" },
+    { id: 2, expense: "Rent", amount: "1000" },
+    { id: 3, expense: "Utilities", amount: "200" },
+    { id: 4, expense: "Internet", amount: "20" },
+    { id: 5, expense: "Phone Bill", amount: "10" },
+  ];
+
+  const PayementHistory = [
+    {
+      id: 1,
+      name: "Electricity",
+      date: "2 february 2025",
+      amount: "30",
+      status: "Paid",
+    },
+    {
+      id: 2,
+      name: "Internet",
+      date: "2 february 2025",
+      amount: "20",
+      status: "Due",
+    },
+    {
+      id: 3,
+      name: "Spoify",
+      date: "2 february 2025",
+      amount: "10",
+      status: "Cancelles",
+    },
+    {
+      id: 4,
+      name: "Groceries",
+      date: "2 february 2025",
+      amount: "50",
+      status: "Paid",
+    },
+  ];
 
   const transactionHistory = [
     {
@@ -455,14 +493,14 @@ const Dashboard = () => {
           </Col>
           <Col
             id="income-vs-expenses-col"
-            className="rounded-md bg-white p-4 shadow-md"
+            className="z-20 rounded-md bg-white p-4 shadow-md"
           >
             <div id="title-income-vs-expenses" className="">
               <h4> Monthly Income vs Expenses</h4>
             </div>
             <div id="bar-chart" className="w-full">
               <BarChart
-                className="min-w-fit"
+                className="z-0 min-w-fit"
                 xAxis={[
                   {
                     scaleType: "band",
