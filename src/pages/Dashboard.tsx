@@ -17,7 +17,7 @@ import { FaCat } from "react-icons/fa6";
 import { IoShirtOutline } from "react-icons/io5";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import { BarChart } from "@mui/x-charts/BarChart";
-import { LineChart } from "@mui/x-charts/LineChart";
+import LineChart from "../parts/LineChart";
 
 import "react-circular-progressbar/dist/styles.css";
 
@@ -48,7 +48,37 @@ const Dashboard = () => {
       perc: "not sure how",
     },
   ];
-  const Breakdown = [
+  // const balanceTrends = [
+  //   { id: 1, activeNr: 0, inactiveNr: 40, date: "4 Jan" },
+  //   { id: 2, activeNr: 65, inactiveNr: 105, date: "5 Jan" },
+  //   { id: 3, activeNr: 52, inactiveNr: 92, date: "6 Jan" },
+  //   { id: 4, activeNr: 115, inactiveNr: 155, date: "7 Jan" },
+  //   { id: 5, activeNr: 98, inactiveNr: 138, date: "8 Jan" },
+  //   { id: 6, activeNr: 165, inactiveNr: 205, date: "9 Jan" },
+  //   { id: 7, activeNr: 125, inactiveNr: 165, date: "10 Jan" },
+  // ];
+
+  // const BalanceTrends = {
+  //   labels: [
+  //     "Sunday",
+  //     "Monday",
+  //     "Tuesday",
+  //     "Wednesday",
+  //     "Thursday",
+  //     "Friday",
+  //     "Saturday",
+  //   ],
+  //   datasets: [
+  //     {
+  //       label: "Hours Studied in Geeksforgeeks",
+  //       data: [2, 5, 7, 9, 7, 6, 4],
+  //       fill: true,
+  //       backgroundColor: "rgba(6, 156,51, .3)",
+  //       borderColor: "#02b844",
+  //     },
+  //   ],
+  // };
+  const breackdown = [
     { id: 1, title: "Food", color: "#DD2626", sum: "500", perc: 12.5 },
     { id: 2, title: "Transport", color: "#F97316", sum: "500", perc: 12.5 },
     { id: 3, title: "Healthcare", color: "#ffcc00", sum: "500", perc: 12.5 },
@@ -64,7 +94,7 @@ const Dashboard = () => {
     },
     { id: 8, title: "Other", color: "#78716C", sum: 500, perc: 12.5 },
   ];
-  const Budget = [
+  const budget = [
     {
       id: 1,
       iconColor: "#22C55E",
@@ -95,7 +125,7 @@ const Dashboard = () => {
       nr: 35,
     },
   ];
-  const IncomeVsExpenses = [
+  const incomeVsExpenses = [
     {
       id: 1,
       month: "Jan",
@@ -169,15 +199,15 @@ const Dashboard = () => {
       expenses: 3000,
     },
   ];
-  const WeeklyExpenses = [
-    { id: 1, expense: "Food", amount: "300" },
-    { id: 2, expense: "Rent", amount: "1000" },
-    { id: 3, expense: "Utilities", amount: "200" },
-    { id: 4, expense: "Internet", amount: "20" },
-    { id: 5, expense: "Phone Bill", amount: "10" },
-  ];
+  // const weeklyExpenses = [
+  //   { id: 1, expense: "Food", amount: "300" },
+  //   { id: 2, expense: "Rent", amount: "1000" },
+  //   { id: 3, expense: "Utilities", amount: "200" },
+  //   { id: 4, expense: "Internet", amount: "20" },
+  //   { id: 5, expense: "Phone Bill", amount: "10" },
+  // ];
 
-  const PayementHistory = [
+  const payementHistory = [
     {
       id: 1,
       name: "Electricity",
@@ -310,7 +340,6 @@ const Dashboard = () => {
           <p className=" ">Home --- Dashboard</p>
         </div>
       </div>
-
       <Container id="outer-frame-first-row" className="mb-4 px-0">
         <Row className="grid grid-cols-1 gap-6 pr-3 sm:grid-cols-2 lg:grid-cols-4">
           {firstRow.map((f) => (
@@ -338,7 +367,6 @@ const Dashboard = () => {
           ))}
         </Row>
       </Container>
-
       <Container id="outer-frame-second-row" className="px-0">
         <Row className="grid w-full grid-cols-1 gap-x-8 lg:grid-cols-[65%_33.5%]">
           <Col id="balance-trends-col" className="pr-1">
@@ -357,22 +385,19 @@ const Dashboard = () => {
                   <p className="text-[2rem] font-medium text-big">€</p>
                 </div>
 
-                <div id="balance-trends-frame-right">
+                <div
+                  id="balance-trends-frame-right"
+                  className="flex flex-col justify-end"
+                >
                   <p id="last-month" className=" ">
                     Last Month
                   </p>
                   <p id="balance-trends-percentage">xx.yy%</p>
                 </div>
               </div>
-
-              <Col className="text-center">
-                <img
-                  src="/images/GRAPH.png"
-                  alt="Graph"
-                  id="balance-trends-graph"
-                  className="w-fit"
-                />
-              </Col>
+              <div className="">
+                <LineChart />
+              </div>
             </Row>
           </Col>
           <Col
@@ -385,7 +410,7 @@ const Dashboard = () => {
               </h4>
               <div id="bar-expenses" className="my-3">
                 <ProgressBar className="h-1.5 rounded-full">
-                  {Breakdown.map((br) => (
+                  {breackdown.map((br) => (
                     <ProgressBar
                       key={br.id}
                       now={br.perc}
@@ -395,7 +420,7 @@ const Dashboard = () => {
                 </ProgressBar>
               </div>
               <div id="monthly-expenses-catergories" className="divide-y">
-                {Breakdown.map((s) => (
+                {breackdown.map((s) => (
                   <div
                     key={s.id}
                     id="monthly-expenses-down"
@@ -443,7 +468,7 @@ const Dashboard = () => {
               <h4> Monthly Budget</h4>
             </div>
             <div id="conte" className="">
-              {Budget.map((b) => (
+              {budget.map((b) => (
                 <div
                   key={b.id}
                   id="budgets-category"
@@ -505,16 +530,16 @@ const Dashboard = () => {
                 xAxis={[
                   {
                     scaleType: "band",
-                    data: IncomeVsExpenses.map((IE) => IE.month),
+                    data: incomeVsExpenses.map((IE) => IE.month),
                   },
                 ]}
                 series={[
                   {
-                    data: IncomeVsExpenses.map((IE) => IE.income),
+                    data: incomeVsExpenses.map((IE) => IE.income),
                     color: "#0400EB",
                   },
                   {
-                    data: IncomeVsExpenses.map((IE) => IE.expenses),
+                    data: incomeVsExpenses.map((IE) => IE.expenses),
                     color: "#CDCCFB",
                   },
                 ]}
@@ -525,7 +550,6 @@ const Dashboard = () => {
           </Col>
         </Row>
       </Container>
-
       <Container id="outer-frame-forth-row" className="">
         <Row className="grid grid-cols-1 gap-6 lg:grid-cols-[65%_33.5%]">
           <Col
@@ -551,7 +575,7 @@ const Dashboard = () => {
               id="payement-history-expenses"
               className="h-[85%] divide-y overflow-y-auto"
             >
-              {PayementHistory.map((h) => (
+              {payementHistory.map((h) => (
                 <li key={h.id} id="payement-history-expenses-model">
                   <div
                     id="payement-history-expenses-model-up"
@@ -577,7 +601,6 @@ const Dashboard = () => {
           </Col>
         </Row>
       </Container>
-
       <Container id="outer-frame-fifth-row" className="">
         <Row className="-mb-4 mt-6 grid grid-cols-1 gap-6 lg:grid-cols-[38.5%_60%]">
           <Col
