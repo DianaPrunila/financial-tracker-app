@@ -20,6 +20,7 @@ import { BarChart } from "@mui/x-charts/BarChart";
 import LineChart from "../parts/LineChart";
 
 import "react-circular-progressbar/dist/styles.css";
+import { red } from "@mui/material/colors";
 
 const Dashboard = () => {
   const firstRow = [
@@ -199,14 +200,28 @@ const Dashboard = () => {
       expenses: 3000,
     },
   ];
-  // const weeklyExpenses = [
-  //   { id: 1, expense: "Food", amount: "300" },
-  //   { id: 2, expense: "Rent", amount: "1000" },
-  //   { id: 3, expense: "Utilities", amount: "200" },
-  //   { id: 4, expense: "Internet", amount: "20" },
-  //   { id: 5, expense: "Phone Bill", amount: "10" },
-  // ];
 
+  type Expense = {
+    id: number;
+    week: string;
+    [key: string]: string | number;
+  };
+  const weeklyExpenses: Expense[] = [
+    { id: 1, week: "1st", a: "30", b: "20", c: "33", d: "24", e: "31" },
+    { id: 2, week: "2nd", a: "34", b: "21", c: "3", d: "25", e: "35" },
+    { id: 3, week: "3rd", a: "36", b: "5", c: "25", d: "84", e: "7" },
+    { id: 4, week: "4th", a: "40", b: "23", c: "44", d: "22", e: "2" },
+  ];
+  const expenseCategories = Object.keys(weeklyExpenses[0]).filter(
+    (key) => key !== "id" && key !== "week"
+  );
+  const categoryColors: Record<string, string> = {
+    a: "#D946EF",
+    b: "#9A2EFF",
+    c: "#6D2EFF",
+    d: "#3336FF",
+    e: "#146EFF",
+  };
   const payementHistory = [
     {
       id: 1,
@@ -376,7 +391,7 @@ const Dashboard = () => {
           <Col id="balance-trends-col" className="pr-1">
             <Row
               id="outer-frame-balance-trends"
-              className="mb-4 rounded-md bg-white p-4 shadow-md"
+              className="mb-2 rounded-md bg-white p-4 shadow-md"
             >
               <div
                 id="balance-trends-frame-up"
@@ -405,7 +420,7 @@ const Dashboard = () => {
             </Row>
           </Col>
           <Col
-            id="monthly-breakdown-col"
+            id="weekly-breakdown-col"
             className="h-fit rounded-md bg-white p-4 shadow-md"
           >
             <Row id="monthly-brakdown-frame" className="">
@@ -466,17 +481,17 @@ const Dashboard = () => {
         <Row className="my-6 grid grid-cols-1 gap-6 lg:grid-cols-[38.5%_60%]">
           <Col
             id="monthly-budget-col"
-            className="rounded-md bg-white p-4 shadow-md"
+            className="h-full rounded-md bg-white p-4 shadow-md"
           >
-            <div id="title-monthly-budget" className="mb-4">
+            <div id="title-monthly-budget" className="mb-2">
               <h4> Monthly Budget</h4>
             </div>
-            <div id="conte" className="">
+            <div id="conte" className="h-[85%] overflow-y-scroll">
               {budget.map((b) => (
                 <div
                   key={b.id}
                   id="budgets-category"
-                  className="mr-2 mt-4 flex"
+                  className="mr-2 mt-7 flex"
                 >
                   <div
                     id="budgets-left"
@@ -523,32 +538,33 @@ const Dashboard = () => {
           </Col>
           <Col
             id="income-vs-expenses-col"
-            className="z-20 rounded-md bg-white p-4 shadow-md"
+            className="z-10 flex flex-col justify-between rounded-md bg-white p-4 pb-0 pr-0 shadow-md"
           >
-            <div id="title-income-vs-expenses" className="">
+            <div id="title-income-vs-expenses">
               <h4> Monthly Income vs Expenses</h4>
             </div>
-            <div id="bar-chart" className="w-full">
+            <div id="bar-chart" className="h-[95%]">
               <BarChart
-                className="z-0 min-w-fit"
+                className="z-0 ml-4"
                 xAxis={[
                   {
                     scaleType: "band",
                     data: incomeVsExpenses.map((IE) => IE.month),
+                    categoryGapRatio: 0.3,
                   },
                 ]}
                 series={[
                   {
+                    label: "Income",
                     data: incomeVsExpenses.map((IE) => IE.income),
                     color: "#0400EB",
                   },
                   {
+                    label: "Expenses",
                     data: incomeVsExpenses.map((IE) => IE.expenses),
                     color: "#CDCCFB",
                   },
                 ]}
-                width={500}
-                height={300}
               />
             </div>
           </Col>
@@ -559,12 +575,27 @@ const Dashboard = () => {
         <Row className="grid grid-cols-1 gap-6 lg:grid-cols-[65%_33.5%]">
           <Col
             id="weekly-expenses-col"
-            className="rounded-md bg-white p-4 shadow-md"
+            className="flex w-full flex-col justify-between rounded-md bg-white p-4 pb-0 shadow-md"
           >
-            <div id="title-weekly-expenses" className="">
+            <div id="title-weekly-expenses">
               <h4> Weekly Expenses</h4>
             </div>
-            <div className=""> GRAPH</div>
+            <div className="flex h-[95%] w-full">
+              <BarChart
+                xAxis={[
+                  {
+                    scaleType: "band",
+                    data: weeklyExpenses.map((WE) => WE.week),
+                  },
+                ]}
+                series={expenseCategories.map((category) => ({
+                  data: weeklyExpenses.map((WE) => WE[category]),
+                  stack: "total",
+                  label: category,
+                  color: categoryColors[category],
+                }))}
+              />
+            </div>
           </Col>
           <Col
             id="payment-history-col"
