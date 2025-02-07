@@ -65,6 +65,7 @@ const Dashboard = () => {
     },
     { id: 8, title: "Other", color: "#78716C", sum: 500, perc: 12.5 },
   ];
+
   const budget = [
     {
       id: 1,
@@ -96,6 +97,7 @@ const Dashboard = () => {
       nr: 35,
     },
   ];
+
   const incomeVsExpenses = [
     {
       id: 1,
@@ -176,15 +178,18 @@ const Dashboard = () => {
     week: string;
     [key: string]: string | number;
   };
+
   const weeklyExpenses: Expense[] = [
     { id: 1, week: "1st", a: "30", b: "20", c: "33", d: "24", e: "31" },
     { id: 2, week: "2nd", a: "34", b: "21", c: "3", d: "25", e: "35" },
     { id: 3, week: "3rd", a: "36", b: "5", c: "25", d: "84", e: "7" },
     { id: 4, week: "4th", a: "40", b: "23", c: "44", d: "22", e: "2" },
   ];
+
   const expenseCategories = Object.keys(weeklyExpenses[0]).filter(
     (key) => key !== "id" && key !== "week"
   );
+
   const categoryColors: Record<string, string> = {
     a: "#D946EF",
     b: "#9A2EFF",
@@ -192,6 +197,7 @@ const Dashboard = () => {
     d: "#3336FF",
     e: "#146EFF",
   };
+
   const payementHistory = [
     {
       id: 1,
@@ -306,6 +312,7 @@ const Dashboard = () => {
       percentage: 90,
     },
   ];
+
   return (
     <div
       id="dashboard-page"
