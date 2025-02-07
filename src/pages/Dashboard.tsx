@@ -20,7 +20,6 @@ import { BarChart } from "@mui/x-charts/BarChart";
 import LineChart from "../parts/LineChart";
 
 import "react-circular-progressbar/dist/styles.css";
-import { red } from "@mui/material/colors";
 
 const Dashboard = () => {
   const firstRow = [
@@ -49,36 +48,7 @@ const Dashboard = () => {
       perc: "not sure how",
     },
   ];
-  // const balanceTrends = [
-  //   { id: 1, activeNr: 0, inactiveNr: 40, date: "4 Jan" },
-  //   { id: 2, activeNr: 65, inactiveNr: 105, date: "5 Jan" },
-  //   { id: 3, activeNr: 52, inactiveNr: 92, date: "6 Jan" },
-  //   { id: 4, activeNr: 115, inactiveNr: 155, date: "7 Jan" },
-  //   { id: 5, activeNr: 98, inactiveNr: 138, date: "8 Jan" },
-  //   { id: 6, activeNr: 165, inactiveNr: 205, date: "9 Jan" },
-  //   { id: 7, activeNr: 125, inactiveNr: 165, date: "10 Jan" },
-  // ];
 
-  // const BalanceTrends = {
-  //   labels: [
-  //     "Sunday",
-  //     "Monday",
-  //     "Tuesday",
-  //     "Wednesday",
-  //     "Thursday",
-  //     "Friday",
-  //     "Saturday",
-  //   ],
-  //   datasets: [
-  //     {
-  //       label: "Hours Studied in Geeksforgeeks",
-  //       data: [2, 5, 7, 9, 7, 6, 4],
-  //       fill: true,
-  //       backgroundColor: "rgba(6, 156,51, .3)",
-  //       borderColor: "#02b844",
-  //     },
-  //   ],
-  // };
   const breackdown = [
     { id: 1, title: "Food", color: "#DD2626", sum: "500", perc: 12.5 },
     { id: 2, title: "Transport", color: "#F97316", sum: "500", perc: 12.5 },
@@ -355,8 +325,11 @@ const Dashboard = () => {
           <p className=" ">Home --- Dashboard</p>
         </div>
       </div>
-      <Container id="outer-frame-first-row" className="mb-4 px-0">
-        <Row className="grid grid-cols-1 gap-6 pr-3 sm:grid-cols-2 lg:grid-cols-4">
+      <Container className="mb-4 px-0">
+        <Row
+          id="outer-frame-first-row"
+          className="-mr-1 grid grid-cols-1 gap-6 pr-2 sm:grid-cols-2 lg:grid-cols-4"
+        >
           {firstRow.map((f) => (
             <Col className="rounded-md bg-white px-4 py-6 shadow-md" key={f.id}>
               <Row>
@@ -378,20 +351,21 @@ const Dashboard = () => {
                   <AiOutlineRise />
                 </span>
                 <p id="percentage-text-1" className=" ">
-                  2.47% Last month $24,478
+                  2.47% Last month € 24,478
                 </p>
               </div>
             </Col>
           ))}
         </Row>
-      </Container>
 
-      <Container id="outer-frame-second-row" className="px-0">
-        <Row className="grid w-full grid-cols-1 gap-x-8 lg:grid-cols-[65%_33.5%]">
+        <Row
+          id="outer-frame-second-row"
+          className="mt-4 grid w-full grid-cols-1 gap-x-8 px-0 lg:grid-cols-[65%_33.5%]"
+        >
           <Col id="balance-trends-col" className="pr-1">
             <Row
               id="outer-frame-balance-trends"
-              className="mb-2 rounded-md bg-white p-4 shadow-md"
+              className="rounded-md bg-white p-4 shadow-md"
             >
               <div
                 id="balance-trends-frame-up"
@@ -401,7 +375,7 @@ const Dashboard = () => {
                   <h6 id="title-balance-trends" className="text-big">
                     Balance Trends
                   </h6>
-                  <p className="text-[2rem] font-medium text-big">€</p>
+                  <p className="text-[2rem] font-medium text-big">€ 432568</p>
                 </div>
 
                 <div
@@ -475,10 +449,11 @@ const Dashboard = () => {
             </Row>
           </Col>
         </Row>
-      </Container>
 
-      <Container id="outer-frame-third-row">
-        <Row className="my-6 grid grid-cols-1 gap-6 lg:grid-cols-[38.5%_60%]">
+        <Row
+          id="outer-frame-third-row"
+          className="mt-4 grid grid-cols-1 gap-6 lg:grid-cols-[38%_58.5%]"
+        >
           <Col
             id="monthly-budget-col"
             className="h-full rounded-md bg-white p-4 shadow-md"
@@ -569,10 +544,11 @@ const Dashboard = () => {
             </div>
           </Col>
         </Row>
-      </Container>
 
-      <Container id="outer-frame-forth-row" className="">
-        <Row className="grid grid-cols-1 gap-6 lg:grid-cols-[65%_33.5%]">
+        <Row
+          id="outer-frame-forth-row"
+          className="mt-4 grid grid-cols-1 gap-6 lg:grid-cols-[65%_33.5%]"
+        >
           <Col
             id="weekly-expenses-col"
             className="flex w-full flex-col justify-between rounded-md bg-white p-4 pb-0 shadow-md"
@@ -636,10 +612,11 @@ const Dashboard = () => {
             </ul>
           </Col>
         </Row>
-      </Container>
 
-      <Container id="outer-frame-fifth-row" className="">
-        <Row className="-mb-4 mt-6 grid grid-cols-1 gap-6 lg:grid-cols-[38.5%_60%]">
+        <Row
+          id="outer-frame-fifth-row"
+          className="mt-4 grid grid-cols-1 gap-6 lg:grid-cols-[38.5%_60%]"
+        >
           <Col
             id="saving-goals-col"
             className="h-fit rounded-md bg-white p-4 shadow-md"
