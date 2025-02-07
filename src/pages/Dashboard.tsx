@@ -26,25 +26,25 @@ const Dashboard = () => {
     {
       id: 1,
       title: "Total Balance",
-      sum: "$",
+      sum: "432568",
       perc: "not sure how",
     },
     {
       id: 2,
       title: "Total Period Change",
-      sum: "$",
+      sum: "245860",
       perc: "not sure how",
     },
     {
       id: 3,
       title: "Total Period Expenses",
-      sum: "$",
+      sum: "25.35",
       perc: "not sure how",
     },
     {
       id: 4,
       title: "Total period Income",
-      sum: "$",
+      sum: "5000",
       perc: "not sure how",
     },
   ];
@@ -350,8 +350,11 @@ const Dashboard = () => {
                 </h6>
               </Row>
               <Row id="first-row-sum" className="my-2.5">
-                <p id="sum-total-balance" className="text-3xl text-big">
-                  $
+                <p
+                  id="sum-total-balance"
+                  className="text-3xl font-medium text-big"
+                >
+                  € {f.sum}
                 </p>
               </Row>
               <Dropdown.Divider />
@@ -367,6 +370,7 @@ const Dashboard = () => {
           ))}
         </Row>
       </Container>
+
       <Container id="outer-frame-second-row" className="px-0">
         <Row className="grid w-full grid-cols-1 gap-x-8 lg:grid-cols-[65%_33.5%]">
           <Col id="balance-trends-col" className="pr-1">
@@ -550,6 +554,7 @@ const Dashboard = () => {
           </Col>
         </Row>
       </Container>
+
       <Container id="outer-frame-forth-row" className="">
         <Row className="grid grid-cols-1 gap-6 lg:grid-cols-[65%_33.5%]">
           <Col
@@ -601,6 +606,7 @@ const Dashboard = () => {
           </Col>
         </Row>
       </Container>
+
       <Container id="outer-frame-fifth-row" className="">
         <Row className="-mb-4 mt-6 grid grid-cols-1 gap-6 lg:grid-cols-[38.5%_60%]">
           <Col
