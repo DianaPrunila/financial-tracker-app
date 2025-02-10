@@ -317,9 +317,8 @@ const Dashboard = () => {
     <div
       id="dashboard-page"
       // Home---Dashboard se duce in sus cand e pe exran mic
-      className=""
     >
-      <div id="page-up-info" className="flex justify-between">
+      <div id="page-up-info" className="mr-3 flex justify-between">
         <div id="dashboard-up-left" className="-ml-3 mb-5">
           <h3 id="title-page" className="mt-2 text-big">
             Dashboard
@@ -332,10 +331,10 @@ const Dashboard = () => {
           <p className=" ">Home --- Dashboard</p>
         </div>
       </div>
-      <Container className="mb-4 px-0">
+      <Container className="px-0">
         <Row
           id="outer-frame-first-row"
-          className="-mr-1 grid grid-cols-1 gap-6 pr-2 sm:grid-cols-2 lg:grid-cols-4"
+          className="mr-1 grid grid-cols-1 gap-7 pr-2 sm:grid-cols-2 lg:grid-cols-4"
         >
           {firstRow.map((f) => (
             <Col className="rounded-md bg-white px-4 py-6 shadow-md" key={f.id}>
@@ -365,11 +364,8 @@ const Dashboard = () => {
           ))}
         </Row>
 
-        <Row
-          id="outer-frame-second-row"
-          className="mt-4 grid w-full grid-cols-1 gap-x-8 px-0 lg:grid-cols-[65%_33.5%]"
-        >
-          <Col id="balance-trends-col" className="pr-1">
+        <Row id="outer-frame-second-row" className="mt-4 w-full gap-7 px-0">
+          <Col id="balance-trends-col" xs={12} lg={8}>
             <Row
               id="outer-frame-balance-trends"
               className="rounded-md bg-white p-4 shadow-md"
@@ -457,10 +453,7 @@ const Dashboard = () => {
           </Col>
         </Row>
 
-        <Row
-          id="outer-frame-third-row"
-          className="mt-4 grid grid-cols-1 gap-6 lg:grid-cols-[38%_58.5%]"
-        >
+        <Row id="outer-frame-third-row" className="mt-4 w-full gap-7">
           <Col
             id="monthly-budget-col"
             className="h-full rounded-md bg-white p-4 shadow-md"
@@ -521,18 +514,19 @@ const Dashboard = () => {
           <Col
             id="income-vs-expenses-col"
             className="z-10 flex flex-col justify-between rounded-md bg-white p-4 pb-0 pr-0 shadow-md"
+            xs={12}
+            lg={8}
           >
             <div id="title-income-vs-expenses">
               <h4> Monthly Income vs Expenses</h4>
             </div>
-            <div id="bar-chart" className="h-[95%]">
+            <div id="bar-chart" className="h-[90%]">
               <BarChart
                 className="z-0 ml-4"
                 xAxis={[
                   {
                     scaleType: "band",
                     data: incomeVsExpenses.map((IE) => IE.month),
-                    categoryGapRatio: 0.3,
                   },
                 ]}
                 series={[
@@ -552,18 +546,17 @@ const Dashboard = () => {
           </Col>
         </Row>
 
-        <Row
-          id="outer-frame-forth-row"
-          className="mt-4 grid grid-cols-1 gap-6 lg:grid-cols-[65%_33.5%]"
-        >
+        <Row id="outer-frame-forth-row" className="mt-4 w-full gap-7">
           <Col
             id="weekly-expenses-col"
-            className="flex w-full flex-col justify-between rounded-md bg-white p-4 pb-0 shadow-md"
+            className="flex flex-col justify-between rounded-md bg-white p-4 pb-0 shadow-md"
+            xs={12}
+            lg={8}
           >
             <div id="title-weekly-expenses">
               <h4> Weekly Expenses</h4>
             </div>
-            <div className="flex h-[95%] w-full">
+            <div className="flex h-[90%]">
               <BarChart
                 xAxis={[
                   {
@@ -572,7 +565,7 @@ const Dashboard = () => {
                   },
                 ]}
                 series={expenseCategories.map((category) => ({
-                  data: weeklyExpenses.map((WE) => WE[category]),
+                  data: weeklyExpenses.map((WE) => Number(WE[category]) || 0),
                   stack: "total",
                   label: category,
                   color: categoryColors[category],
@@ -620,10 +613,7 @@ const Dashboard = () => {
           </Col>
         </Row>
 
-        <Row
-          id="outer-frame-fifth-row"
-          className="mt-4 grid grid-cols-1 gap-6 lg:grid-cols-[38.5%_60%]"
-        >
+        <Row id="outer-frame-fifth-row" className="mt-4 w-full gap-7">
           <Col
             id="saving-goals-col"
             className="h-fit rounded-md bg-white p-4 shadow-md"
@@ -662,6 +652,8 @@ const Dashboard = () => {
           <Col
             id="transaction-history-col"
             className="rounded-md bg-white p-4 pb-0 shadow-md"
+            xs={12}
+            lg={8}
           >
             <div id="title-transaction-history" className="mb-2">
               <h4>Transaction History</h4>
