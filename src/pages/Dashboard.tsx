@@ -314,7 +314,10 @@ const Dashboard = () => {
   ];
 
   return (
-    <div id="dashboard-page">
+    <div
+      id="dashboard-page"
+      // Home---Dashboard se duce in sus cand e pe exran mic
+    >
       <div id="page-up-info" className="mr-3 flex justify-between">
         <div id="dashboard-up-left" className="-ml-3 mb-5">
           <h3 id="title-page" className="mt-2 text-big">
@@ -331,7 +334,7 @@ const Dashboard = () => {
       <Container className="px-0">
         <Row
           id="outer-frame-first-row"
-          className="mr-1 flex grid gap-7 pr-2 lg:grid-cols-4 lg:flex-row"
+          className="mr-1 grid grid-cols-1 gap-7 pr-2 sm:grid-cols-2 lg:grid-cols-4"
         >
           {firstRow.map((f) => (
             <Col className="rounded-md bg-white px-4 py-6 shadow-md" key={f.id}>
@@ -417,7 +420,7 @@ const Dashboard = () => {
                   <div
                     key={s.id}
                     id="monthly-expenses-down"
-                    className="flex justify-between py-2.5"
+                    className="flex justify-between pt-3"
                   >
                     <div id="monthly-expenses-left" className="flex">
                       <div
@@ -453,7 +456,7 @@ const Dashboard = () => {
         <Row id="outer-frame-third-row" className="mt-4 w-full gap-7">
           <Col
             id="monthly-budget-col"
-            className="h-full rounded-md bg-white p-4 shadow-md"
+            className="rounded-md bg-white p-4 shadow-md"
           >
             <div id="title-monthly-budget" className="mb-2">
               <h4> Monthly Budget</h4>
@@ -572,7 +575,7 @@ const Dashboard = () => {
           </Col>
           <Col
             id="payment-history-col"
-            className="h-full rounded-md bg-white p-4 pb-0 shadow-md"
+            className="rounded-md bg-white p-4 pb-0 shadow-md"
           >
             <div id="title-payment-history" className="flex justify-between">
               <h4> Payment History</h4>
@@ -582,10 +585,10 @@ const Dashboard = () => {
             </div>
             <ul
               id="payement-history-expenses"
-              className="h-[85%] divide-y overflow-y-auto"
+              className="h-full divide-y overflow-y-auto"
             >
               {payementHistory.map((h) => (
-                <li key={h.id} id="payement-history-expenses-model">
+                <li key={h.id} id="payement-history-expenses-model h-[85%]">
                   <div
                     id="payement-history-expenses-model-up"
                     className="mb-1 mt-3 flex justify-between"

@@ -11,7 +11,7 @@ const NavBar = () => {
   return (
     <nav className="fixed top-0 z-50 flex w-full flex-wrap items-center justify-between bg-bkGd px-4 py-3">
       <div id="nav-left" className="flex">
-        <form className="ml-4 flex rounded-l-md border-x border-y">
+        <form className="ml-5 flex rounded-l-md border-x border-y">
           <input
             type="text"
             placeholder="Search Here"
