@@ -314,24 +314,20 @@ const Dashboard = () => {
   ];
 
   return (
-    <div
-      id="dashboard-page"
-      // Home---Dashboard se duce in sus cand e pe exran mic
-    >
-      <div id="page-up-info" className="mr-3 flex justify-between">
-        <div id="dashboard-up-left" className="-ml-3 mb-5">
-          <h3 id="title-page" className="mt-2 text-big">
-            Dashboard
-          </h3>
-          <p id="owner-page" className="mt-1 leading-7">
-            Welcome to Prunila finance Management
-          </p>
+    <Container id="dashboard-page" className="-mb-5 -mt-6 pb-3">
+      <div id="page-up-info" className="mr-3 flex flex-col pt-4">
+        <div id="dashboard-up" className="-ml-3">
+          <h3 id="title-page">Dashboard</h3>
         </div>
-        <div id="dashboard-up-right" className="">
-          <p className=" ">Home --- Dashboard</p>
+        <div
+          id="dashboard-down"
+          className="-ml-3 mb-5 mt-3 flex justify-between"
+        >
+          <p id="owner-page">Welcome to Prunila finance Management</p>
+          <p>Home --- Dashboard</p>
         </div>
       </div>
-      <Container className="px-0">
+      <div id="boxes" className="content-between px-0">
         <Row
           id="outer-frame-first-row"
           className="mr-1 grid grid-cols-1 gap-7 pr-2 sm:grid-cols-2 lg:grid-cols-4"
@@ -400,8 +396,8 @@ const Dashboard = () => {
             id="weekly-breakdown-col"
             className="h-fit rounded-md bg-white p-4 shadow-md"
           >
-            <Row id="monthly-brakdown-frame">
-              <h4 id="monthly-brakdown-title" className="text-big">
+            <Row id="monthly-breakdown-frame">
+              <h4 id="monthly-breakdown-title" className="text-big">
                 Monthly Expense Breakdown
               </h4>
               <div id="bar-expenses" className="my-3">
@@ -513,7 +509,7 @@ const Dashboard = () => {
           </Col>
           <Col
             id="income-vs-expenses-col"
-            className="z-10 flex flex-col justify-between rounded-md bg-white p-4 pb-0 pr-0 shadow-md"
+            className="z-0 flex flex-col justify-between rounded-md bg-white p-4 pb-0 pr-0 shadow-md"
             xs={12}
             lg={8}
           >
@@ -711,8 +707,8 @@ const Dashboard = () => {
             </div>
           </Col>
         </Row>
-      </Container>
-    </div>
+      </div>
+    </Container>
   );
 };
 

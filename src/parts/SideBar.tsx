@@ -28,7 +28,7 @@ const iconsSidebar = [
 ];
 const SideBar = () => {
   return (
-    <div className=" fixed z-20 flex h-full w-20 flex-grow justify-center bg-sidebarColor">
+    <div className="fixed top-0 flex h-full w-20 flex-grow justify-center bg-sidebarColor">
       <SidebarMenu className="flex flex-col">
         <SidebarMenu.Header className="mb-3 mt-7">
           <SidebarMenu.Nav.Link href="/">

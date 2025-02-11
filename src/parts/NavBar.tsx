@@ -9,9 +9,9 @@ import { IoLogOutOutline } from "react-icons/io5";
 
 const NavBar = () => {
   return (
-    <nav className="fixed top-0 z-50 flex w-full flex-wrap items-center justify-between bg-bkGd px-4 py-3">
+    <nav className="fixed top-0 z-20 flex w-full flex-wrap items-center justify-between bg-bkGd px-4 py-3">
       <div id="nav-left" className="flex">
-        <form className="ml-5 flex rounded-l-md border-x border-y">
+        <form className="ml-4 flex rounded-l-md border-x border-y">
           <input
             type="text"
             placeholder="Search Here"
@@ -28,11 +28,11 @@ const NavBar = () => {
         className="flex text-center text-2xl"
         style={{ marginRight: "5.5rem" }}
       >
-        <button className="sun mx-2">
+        <button id="sun" className="mx-2">
           <IoSunny />
         </button>
 
-        <Dropdown className="notification-button">
+        <Dropdown id="notification-button">
           <Dropdown.Toggle
             id="bell"
             className="hover: m-2 mb-0 border-0 bg-transparent p-0 text-2xl shadow-none"
@@ -63,7 +63,7 @@ const NavBar = () => {
             </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
-        <Dropdown className="">
+        <Dropdown>
           <Dropdown.Toggle
             id="navBar-profile-icon "
             className="mx-2 rounded-full border-0 bg-sidebarColor p-2 text-2xl text-white shadow-none hover:bg-sidebarColor hover:text-white"
