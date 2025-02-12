@@ -1,3 +1,4 @@
+[
   {
     "firtRow": [
       {
@@ -23,6 +24,52 @@
         "title": "Total period Income",
         "sum": "5000",
         "perc": "not sure how"
+      }
+    ]
+  },
+  {
+    "trends": [
+      {
+        "id": 1,
+        "month": "4 Jan",
+        "actie": 0,
+        "inactie": 40
+      },
+      {
+        "id": 2,
+        "month": "5 Jan",
+        "actie": 65,
+        "inactie": 105
+      },
+      {
+        "id": 3,
+        "month": "6 Jan",
+        "actie": 52,
+        "inactie": 92
+      },
+      {
+        "id": 4,
+        "month": "7 Jan",
+        "actie": 115,
+        "inactie": 115
+      },
+      {
+        "id": 5,
+        "month": "8 Jan",
+        "actie": 98,
+        "inactie": 138
+      },
+      {
+        "id": 6,
+        "month": "9 Jan",
+        "actie": 165,
+        "inactie": 205
+      },
+      {
+        "id": 7,
+        "month": "10 Jan",
+        "actie": 125,
+        "inactie": 165
       }
     ]
   },
@@ -371,4 +418,4 @@
       }
     ]
   }
-
+]

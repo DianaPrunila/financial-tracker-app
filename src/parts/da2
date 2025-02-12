@@ -1,24 +1,22 @@
-import { useEffect, useState } from "react";
+interface Data {
+  [key: string]: any[];
+}
+const [data, setData] = useState<Data>({
+  firstRow: [],
+  trends: [],
+  breackdown: [],
+  budget: [],
+  incomeVsExpenses: [],
+  weeklyExpenses: [],
+  categoryColors: [],
+  payementHistory: [],
+  transactionHistory: [],
+  savingGoals: [],
+});
 
-const Dashboard = () => {
-  interface Data {
-    [key: string]: any[];
-  }
-  const [data, setData] = useState<Data>({
-    firstRow: [],
-    breackdown: [],
-    budget: [],
-    incomeVsExpenses: [],
-    weeklyExpenses: [],
-    categoryColors: [],
-    payementHistory: [],
-    transactionHistory: [],
-    savingGoals: [],
-  });
-
-  useEffect(() => {
-    fetch("/data.json")
-      .then((response) => response.json())
-      .then((jsonData) => setData(jsonData))
-      .catch((error) => console.error("Something whent wrong", error));
-  }, []);
+useEffect(() => {
+  fetch("/data.json")
+    .then((response) => response.json())
+    .then((jsonData) => setData(jsonData))
+    .catch((error) => console.error("Something whent wrong", error));
+}, []);

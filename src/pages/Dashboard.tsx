@@ -17,9 +17,10 @@ import { FaCat } from "react-icons/fa6";
 import { IoShirtOutline } from "react-icons/io5";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import { BarChart } from "@mui/x-charts/BarChart";
-import LineChart from "../parts/LineChart";
+// import LineChart from "../parts/LineChart";
 
 import "react-circular-progressbar/dist/styles.css";
+import { LineChart } from "@mui/x-charts";
 
 const Dashboard = () => {
   const firstRow = [
@@ -46,6 +47,51 @@ const Dashboard = () => {
       title: "Total period Income",
       sum: "5000",
       perc: "not sure how",
+    },
+  ];
+
+  const trends = [
+    {
+      id: 1,
+      month: "4 Jan",
+      active: 0,
+      inactive: 40,
+    },
+    {
+      id: 2,
+      month: "5 Jan",
+      active: 65,
+      inactive: 105,
+    },
+    {
+      id: 3,
+      month: "6 Jan",
+      active: 52,
+      inactive: 92,
+    },
+    {
+      id: 4,
+      month: "7 Jan",
+      active: 115,
+      inactive: 115,
+    },
+    {
+      id: 5,
+      month: "8 Jan",
+      active: 98,
+      inactive: 138,
+    },
+    {
+      id: 6,
+      month: "9 Jan",
+      active: 165,
+      inactive: 205,
+    },
+    {
+      id: 7,
+      month: "10 Jan",
+      active: 125,
+      inactive: 165,
     },
   ];
 
@@ -180,10 +226,10 @@ const Dashboard = () => {
   };
 
   const weeklyExpenses: Expense[] = [
-    { id: 1, week: "1st", a: "30", b: "20", c: "33", d: "24", e: "31" },
-    { id: 2, week: "2nd", a: "34", b: "21", c: "3", d: "25", e: "35" },
-    { id: 3, week: "3rd", a: "36", b: "5", c: "25", d: "84", e: "7" },
-    { id: 4, week: "4th", a: "40", b: "23", c: "44", d: "22", e: "2" },
+    { id: 1, week: "1st", a: 30, b: 20, c: 33, d: 24, e: 31 },
+    { id: 2, week: "2nd", a: 34, b: 21, c: 3, d: 25, e: 35 },
+    { id: 3, week: "3rd", a: 36, b: 5, c: 25, d: 84, e: 7 },
+    { id: 4, week: "4th", a: 40, b: 23, c: 44, d: 22, e: 2 },
   ];
 
   const expenseCategories = Object.keys(weeklyExpenses[0]).filter(
@@ -387,8 +433,30 @@ const Dashboard = () => {
                   <p id="balance-trends-percentage">xx.yy%</p>
                 </div>
               </div>
-              <div className="">
-                <LineChart />
+              <div id="line-chart">
+                <LineChart
+                  xAxis={[
+                    {
+                      data: trends.map((t) => t.month),
+                    },
+                  ]}
+                  series={[
+                    {
+                      // label: "Active",
+                      data: trends.map((t) => t.inactive),
+                      area: true,
+                      stack: "value",
+                    },
+
+                    {
+                      // label: "Inactive",
+                      data: trends.map((t) => t.active),
+                      area: true,
+                      stack: "value",
+                    },
+                  ]}
+                  height={300}
+                />
               </div>
             </Row>
           </Col>
