@@ -6,11 +6,15 @@ import { CiUser } from "react-icons/ci";
 import { LuWalletMinimal } from "react-icons/lu";
 import { IoSettingsOutline } from "react-icons/io5";
 import { IoLogOutOutline } from "react-icons/io5";
+import Hamburger from "./Hamburger";
 
 const NavBar = () => {
   return (
-    <nav className="fixed top-0 z-20 flex w-full flex-wrap items-center justify-between bg-bkGd px-4 py-3">
-      <div id="nav-left" className="flex">
+    <nav className="fixed top-0 z-20 flex w-full flex-wrap items-center justify-between bg-bkGd py-3">
+      <div id="nav-left" className="flex" style={{ paddingLeft: "4.6rem" }}>
+        <div className="flex">
+          <Hamburger />
+        </div>
         <form className="ml-4 flex rounded-l-md border-x border-y">
           <input
             type="text"
@@ -26,7 +30,7 @@ const NavBar = () => {
       <div
         id="nav-right "
         className="flex text-center text-2xl"
-        style={{ marginRight: "5.5rem" }}
+        style={{ marginRight: "4rem" }}
       >
         <button id="sun" className="mx-2">
           <IoSunny />

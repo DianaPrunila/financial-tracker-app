@@ -50,11 +50,11 @@ p {
 }
 
 .css-1qdzy9k-MuiBarElement-root {
-  fill: #2f2cd8;
+  fill: red;
 }
 
 .css-3dcfwk-MuiBarElement-root {
-  fill: #cdccfb;
+  fill: green;
 }
 
 .dropdown-toggle::after {
@@ -78,7 +78,20 @@ p {
 
 .btn-primary {
   --mdb-btn-color: #7184ad;
+  --mdb-btn-bg: #2f2cd8;
 }
+.btn:hover {
+  background-color: #2f2cd8;
+}
+.btn:visited {
+  background-color: #2f2cd8;
+}
+
 #bell.btn.show {
+  color: #7184ad;
+}
+#bell.btn:active,
+:focus,
+::after {
   color: #7184ad;
 }

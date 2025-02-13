@@ -1,6 +1,5 @@
 import SidebarMenu from "react-bootstrap-sidebar-menu";
 import { MDBTooltip } from "mdb-react-ui-kit";
-// import "../index.css";
 import { LuWalletMinimal } from "react-icons/lu";
 import { FaShieldCat } from "react-icons/fa6";
 import { LuRadar } from "react-icons/lu";

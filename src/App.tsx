@@ -7,14 +7,14 @@ import NavBar from "./parts/NavBar";
 function App() {
   return (
     <div id="all">
-      <div id="sidebar" className="z-50">
+      {/* <div id="sidebar" className="z-50">
         <SideBar />
-      </div>
-      <div className="mb-20 ml-20 mt-24">
-        <div id="navbar" className="w-[20rem]">
+      </div> */}
+      <div className="mb-20 mt-24">
+        <div id="navbar" className="">
           <NavBar />
         </div>
-        <div id="outlet" className="z-10 ml-10 mr-5">
+        <div id="outlet" className="z-10 ml-11 mr-5">
           <Outlet />
         </div>
         <div id="footer">

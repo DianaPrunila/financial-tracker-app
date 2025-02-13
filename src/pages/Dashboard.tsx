@@ -410,7 +410,7 @@ const Dashboard = () => {
           <Col id="balance-trends-col" xs={12} lg={8}>
             <Row
               id="outer-frame-balance-trends"
-              className="rounded-md bg-white p-4 shadow-md"
+              className="h-full rounded-md bg-white p-4 shadow-md"
             >
               <div
                 id="balance-trends-frame-up"
@@ -433,7 +433,7 @@ const Dashboard = () => {
                   <p id="balance-trends-percentage">xx.yy%</p>
                 </div>
               </div>
-              <div id="line-chart">
+              <div id="line-chart" className="h-[85%]">
                 <LineChart
                   xAxis={[
                     {
@@ -442,20 +442,19 @@ const Dashboard = () => {
                   ]}
                   series={[
                     {
-                      // label: "Active",
+                      label: "Active",
                       data: trends.map((t) => t.inactive),
                       area: true,
                       stack: "value",
                     },
 
                     {
-                      // label: "Inactive",
+                      label: "Inactive",
                       data: trends.map((t) => t.active),
                       area: true,
                       stack: "value",
                     },
                   ]}
-                  height={300}
                 />
               </div>
             </Row>
