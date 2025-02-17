@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "color": "#2f2cd8",
+    "goal": "Vacantion",
+    "value": 80,
+    "percentage": 80
+  },
+  {
+    "id": 2,
+    "color": "#2f2cd8",
+    "goal": "Gift",
+    "value": 60,
+    "percentage": 60
+  },
+  {
+    "id": 3,
+    "color": "#2f2cd8",
+    "goal": "New Car",
+    "value": 30,
+    "percentage": 30
+  },
+  {
+    "id": 4,
+    "color": "#2f2cd8",
+    "goal": "Laptop",
+    "value": 90,
+    "percentage": 90
+  }
+]

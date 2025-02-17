@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "month": "Jan",
+    "income": 2500,
+    "expenses": 1500
+  },
+  {
+    "id": 2,
+    "month": "Feb",
+    "income": 2500,
+    "expenses": 1500
+  },
+  {
+    "id": 3,
+    "month": "Mar",
+    "income": 2500,
+    "expenses": 1500
+  },
+  {
+    "id": 4,
+    "month": "Apr",
+    "income": 2500,
+    "expenses": 1500
+  },
+  {
+    "id": 5,
+    "month": "May",
+    "income": 2500,
+    "expenses": 1500
+  },
+  {
+    "id": 6,
+    "month": "Jun",
+    "income": 2500,
+    "expenses": 1500
+  },
+  {
+    "id": 7,
+    "month": "Jul",
+    "income": 5000,
+    "expenses": 3000
+  },
+  {
+    "id": 8,
+    "month": "Aug",
+    "income": 2500,
+    "expenses": 1500
+  },
+  {
+    "id": 10,
+    "month": "Sep",
+    "income": 2500,
+    "expenses": 1500
+  },
+  {
+    "id": 11,
+    "month": "Oct",
+    "income": 2500,
+    "expenses": 1500
+  },
+  {
+    "id": 11,
+    "month": "Nov",
+    "income": 5000,
+    "expenses": 1500
+  },
+  {
+    "id": 12,
+    "month": "Dec",
+    "income": 2500,
+    "expenses": 3000
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "iconColor": "#10B981",
+    "icon": "<BsScissors />",
+    "name": "Beauty",
+    "date": "12.12.2025",
+    "description": "description of the transaction",
+    "amount": -45.2,
+    "currency": "EUR"
+  },
+  {
+    "id": 2,
+    "iconColor": "#14B8A6",
+    "icon": "<RiBillLine />",
+    "name": "Bills & Fees",
+    "date": "12.12.2025",
+    "description": "description of the transaction",
+    "amount": -24.3,
+    "currency": "EUR"
+  },
+  {
+    "id": 3,
+    "iconColor": "#06B6D4",
+    "icon": "<FaCarSide />",
+    "name": "Car",
+    "date": "12.12.2025",
+    "description": "description of the transaction",
+    "amount": -62.2,
+    "currency": "EUR"
+  },
+  {
+    "id": 4,
+    "iconColor": "#0EA5E9",
+    "icon": "<GoMortarBoard />",
+    "name": "Education",
+    "date": "12.12.2025",
+    "description": "description of the transaction",
+    "amount": -120.0,
+    "currency": "EUR"
+  },
+  {
+    "id": 5,
+    "iconColor": "#3B82F6",
+    "icon": "<LuClapperboard />",
+    "name": "Entertainment",
+    "date": "12.12.2025",
+    "description": "description of the transaction",
+    "amount": -37.7,
+    "currency": "EUR"
+  }
+]

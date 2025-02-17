@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Electricity",
+    "date": "2 february 2025",
+    "amount": 30.0,
+    "status": "Paid"
+  },
+  {
+    "id": 2,
+    "name": "Internet",
+    "date": "2 february 2025",
+    "amount": 20.0,
+    "status": "Due"
+  },
+  {
+    "id": 3,
+    "name": "Spoify",
+    "date": "2 february 2025",
+    "amount": 10.0,
+    "status": "Cancelled"
+  },
+  {
+    "id": 4,
+    "name": "Groceries",
+    "date": "2 february 2025",
+    "amount": 50.0,
+    "status": "Paid"
+  }
+]

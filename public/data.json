@@ -4,25 +4,25 @@
       {
         "id": 1,
         "title": "Total Balance",
-        "sum": "432568",
+        "sum": 432568,
         "perc": "not sure how"
       },
       {
         "id": 2,
         "title": "Total Period Change",
-        "sum": "245860",
+        "sum": 245860,
         "perc": "not sure how"
       },
       {
         "id": 3,
         "title": "Total Period expenses",
-        "sum": "25.35",
+        "sum": 25.35,
         "perc": "not sure how"
       },
       {
         "id": 4,
         "title": "Total period Income",
-        "sum": "5000",
+        "sum": 5000,
         "perc": "not sure how"
       }
     ]
@@ -32,44 +32,44 @@
       {
         "id": 1,
         "month": "4 Jan",
-        "actie": 0,
-        "inactie": 40
+        "active": 0,
+        "inactive": 40
       },
       {
         "id": 2,
         "month": "5 Jan",
-        "actie": 65,
-        "inactie": 105
+        "active": 65,
+        "inactive": 105
       },
       {
         "id": 3,
         "month": "6 Jan",
-        "actie": 52,
-        "inactie": 92
+        "active": 52,
+        "inactive": 92
       },
       {
         "id": 4,
         "month": "7 Jan",
-        "actie": 115,
-        "inactie": 115
+        "active": 115,
+        "inactive": 115
       },
       {
         "id": 5,
         "month": "8 Jan",
-        "actie": 98,
-        "inactie": 138
+        "active": 98,
+        "inactive": 138
       },
       {
         "id": 6,
         "month": "9 Jan",
-        "actie": 165,
-        "inactie": 205
+        "active": 165,
+        "inactive": 205
       },
       {
         "id": 7,
         "month": "10 Jan",
-        "actie": 125,
-        "inactie": 165
+        "active": 125,
+        "inactive": 165
       }
     ]
   },

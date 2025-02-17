@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "title": "Food",
+    "color": "#DD2626",
+    "sum": 500,
+    "perc": 12.5
+  },
+  {
+    "id": 2,
+    "title": "Transport",
+    "color": "#F97316",
+    "sum": 500,
+    "perc": 12.5
+  },
+  {
+    "id": 3,
+    "title": "Healthcare",
+    "color": "#ffcc00",
+    "sum": 500,
+    "perc": 12.5
+  },
+  {
+    "id": 4,
+    "title": "Education",
+    "color": "#F7ED4C",
+    "sum": 500,
+    "perc": 12.5
+  },
+  {
+    "id": 5,
+    "title": "Clothes",
+    "color": "#84CC16",
+    "sum": 500,
+    "perc": 12.5
+  },
+  {
+    "id": 6,
+    "title": "Pets",
+    "color": "#22C55E",
+    "sum": 500,
+    "perc": 12.5
+  },
+  {
+    "id": 7,
+    "title": "Entertainment",
+    "color": "#06B6D4 ",
+    "sum": 500,
+    "perc": 12.5
+  },
+  {
+    "id": 8,
+    "title": "Other",
+    "color": "#78716C",
+    "sum": 500,
+    "perc": 12.5
+  }
+]

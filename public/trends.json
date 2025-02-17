@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "month": "4 Jan",
+    "active": 0,
+    "inactive": 40
+  },
+  {
+    "id": 2,
+    "month": "5 Jan",
+    "active": 65,
+    "inactive": 105
+  },
+  {
+    "id": 3,
+    "month": "6 Jan",
+    "active": 52,
+    "inactive": 92
+  },
+  {
+    "id": 4,
+    "month": "7 Jan",
+    "active": 115,
+    "inactive": 115
+  },
+  {
+    "id": 5,
+    "month": "8 Jan",
+    "active": 98,
+    "inactive": 138
+  },
+  {
+    "id": 6,
+    "month": "9 Jan",
+    "active": 165,
+    "inactive": 205
+  },
+  {
+    "id": 7,
+    "month": "10 Jan",
+    "active": 125,
+    "inactive": 165
+  }
+]
