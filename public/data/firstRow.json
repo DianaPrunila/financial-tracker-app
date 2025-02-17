@@ -3,24 +3,24 @@
     "id": 1,
     "title": "Total Balance",
     "sum": 432568,
-    "perc": "not sure how"
+    "perc": 3
   },
   {
     "id": 2,
     "title": "Total Period Change",
     "sum": 245860,
-    "perc": "not sure how"
+    "perc": 3
   },
   {
     "id": 3,
     "title": "Total Period expenses",
     "sum": 25.35,
-    "perc": "not sure how"
+    "perc": 3
   },
   {
     "id": 4,
     "title": "Total period Income",
     "sum": 5000,
-    "perc": "not sure how"
+    "perc": 3
   }
 ]

@@ -11,353 +11,189 @@ import { GoMortarBoard } from "react-icons/go";
 import { LuClapperboard } from "react-icons/lu";
 import { BsScissors } from "react-icons/bs";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
-import { LuCarrot } from "react-icons/lu";
-import { FaBusAlt } from "react-icons/fa";
-import { FaCat } from "react-icons/fa6";
-import { IoShirtOutline } from "react-icons/io5";
+// import { LuCarrot } from "react-icons/lu";
+// import { FaBusAlt } from "react-icons/fa";
+// import { FaCat } from "react-icons/fa6";
+// import { IoShirtOutline } from "react-icons/io5";
 import ProgressBar from "react-bootstrap/ProgressBar";
-import { BarChart } from "@mui/x-charts/BarChart";
-// import LineChart from "../parts/LineChart";
+import {
+  Area,
+  AreaChart,
+  Bar,
+  BarChart,
+  ResponsiveContainer,
+  XAxis,
+  YAxis,
+} from "recharts";
 
 import "react-circular-progressbar/dist/styles.css";
-import { LineChart } from "@mui/x-charts";
+
+import { useEffect, useState } from "react";
+import { Tooltip } from "react-bootstrap";
 
 const Dashboard = () => {
-  const firstRow = [
-    {
-      id: 1,
-      title: "Total Balance",
-      sum: "432568",
-      perc: "not sure how",
-    },
-    {
-      id: 2,
-      title: "Total Period Change",
-      sum: "245860",
-      perc: "not sure how",
-    },
-    {
-      id: 3,
-      title: "Total Period Expenses",
-      sum: "25.35",
-      perc: "not sure how",
-    },
-    {
-      id: 4,
-      title: "Total period Income",
-      sum: "5000",
-      perc: "not sure how",
-    },
-  ];
+  const [firstR, setFirstR] = useState<FirstRow[]>([]);
+  const [trends, setTrends] = useState<Trends[]>([]);
+  const [breackD, setBreackD] = useState<Breakdown[]>([]);
+  const [budget, setBudget] = useState<Budget[]>([]);
+  // const [categoryC, setCategoryC] = useState<CategoryColor[]>([]);
+  const [incVsExp, setIncVsExp] = useState<IncomeVsExpenses[]>([]);
+  const [weeklyExp, setWeeklyExp] = useState<WeeklyExpenses[]>([]);
+  const [payementH, setPayementH] = useState<PayementHistory[]>([]);
+  const [savingG, setSavingG] = useState<SavingGoals[]>([]);
+  const [transactionH, setTransactionH] = useState<TransactionHistory[]>([]);
 
-  const trends = [
-    {
-      id: 1,
-      month: "4 Jan",
-      active: 0,
-      inactive: 40,
-    },
-    {
-      id: 2,
-      month: "5 Jan",
-      active: 65,
-      inactive: 105,
-    },
-    {
-      id: 3,
-      month: "6 Jan",
-      active: 52,
-      inactive: 92,
-    },
-    {
-      id: 4,
-      month: "7 Jan",
-      active: 115,
-      inactive: 115,
-    },
-    {
-      id: 5,
-      month: "8 Jan",
-      active: 98,
-      inactive: 138,
-    },
-    {
-      id: 6,
-      month: "9 Jan",
-      active: 165,
-      inactive: 205,
-    },
-    {
-      id: 7,
-      month: "10 Jan",
-      active: 125,
-      inactive: 165,
-    },
-  ];
+  interface FirstRow {
+    id: number;
+    title: string;
+    sum: number;
+    perc: number;
+  }
 
-  const breackdown = [
-    { id: 1, title: "Food", color: "#DD2626", sum: "500", perc: 12.5 },
-    { id: 2, title: "Transport", color: "#F97316", sum: "500", perc: 12.5 },
-    { id: 3, title: "Healthcare", color: "#ffcc00", sum: "500", perc: 12.5 },
-    { id: 4, title: "Education", color: "#F7ED4C", sum: "500", perc: 12.5 },
-    { id: 5, title: "Clothes", color: "#84CC16", sum: "500", perc: 12.5 },
-    { id: 6, title: "Pets", color: "#22C55E", sum: "500", perc: 12.5 },
-    {
-      id: 7,
-      title: "Entertainment",
-      color: "#06B6D4 ",
-      sum: 500,
-      perc: 12.5,
-    },
-    { id: 8, title: "Other", color: "#78716C", sum: 500, perc: 12.5 },
-  ];
-
-  const budget = [
-    {
-      id: 1,
-      iconColor: "#22C55E",
-      icon: <LuCarrot />,
-      title: "Grocery Stores",
-      nr: 75,
-    },
-    {
-      id: 2,
-      iconColor: "#06B6D4",
-      icon: <FaBusAlt />,
-      title: "Transportation",
-      nr: 25,
-    },
-    { id: 3, iconColor: "#0EA5E9", icon: <FaCat />, title: "Pets", nr: 50 },
-    {
-      id: 4,
-      iconColor: "#6366F1",
-      icon: <GoMortarBoard />,
-      title: "Education",
-      nr: 45,
-    },
-    {
-      id: 5,
-      iconColor: "#8B5CF6",
-      icon: <IoShirtOutline />,
-      title: "Clothes",
-      nr: 35,
-    },
-  ];
-
-  const incomeVsExpenses = [
-    {
-      id: 1,
-      month: "Jan",
-      income: 2500,
-      expenses: 1500,
-    },
-    {
-      id: 2,
-      month: "Feb",
-      income: 2500,
-      expenses: 1500,
-    },
-    {
-      id: 3,
-      month: "Mar",
-      income: 2500,
-      expenses: 1500,
-    },
-    {
-      id: 4,
-      month: "Apr",
-      income: 2500,
-      expenses: 1500,
-    },
-    {
-      id: 5,
-      month: "May",
-      income: 2500,
-      expenses: 1500,
-    },
-    {
-      id: 6,
-      month: "Jun",
-      income: 2500,
-      expenses: 1500,
-    },
-    {
-      id: 7,
-      month: "Jul",
-      income: 5000,
-      expenses: 3000,
-    },
-    {
-      id: 8,
-      month: "Aug",
-      income: 2500,
-      expenses: 1500,
-    },
-    {
-      id: 10,
-      month: "Sep",
-      income: 2500,
-      expenses: 1500,
-    },
-    {
-      id: 11,
-      month: "Oct",
-      income: 2500,
-      expenses: 1500,
-    },
-    {
-      id: 11,
-      month: "Nov",
-      income: 5000,
-      expenses: 1500,
-    },
-    {
-      id: 12,
-      month: "Dec",
-      income: 2500,
-      expenses: 3000,
-    },
-  ];
-
-  type Expense = {
+  interface Trends {
+    id: number;
+    month: string;
+    active: number;
+    inactive: number;
+  }
+  interface Breakdown {
+    id: number;
+    title: string;
+    color: string;
+    sum: number;
+    perc: number;
+  }
+  interface Budget {
+    id: number;
+    icon: string;
+    iconColor: string;
+    title: string;
+    nr: number;
+  }
+  // interface CategoryColor {
+  //   a: string;
+  //   b: string;
+  //   c: string;
+  //   d: string;
+  //   e: string;
+  // }
+  interface IncomeVsExpenses {
+    id: number;
+    month: string;
+    income: number;
+    expenses: number;
+  }
+  interface WeeklyExpenses {
     id: number;
     week: string;
-    [key: string]: string | number;
-  };
+    a: string;
+    b: string;
+    c: string;
+    d: string;
+    e: string;
+  }
+  interface PayementHistory {
+    id: number;
+    name: string;
+    date: string;
+    amount: number;
+    status: string;
+  }
+  interface SavingGoals {
+    id: number;
+    color: string;
+    goal: string;
+    value: number;
+    perc: number;
+  }
+  interface TransactionHistory {
+    id: number;
+    iconColor: string;
+    icon: React.ComponentType;
+    name: string;
+    date: string;
+    description: string;
+    amount: number;
+    currency: string;
+  }
 
-  const weeklyExpenses: Expense[] = [
-    { id: 1, week: "1st", a: 30, b: 20, c: 33, d: 24, e: 31 },
-    { id: 2, week: "2nd", a: 34, b: 21, c: 3, d: 25, e: 35 },
-    { id: 3, week: "3rd", a: 36, b: 5, c: 25, d: 84, e: 7 },
-    { id: 4, week: "4th", a: 40, b: 23, c: 44, d: 22, e: 2 },
-  ];
+  // const iconMapping: Record<string, React.ComponentType> = {
+  //   BsScissors: BsScissors,
+  //   RiBillLine: RiBillLine,
+  //   FaCarSide: FaCarSide,
+  //   GoMortarBoard: GoMortarBoard,
+  //   LuClapperboard: LuClapperboard,
+  // };
 
-  const expenseCategories = Object.keys(weeklyExpenses[0]).filter(
-    (key) => key !== "id" && key !== "week"
-  );
+  useEffect(() => {
+    fetch("/data/firstRow.json")
+      .then((response) => response.json())
+      .then((response) => setFirstR(response))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
 
-  const categoryColors: Record<string, string> = {
-    a: "#D946EF",
-    b: "#9A2EFF",
-    c: "#6D2EFF",
-    d: "#3336FF",
-    e: "#146EFF",
-  };
+  useEffect(() => {
+    fetch("/data/trends.json")
+      .then((response) => response.json())
+      .then((response) => setTrends(response))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
 
-  const payementHistory = [
-    {
-      id: 1,
-      name: "Electricity",
-      date: "2 february 2025",
-      amount: "30.00",
-      status: "Paid",
-    },
-    {
-      id: 2,
-      name: "Internet",
-      date: "2 february 2025",
-      amount: "20.00",
-      status: "Due",
-    },
-    {
-      id: 3,
-      name: "Spoify",
-      date: "2 february 2025",
-      amount: "10.00",
-      status: "Cancelled",
-    },
-    {
-      id: 4,
-      name: "Groceries",
-      date: "2 february 2025",
-      amount: "50.00",
-      status: "Paid",
-    },
-  ];
+  useEffect(() => {
+    fetch("/data/breackdown.json")
+      .then((response) => response.json())
+      .then((response) => setBreackD(response))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
 
-  const transactionHistory = [
-    {
-      id: 1,
-      iconColor: "#10B981",
-      icon: <BsScissors />,
-      name: "Beauty",
-      date: "12.12.2025",
-      description: "Description of the transaction",
-      amount: "-45.20",
-      currency: "EUR",
-    },
-    {
-      id: 2,
-      iconColor: "#14B8A6",
-      icon: <RiBillLine />,
-      name: "Bills & Fees",
-      date: "12.12.2025",
-      description: "Description of the transaction",
-      amount: "-24.30",
-      currency: "EUR",
-    },
-    {
-      id: 3,
-      iconColor: "#06B6D4",
-      icon: <FaCarSide />,
-      name: "Car",
-      date: "12.12.2025",
-      description: "Description of the transaction",
-      amount: "-62.20",
-      currency: "EUR",
-    },
-    {
-      id: 4,
-      iconColor: "#0EA5E9",
-      icon: <GoMortarBoard />,
-      name: "Education",
-      date: "12.12.2025",
-      description: "Description of the transaction",
-      amount: "-120.00",
-      currency: "EUR",
-    },
-    {
-      id: 5,
-      iconColor: "#3B82F6",
-      icon: <LuClapperboard />,
-      name: "Entertainment",
-      date: "12.12.2025",
-      description: "Description of the transaction",
-      amount: "-37.70",
-      currency: "EUR",
-    },
-  ];
+  useEffect(() => {
+    fetch("/data/budget.json")
+      .then((response) => response.json())
+      .then((response) => setBudget(response))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
 
-  const savingGoals = [
-    {
-      id: 1,
-      color: "#2f2cd8",
-      goal: "Vacantion",
-      value: 80,
-      percentage: 80,
-    },
-    {
-      id: 2,
-      color: "#2f2cd8",
-      goal: "Gift",
-      value: 60,
-      percentage: 60,
-    },
-    {
-      id: 3,
-      color: "#2f2cd8",
-      goal: "New Car",
-      value: 30,
-      percentage: 30,
-    },
-    {
-      id: 4,
-      color: "#2f2cd8",
-      goal: "Laptop",
-      value: 90,
-      percentage: 90,
-    },
-  ];
+  // useEffect(() => {
+  //   fetch("/data/categoryColors.json")
+  //     .then((response) => response.json())
+  //     .then((response) => setCategoryC(response))
+  //     .catch((error) => console.error("Error fetching data:", error));
+  // }, []);
+
+  useEffect(() => {
+    fetch("/data/incomeVsExpenses.json")
+      .then((response) => response.json())
+      .then((response) => setIncVsExp(response))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
+
+  useEffect(() => {
+    fetch("/data/weeklyExpenses.json")
+      .then((response) => response.json())
+      .then((response) => setWeeklyExp(response))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
+
+  useEffect(() => {
+    fetch("/data/payementHistory.json")
+      .then((response) => response.json())
+      .then((response) => setPayementH(response))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
+
+  useEffect(() => {
+    fetch("/data/savingGoals.json")
+      .then((response) => response.json())
+      .then((response) => setSavingG(response))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
+
+  useEffect(() => {
+    fetch("/data/transactionHistory.json")
+      .then((response) => response.json())
+      .then((response) => setTransactionH(response))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
 
   return (
     <Container id="dashboard-page" className="-mb-5 -mt-6 pb-3">
@@ -378,7 +214,7 @@ const Dashboard = () => {
           id="outer-frame-first-row"
           className="mr-1 grid grid-cols-1 gap-7 pr-2 sm:grid-cols-2 lg:grid-cols-4"
         >
-          {firstRow.map((f) => (
+          {firstR.map((f) => (
             <Col className="rounded-md bg-white px-4 py-6 shadow-md" key={f.id}>
               <Row>
                 <h6 id="total-balance" className="text-big">
@@ -433,29 +269,29 @@ const Dashboard = () => {
                   <p id="balance-trends-percentage">xx.yy%</p>
                 </div>
               </div>
-              <div id="line-chart" className="h-[85%]">
-                <LineChart
-                  xAxis={[
-                    {
-                      data: trends.map((t) => t.month),
-                    },
-                  ]}
-                  series={[
-                    {
-                      label: "Active",
-                      data: trends.map((t) => t.inactive),
-                      area: true,
-                      stack: "value",
-                    },
+              <div id="line-chart" className="h-[80%] pl-0">
+                <ResponsiveContainer>
+                  <AreaChart data={trends}>
+                    <XAxis dataKey="month" />
+                    <YAxis />
 
-                    {
-                      label: "Inactive",
-                      data: trends.map((t) => t.active),
-                      area: true,
-                      stack: "value",
-                    },
-                  ]}
-                />
+                    <Tooltip />
+                    <Area
+                      type="monotone"
+                      dataKey="inactive"
+                      stroke="#F0F3FF"
+                      fillOpacity={1}
+                      fill="#F0F3FF"
+                    />
+                    <Area
+                      type="monotone"
+                      dataKey="active"
+                      stroke="#6C84FF"
+                      fillOpacity={1}
+                      fill="#6C84FF"
+                    />
+                  </AreaChart>
+                </ResponsiveContainer>
               </div>
             </Row>
           </Col>
@@ -469,7 +305,7 @@ const Dashboard = () => {
               </h4>
               <div id="bar-expenses" className="my-3">
                 <ProgressBar className="h-1.5 rounded-full">
-                  {breackdown.map((br) => (
+                  {breackD.map((br) => (
                     <ProgressBar
                       key={br.id}
                       now={br.perc}
@@ -479,7 +315,7 @@ const Dashboard = () => {
                 </ProgressBar>
               </div>
               <div id="monthly-expenses-catergories" className="divide-y">
-                {breackdown.map((s) => (
+                {breackD.map((s) => (
                   <div
                     key={s.id}
                     id="monthly-expenses-down"
@@ -583,28 +419,16 @@ const Dashboard = () => {
             <div id="title-income-vs-expenses">
               <h4> Monthly Income vs Expenses</h4>
             </div>
-            <div id="bar-chart" className="h-[90%]">
-              <BarChart
-                className="z-0 ml-4"
-                xAxis={[
-                  {
-                    scaleType: "band",
-                    data: incomeVsExpenses.map((IE) => IE.month),
-                  },
-                ]}
-                series={[
-                  {
-                    label: "Income",
-                    data: incomeVsExpenses.map((IE) => IE.income),
-                    color: "#0400EB",
-                  },
-                  {
-                    label: "Expenses",
-                    data: incomeVsExpenses.map((IE) => IE.expenses),
-                    color: "#CDCCFB",
-                  },
-                ]}
-              />
+            <div id="bar-chart" className="ml-0 h-[90%] pl-0">
+              <ResponsiveContainer>
+                <BarChart data={incVsExp}>
+                  <XAxis dataKey="month" />
+                  <YAxis />
+                  <Tooltip />
+                  <Bar dataKey="income" fill="#0501EB" />
+                  <Bar dataKey="expenses" fill="#CDCCFB" />
+                </BarChart>
+              </ResponsiveContainer>
             </div>
           </Col>
         </Row>
@@ -619,21 +443,20 @@ const Dashboard = () => {
             <div id="title-weekly-expenses">
               <h4> Weekly Expenses</h4>
             </div>
-            <div className="flex h-[90%]">
-              <BarChart
-                xAxis={[
-                  {
-                    scaleType: "band",
-                    data: weeklyExpenses.map((WE) => WE.week),
-                  },
-                ]}
-                series={expenseCategories.map((category) => ({
-                  data: weeklyExpenses.map((WE) => Number(WE[category]) || 0),
-                  stack: "total",
-                  label: category,
-                  color: categoryColors[category],
-                }))}
-              />
+            <div className="h-[90%]">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={weeklyExp}>
+                  <XAxis dataKey="week" />
+                  <YAxis />
+                  <Tooltip />
+
+                  <Bar dataKey="a" stackId="a" fill="#D946EF" />
+                  <Bar dataKey="b" stackId="a" fill="#9A2EFF" />
+                  <Bar dataKey="c" stackId="a" fill="#6D2EFF" />
+                  <Bar dataKey="d" stackId="a" fill="#3336FF" />
+                  <Bar dataKey="e" stackId="a" fill="#146EFF" />
+                </BarChart>
+              </ResponsiveContainer>
             </div>
           </Col>
           <Col
@@ -650,7 +473,7 @@ const Dashboard = () => {
               id="payement-history-expenses"
               className="h-full divide-y overflow-y-auto"
             >
-              {payementHistory.map((h) => (
+              {payementH.map((h) => (
                 <li key={h.id} id="payement-history-expenses-model h-[85%]">
                   <div
                     id="payement-history-expenses-model-up"
@@ -688,15 +511,15 @@ const Dashboard = () => {
               id="wheels"
               className="flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-around"
             >
-              {savingGoals.map((s) => (
+              {savingG.map((s) => (
                 <div
                   id="wheel-1"
                   key={s.id}
                   className="flex w-28 flex-col items-center"
                 >
                   <CircularProgressbar
-                    value={s.percentage}
-                    text={`${s.percentage}%`}
+                    value={s.perc}
+                    text={`${s.perc}%`}
                     className="font-bold"
                     styles={buildStyles({
                       pathColor: "#2f2cd8",
@@ -744,7 +567,7 @@ const Dashboard = () => {
                   </tr>
                 </MDBTableHead>
                 <MDBTableBody>
-                  {transactionHistory.map((t) => (
+                  {transactionH.map((t) => (
                     <tr key={t.id} className="align-middle text-small">
                       <th scope="row" className="font-light text-black">
                         <div className="flex items-center">
@@ -753,7 +576,7 @@ const Dashboard = () => {
                             className="mr-2 rounded-full p-2 text-xl text-white"
                             style={{ backgroundColor: t.iconColor }}
                           >
-                            {t.icon}
+                            {/* {t.icon} */}
                           </div>
                           <div
                             id="transaction-category-title"

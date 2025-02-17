@@ -2,35 +2,30 @@
   {
     "id": 1,
     "iconColor": "#22C55E",
-    "icon": "<LuCarrot />",
     "title": "Grocery Stores",
     "nr": 75
   },
   {
     "id": 2,
     "iconColor": "#06B6D4",
-    "icon": "<FaBusAlt />",
     "title": "Transportation",
     "nr": 25
   },
   {
     "id": 3,
     "iconColor": "#0EA5E9",
-    "icon": "<FaCat />",
     "title": "Pets",
     "nr": 50
   },
   {
     "id": 4,
     "iconColor": "#6366F1",
-    "icon": "<GoMortarBoard />",
     "title": "Education",
     "nr": 45
   },
   {
     "id": 5,
     "iconColor": "#8B5CF6",
-    "icon": "<IoShirtOutline />",
     "title": "Clothes",
     "nr": 35
   }
