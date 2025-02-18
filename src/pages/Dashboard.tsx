@@ -5,41 +5,18 @@ import { AiOutlineRise } from "react-icons/ai";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { RiBillLine } from "react-icons/ri";
-import { FaCarSide } from "react-icons/fa";
-import { GoMortarBoard } from "react-icons/go";
-import { LuClapperboard } from "react-icons/lu";
-import { BsScissors } from "react-icons/bs";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
-// import { LuCarrot } from "react-icons/lu";
-// import { FaBusAlt } from "react-icons/fa";
-// import { FaCat } from "react-icons/fa6";
-// import { IoShirtOutline } from "react-icons/io5";
 import ProgressBar from "react-bootstrap/ProgressBar";
-import {
-  Area,
-  AreaChart,
-  Bar,
-  BarChart,
-  CartesianGrid,
-  ResponsiveContainer,
-  XAxis,
-  YAxis,
-} from "recharts";
-
 import "react-circular-progressbar/dist/styles.css";
-
 import { useEffect, useState } from "react";
-import { Tooltip } from "react-bootstrap";
+import BTLinechart from "../parts/BTLinechart";
+import IVsEBarchart from "../parts/IVsEBarchart";
+import WELinechart from "../parts/WELinechart";
 
 const Dashboard = () => {
   const [firstR, setFirstR] = useState<FirstRow[]>([]);
-  const [trends, setTrends] = useState<Trends[]>([]);
   const [breackD, setBreackD] = useState<Breakdown[]>([]);
   const [budget, setBudget] = useState<Budget[]>([]);
-  // const [categoryC, setCategoryC] = useState<CategoryColor[]>([]);
-  const [incVsExp, setIncVsExp] = useState<IncomeVsExpenses[]>([]);
-  const [weeklyExp, setWeeklyExp] = useState<WeeklyExpenses[]>([]);
   const [payementH, setPayementH] = useState<PayementHistory[]>([]);
   const [savingG, setSavingG] = useState<SavingGoals[]>([]);
   const [transactionH, setTransactionH] = useState<TransactionHistory[]>([]);
@@ -51,12 +28,6 @@ const Dashboard = () => {
     perc: number;
   }
 
-  interface Trends {
-    id: number;
-    month: string;
-    active: number;
-    inactive: number;
-  }
   interface Breakdown {
     id: number;
     title: string;
@@ -71,28 +42,7 @@ const Dashboard = () => {
     title: string;
     nr: number;
   }
-  // interface CategoryColor {
-  //   a: string;
-  //   b: string;
-  //   c: string;
-  //   d: string;
-  //   e: string;
-  // }
-  interface IncomeVsExpenses {
-    id: number;
-    month: string;
-    income: number;
-    expenses: number;
-  }
-  interface WeeklyExpenses {
-    id: number;
-    week: string;
-    a: string;
-    b: string;
-    c: string;
-    d: string;
-    e: string;
-  }
+
   interface PayementHistory {
     id: number;
     name: string;
@@ -118,25 +68,10 @@ const Dashboard = () => {
     currency: string;
   }
 
-  // const iconMapping: Record<string, React.ComponentType> = {
-  //   BsScissors: BsScissors,
-  //   RiBillLine: RiBillLine,
-  //   FaCarSide: FaCarSide,
-  //   GoMortarBoard: GoMortarBoard,
-  //   LuClapperboard: LuClapperboard,
-  // };
-
   useEffect(() => {
     fetch("/data/firstRow.json")
       .then((response) => response.json())
       .then((response) => setFirstR(response))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []);
-
-  useEffect(() => {
-    fetch("/data/trends.json")
-      .then((response) => response.json())
-      .then((response) => setTrends(response))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
@@ -151,27 +86,6 @@ const Dashboard = () => {
     fetch("/data/budget.json")
       .then((response) => response.json())
       .then((response) => setBudget(response))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []);
-
-  // useEffect(() => {
-  //   fetch("/data/categoryColors.json")
-  //     .then((response) => response.json())
-  //     .then((response) => setCategoryC(response))
-  //     .catch((error) => console.error("Error fetching data:", error));
-  // }, []);
-
-  useEffect(() => {
-    fetch("/data/incomeVsExpenses.json")
-      .then((response) => response.json())
-      .then((response) => setIncVsExp(response))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []);
-
-  useEffect(() => {
-    fetch("/data/weeklyExpenses.json")
-      .then((response) => response.json())
-      .then((response) => setWeeklyExp(response))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
@@ -247,13 +161,13 @@ const Dashboard = () => {
           <Col id="balance-trends-col" xs={12} lg={8}>
             <Row
               id="outer-frame-balance-trends"
-              className="h-full rounded-md bg-white p-4 pb-0 shadow-md"
+              className="flex h-full justify-between rounded-md bg-white pb-2 pr-7 pt-4 shadow-md"
             >
               <div
                 id="balance-trends-frame-up"
                 className="flex justify-between"
               >
-                <div id="balance-trends-frame-left">
+                <div id="balance-trends-frame-left" className="pl-4">
                   <h4 id="title-balance-trends" className="text-big">
                     Balance Trends
                   </h4>
@@ -271,29 +185,8 @@ const Dashboard = () => {
                 </div>
               </div>
 
-              <div id="line-chart" className="flex pl-0">
-                <ResponsiveContainer height="90%">
-                  <AreaChart data={trends} className="">
-                    <XAxis dataKey="month" />
-
-                    <YAxis />
-                    <Tooltip />
-                    <Area
-                      type="monotone"
-                      dataKey="inactive"
-                      stroke="#F0F3FF"
-                      fillOpacity={1}
-                      fill="#F0F3FF"
-                    />
-                    <Area
-                      type="monotone"
-                      dataKey="active"
-                      stroke="#6C84FF"
-                      fillOpacity={1}
-                      fill="#6C84FF"
-                    />
-                  </AreaChart>
-                </ResponsiveContainer>
+              <div id="line-chart" className="h-[75%] w-full px-0">
+                <BTLinechart />
               </div>
             </Row>
           </Col>
@@ -414,23 +307,15 @@ const Dashboard = () => {
           </Col>
           <Col
             id="income-vs-expenses-col"
-            className="z-0 flex flex-col justify-between rounded-md bg-white p-4 pb-0 pr-0 shadow-md"
+            className="z-0 flex flex-col justify-between rounded-md bg-white pb-4 pr-5 shadow-md"
             xs={12}
             lg={8}
           >
-            <div id="title-income-vs-expenses">
+            <div id="title-income-vs-expenses" className="p-4">
               <h4> Monthly Income vs Expenses</h4>
             </div>
-            <div id="bar-chart" className="ml-0 h-[90%] pl-0">
-              <ResponsiveContainer>
-                <BarChart data={incVsExp}>
-                  <XAxis dataKey="month" />
-                  <YAxis />
-                  <Tooltip />
-                  <Bar dataKey="income" fill="#0501EB" />
-                  <Bar dataKey="expenses" fill="#CDCCFB" />
-                </BarChart>
-              </ResponsiveContainer>
+            <div id="bar-chart" className="ml-0 h-[90%]">
+              <IVsEBarchart />
             </div>
           </Col>
         </Row>
@@ -438,27 +323,15 @@ const Dashboard = () => {
         <Row id="outer-frame-forth-row" className="mt-4 w-full gap-7">
           <Col
             id="weekly-expenses-col"
-            className="flex flex-col justify-between rounded-md bg-white p-4 pb-0 shadow-md"
+            className="flex flex-col justify-between rounded-md bg-white py-4 shadow-md"
             xs={12}
             lg={8}
           >
-            <div id="title-weekly-expenses">
+            <div id="title-weekly-expenses" className="pl-4">
               <h4> Weekly Expenses</h4>
             </div>
-            <div className="h-[90%]">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={weeklyExp}>
-                  <XAxis dataKey="week" />
-                  <YAxis />
-                  <Tooltip />
-
-                  <Bar dataKey="a" stackId="a" fill="#D946EF" />
-                  <Bar dataKey="b" stackId="a" fill="#9A2EFF" />
-                  <Bar dataKey="c" stackId="a" fill="#6D2EFF" />
-                  <Bar dataKey="d" stackId="a" fill="#3336FF" />
-                  <Bar dataKey="e" stackId="a" fill="#146EFF" />
-                </BarChart>
-              </ResponsiveContainer>
+            <div className="h-[90%] pr-5">
+              <WELinechart />
             </div>
           </Col>
           <Col
