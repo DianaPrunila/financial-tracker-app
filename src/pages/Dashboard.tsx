@@ -21,6 +21,7 @@ import {
   AreaChart,
   Bar,
   BarChart,
+  CartesianGrid,
   ResponsiveContainer,
   XAxis,
   YAxis,
@@ -242,26 +243,26 @@ const Dashboard = () => {
           ))}
         </Row>
 
-        <Row id="outer-frame-second-row" className="mt-4 w-full gap-7 px-0">
+        <Row id="outer-frame-second-row" className="mt-4 w-full gap-7">
           <Col id="balance-trends-col" xs={12} lg={8}>
             <Row
               id="outer-frame-balance-trends"
-              className="h-full rounded-md bg-white p-4 shadow-md"
+              className="h-full rounded-md bg-white p-4 pb-0 shadow-md"
             >
               <div
                 id="balance-trends-frame-up"
                 className="flex justify-between"
               >
                 <div id="balance-trends-frame-left">
-                  <h6 id="title-balance-trends" className="text-big">
+                  <h4 id="title-balance-trends" className="text-big">
                     Balance Trends
-                  </h6>
+                  </h4>
                   <p className="text-[2rem] font-medium text-big">€ 432568</p>
                 </div>
 
                 <div
                   id="balance-trends-frame-right"
-                  className="flex flex-col justify-end"
+                  className="flex flex-col justify-center"
                 >
                   <p id="last-month" className=" ">
                     Last Month
@@ -269,12 +270,13 @@ const Dashboard = () => {
                   <p id="balance-trends-percentage">xx.yy%</p>
                 </div>
               </div>
-              <div id="line-chart" className="h-[80%] pl-0">
-                <ResponsiveContainer>
-                  <AreaChart data={trends}>
-                    <XAxis dataKey="month" />
-                    <YAxis />
 
+              <div id="line-chart" className="flex pl-0">
+                <ResponsiveContainer height="90%">
+                  <AreaChart data={trends} className="">
+                    <XAxis dataKey="month" />
+
+                    <YAxis />
                     <Tooltip />
                     <Area
                       type="monotone"
@@ -368,11 +370,11 @@ const Dashboard = () => {
                   className="mr-2 mt-7 flex"
                 >
                   <div
-                    id="budgets-left"
-                    className="mr-3 rounded-full p-2 text-base text-white"
-                    style={{ backgroundColor: b.iconColor }}
+                    id="dots"
+                    className="text-3xl"
+                    style={{ color: b.iconColor }}
                   >
-                    {b.icon}
+                    <GoDotFill />
                   </div>
                   <div
                     id="budgets-right"
