@@ -27,7 +27,6 @@ const Dashboard = () => {
     sum: number;
     perc: number;
   }
-
   interface Breakdown {
     id: number;
     title: string;
@@ -42,7 +41,6 @@ const Dashboard = () => {
     title: string;
     nr: number;
   }
-
   interface PayementHistory {
     id: number;
     name: string;
@@ -74,35 +72,30 @@ const Dashboard = () => {
       .then((response) => setFirstR(response))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
-
   useEffect(() => {
     fetch("/data/breackdown.json")
       .then((response) => response.json())
       .then((response) => setBreackD(response))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
-
   useEffect(() => {
     fetch("/data/budget.json")
       .then((response) => response.json())
       .then((response) => setBudget(response))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
-
   useEffect(() => {
     fetch("/data/payementHistory.json")
       .then((response) => response.json())
       .then((response) => setPayementH(response))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
-
   useEffect(() => {
     fetch("/data/savingGoals.json")
       .then((response) => response.json())
       .then((response) => setSavingG(response))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
-
   useEffect(() => {
     fetch("/data/transactionHistory.json")
       .then((response) => response.json())
@@ -161,11 +154,11 @@ const Dashboard = () => {
           <Col id="balance-trends-col" xs={12} lg={8}>
             <Row
               id="outer-frame-balance-trends"
-              className="flex h-full justify-between rounded-md bg-white pb-2 pr-7 pt-4 shadow-md"
+              className="flex h-[90%] content-between rounded-md bg-white pb-3 pr-7 pt-4 shadow-md"
             >
               <div
                 id="balance-trends-frame-up"
-                className="flex justify-between"
+                className="flex flex-wrap justify-between"
               >
                 <div id="balance-trends-frame-left" className="pl-4">
                   <h4 id="title-balance-trends" className="text-big">
@@ -185,7 +178,7 @@ const Dashboard = () => {
                 </div>
               </div>
 
-              <div id="line-chart" className="h-[75%] w-full px-0">
+              <div id="line-chart" className="h-[70%] w-full px-0">
                 <BTLinechart />
               </div>
             </Row>
@@ -219,7 +212,7 @@ const Dashboard = () => {
                     <div id="monthly-expenses-left" className="flex">
                       <div
                         id="dots"
-                        className="text-3xl"
+                        className="flex align-super text-3xl"
                         style={{ color: s.color }}
                       >
                         <GoDotFill />
@@ -323,7 +316,7 @@ const Dashboard = () => {
         <Row id="outer-frame-forth-row" className="mt-4 w-full gap-7">
           <Col
             id="weekly-expenses-col"
-            className="flex flex-col justify-between rounded-md bg-white py-4 shadow-md"
+            className="flex flex-col justify-between rounded-md bg-white pb-3 pt-4 shadow-md"
             xs={12}
             lg={8}
           >

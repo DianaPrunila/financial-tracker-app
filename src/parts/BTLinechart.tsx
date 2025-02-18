@@ -23,9 +23,8 @@ const BTLinechart = () => {
   }, []);
   return (
     <ResponsiveContainer>
-      <AreaChart data={trends} className="">
+      <AreaChart data={trends}>
         <XAxis dataKey="month" />
-
         <YAxis />
         <Tooltip />
         <Area
