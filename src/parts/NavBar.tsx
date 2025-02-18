@@ -1,25 +1,25 @@
 import Dropdown from "react-bootstrap/Dropdown";
 import { FaSearch } from "react-icons/fa";
-import { IoSunny } from "react-icons/io5";
+// import { IoSunny } from "react-icons/io5";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { CiUser } from "react-icons/ci";
 import { LuWalletMinimal } from "react-icons/lu";
 import { IoSettingsOutline } from "react-icons/io5";
 import { IoLogOutOutline } from "react-icons/io5";
-import Hamburger from "./Hamburger";
+// import Hamburger from "./Hamburger";
 
 const NavBar = () => {
   return (
-    <nav className="fixed top-0 z-20 flex w-full flex-wrap items-center justify-between bg-bkGd py-3">
-      <div id="nav-left" className="flex" style={{ paddingLeft: "4.6rem" }}>
-        <div className="flex">
-          <Hamburger />
-        </div>
-        <form className="ml-4 flex rounded-l-md border-x border-y">
+    <nav
+      className="fixed top-0 z-10 flex w-full items-center justify-between bg-bkGd py-3"
+      style={{ paddingLeft: "7.5rem" }}
+    >
+      <div id="nav-left" className="flex w-2/4">
+        <form className="flex rounded-l-md border-x border-y">
           <input
             type="text"
             placeholder="Search Here"
-            className="rounded-l-md pl-5 pr-44 text-base focus:outline-none"
+            className="rounded-l-md pl-4 text-base focus:outline-none"
           />
         </form>
         <button className="rounded-r-md border-x border-y bg-sidebarColor p-2.5 text-xl text-white">
@@ -30,11 +30,11 @@ const NavBar = () => {
       <div
         id="nav-right "
         className="flex text-center text-2xl"
-        style={{ marginRight: "4rem" }}
+        style={{ paddingRight: "2.1rem" }}
       >
-        <button id="sun" className="mx-2">
+        {/* <button id="sun" className="mx-2">
           <IoSunny />
-        </button>
+        </button> */}
 
         <Dropdown id="notification-button">
           <Dropdown.Toggle

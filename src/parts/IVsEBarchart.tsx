@@ -24,7 +24,7 @@ const IVsEBarchart = () => {
   }, []);
   return (
     <ResponsiveContainer>
-      <BarChart data={incVsExp}>
+      <BarChart data={incVsExp} barGap={0} barSize="2.5%">
         <XAxis dataKey="month" />
         <YAxis />
         <Tooltip />

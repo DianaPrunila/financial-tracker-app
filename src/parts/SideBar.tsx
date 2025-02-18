@@ -27,9 +27,9 @@ const iconsSidebar = [
 ];
 const SideBar = () => {
   return (
-    <div className="fixed top-0 flex h-full w-20 flex-grow justify-center bg-sidebarColor">
+    <div className="fixed top-0 z-50 flex h-full w-20 justify-center bg-sidebarColor pb-2 pt-4">
       <SidebarMenu className="flex flex-col">
-        <SidebarMenu.Header className="mb-3 mt-7">
+        <SidebarMenu.Header className="mb-3">
           <SidebarMenu.Nav.Link href="/">
             <SidebarMenu.Brand className="text-4xl text-white">
               {<FaShieldCat />}
@@ -38,7 +38,10 @@ const SideBar = () => {
           <SidebarMenu.Toggle />
         </SidebarMenu.Header>
 
-        <div className="side-bar-icons-group mb-3 flex flex-grow flex-col justify-between">
+        <div
+          id="side-bar-icons-group"
+          className="mb-3 flex flex-grow flex-col justify-between"
+        >
           <SidebarMenu.Body className="flex flex-grow flex-col justify-between text-3xl">
             {iconsSidebar.map((i) => (
               <SidebarMenu.Nav key={i.id}>

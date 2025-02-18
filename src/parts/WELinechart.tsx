@@ -27,7 +27,7 @@ const WELinechart = () => {
   }, []);
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <BarChart data={weeklyExp}>
+      <BarChart data={weeklyExp} barSize="15%">
         <XAxis dataKey="week" />
         <YAxis />
         <Tooltip />

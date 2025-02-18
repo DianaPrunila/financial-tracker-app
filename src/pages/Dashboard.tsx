@@ -104,7 +104,7 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <Container id="dashboard-page" className="-mb-5 -mt-6 pb-3">
+    <Container id="dashboard-page" className="-mt-6 pb-3">
       <div id="page-up-info" className="mr-3 flex flex-col pt-4">
         <div id="dashboard-up" className="-ml-3">
           <h3 id="title-page">Dashboard</h3>
@@ -114,7 +114,7 @@ const Dashboard = () => {
           className="-ml-3 mb-5 mt-3 flex justify-between"
         >
           <p id="owner-page">Welcome to Prunila finance Management</p>
-          <p>Home --- Dashboard</p>
+          {/* <p>Home --- Dashboard</p> */}
         </div>
       </div>
       <div id="boxes" className="content-between px-0">
@@ -154,7 +154,7 @@ const Dashboard = () => {
           <Col id="balance-trends-col" xs={12} lg={8}>
             <Row
               id="outer-frame-balance-trends"
-              className="flex h-[90%] content-between rounded-md bg-white pb-3 pr-7 pt-4 shadow-md"
+              className="flex h-[90%] content-between rounded-md bg-white pr-7 pt-4 shadow-md"
             >
               <div
                 id="balance-trends-frame-up"
@@ -169,7 +169,7 @@ const Dashboard = () => {
 
                 <div
                   id="balance-trends-frame-right"
-                  className="flex flex-col justify-center"
+                  className="flex flex-col justify-center pb-3"
                 >
                   <p id="last-month" className=" ">
                     Last Month
@@ -178,7 +178,7 @@ const Dashboard = () => {
                 </div>
               </div>
 
-              <div id="line-chart" className="h-[70%] w-full px-0">
+              <div id="line-chart" className="h-[70%] w-full px-0 pb-5 xl:pb-0">
                 <BTLinechart />
               </div>
             </Row>
