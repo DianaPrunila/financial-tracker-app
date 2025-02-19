@@ -104,7 +104,7 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <Container id="dashboard-page" className="-mt-6 pb-3">
+    <Container id="dashboard-page" className="-mt-4 pb-3">
       <div id="page-up-info" className="mr-3 flex flex-col pt-4">
         <div id="dashboard-up" className="-ml-3">
           <h3 id="title-page">Dashboard</h3>
@@ -202,7 +202,10 @@ const Dashboard = () => {
                   ))}
                 </ProgressBar>
               </div>
-              <div id="monthly-expenses-catergories" className="divide-y">
+              <div
+                id="monthly-expenses-catergories"
+                className="w-full divide-y"
+              >
                 {breackD.map((s) => (
                   <div
                     key={s.id}
@@ -223,7 +226,7 @@ const Dashboard = () => {
                         </p>
                       </div>{" "}
                     </div>{" "}
-                    <div id="monthly-expenses-right" className="flex">
+                    <div id="monthly-expenses-right" className="lg:flex">
                       <div id="right-breakdown" className="">
                         <p id="category-sum" className="pr-2.5">
                           {s.sum} €

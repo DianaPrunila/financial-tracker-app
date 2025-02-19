@@ -1,135 +1,134 @@
-import Dropdown from "react-bootstrap/Dropdown";
+import { FaCheck } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";
+import { RxCross2 } from "react-icons/rx";
 // import { IoSunny } from "react-icons/io5";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { CiUser } from "react-icons/ci";
 import { LuWalletMinimal } from "react-icons/lu";
 import { IoSettingsOutline } from "react-icons/io5";
 import { IoLogOutOutline } from "react-icons/io5";
-// import Hamburger from "./Hamburger";
 
 const NavBar = () => {
   return (
-    <nav
-      className="fixed top-0 z-10 flex w-full items-center justify-between bg-bkGd py-3"
+    <div
+      id="navbar"
+      className="navbar fixed top-0 z-10 bg-bkGd py-3 shadow-none"
       style={{ paddingLeft: "7.5rem" }}
     >
-      <div id="nav-left" className="flex w-2/4">
-        <form className="flex rounded-l-md border-x border-y">
+      <div id="navrar-left" className="flex-none gap-2">
+        <div id="navbar-form" className="form-control border-0 p-0">
           <input
             type="text"
-            placeholder="Search Here"
-            className="rounded-l-md pl-4 text-base focus:outline-none"
+            placeholder="Search"
+            className="input input-bordered w-24 sm:w-auto"
           />
-        </form>
-        <button className="rounded-r-md border-x border-y bg-sidebarColor p-2.5 text-xl text-white">
-          <FaSearch />
-        </button>
+        </div>
       </div>
 
-      <div
-        id="nav-right "
-        className="flex text-center text-2xl"
-        style={{ paddingRight: "2.1rem" }}
-      >
-        {/* <button id="sun" className="mx-2">
-          <IoSunny />
-        </button> */}
-
-        <Dropdown id="notification-button">
-          <Dropdown.Toggle
-            id="bell"
-            className="hover: m-2 mb-0 border-0 bg-transparent p-0 text-2xl shadow-none"
+      <div id="navbar-right" style={{ paddingRight: "2.1rem" }}>
+        <div id="bell" className="dropdown dropdown-end mr-3">
+          <div
+            tabIndex={0}
+            role="button"
+            className="text-3xl shadow-none hover:bg-transparent"
           >
             <IoMdNotificationsOutline />
-          </Dropdown.Toggle>
-
-          <Dropdown.Menu className="shadow-md">
-            <div className="mt-3 flex">
-              <h4 className="mx-3 mb-3 text-lg font-bold text-big">
-                Recent Notification
-              </h4>
-            </div>
-            <Dropdown.Item className="mr-3 flex py-0">
-              <div className="pic mr-2 flex items-center">XXXX</div>
-              <div className="">
-                <p className="notification font-bold text-big">Name</p>
-                <p className="time">yyyy-mm-dd hh:mm</p>
-              </div>
-            </Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item className="flex py-0">
-              <div className="pic mr-2 flex items-center">XXXX</div>
-              <div className="">
-                <p className="notification font-bold text-big">Name</p>
-                <p className="time">yyyy-mm-dd hh:mm</p>
-              </div>
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-        <Dropdown>
-          <Dropdown.Toggle
-            id="navBar-profile-icon "
-            className="mx-2 rounded-full border-0 bg-sidebarColor p-2 text-2xl text-white shadow-none hover:bg-sidebarColor hover:text-white"
+          </div>
+          <div
+            tabIndex={0}
+            className="card dropdown-content card-compact z-[1] w-64 bg-white"
           >
-            <CiUser />
-          </Dropdown.Toggle>
+            <div id="card-body" className="card-body pr-0">
+              <div id="card-title">
+                <h4>Recent Notification</h4>
+              </div>
+              <ul id="card-content" className="divide-y">
+                <li className="flex content-between">
+                  <div className="mr-5 h-fit rounded-full bg-riseingPercentageColor p-2">
+                    <span className="h-fit text-2xl text-white">
+                      <FaCheck />
+                    </span>
+                  </div>
+                  <div>
+                    <p className="font-bold text-big">
+                      Account created successfully
+                    </p>
+                    <p id="time">2024/11/04 12:20</p>
+                  </div>
+                </li>
+                <li className="flex content-between">
+                  <div className="mr-5 h-fit rounded-full bg-fallingPercentageColor p-2">
+                    <span className="h-fit text-2xl text-white">
+                      <RxCross2 />
+                    </span>
+                  </div>
+                  <div>
+                    <p className="font-bold text-big">
+                      2FA verificarion failed
+                    </p>
+                    <p id="time">2024/22/04/ 12:40</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-          <Dropdown.Menu>
-            <Dropdown.Item
-              href="#/action-1"
-              className="pointer-events-none flex pb-0"
-            >
-              <div className="pic mr-2 flex items-center">YYY</div>
-              <div className="">
-                <p className="name">Name</p>
-                <p className="mail">hallo@email.com</p>
-              </div>
-            </Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item
-              href="#/action-1"
-              className="flex items-center py-0 hover:bg-sidebarColor hover:text-white"
-            >
-              <div className="mr-2">
-                <CiUser />
-              </div>
-              Profile
-            </Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item
-              href="#/action-1"
-              className="flex items-center py-0 hover:bg-sidebarColor hover:text-white"
-            >
-              <div className="mr-2">
-                <LuWalletMinimal />
-              </div>
-              Wallets
-            </Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item
-              href="#/action-1"
-              className="flex items-center py-0 hover:bg-sidebarColor hover:text-white"
-            >
-              <div className="mr-2">
-                <IoSettingsOutline />
-              </div>
-              Settings
-            </Dropdown.Item>
-            <Dropdown.Divider />
-            <Dropdown.Item
-              href="#/action-1"
-              className="flex items-center rounded-b-md py-0 text-fallingPercentageColor hover:bg-sidebarColor hover:text-white"
-            >
-              <div className="mr-2 rounded-full">
-                <IoLogOutOutline />
-              </div>
-              Logout
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
+        <div id="profile" className="dropdown dropdown-end">
+          <div
+            tabIndex={0}
+            id="pic"
+            role="button"
+            className="avatar btn btn-circle"
+          >
+            <div id="navbar-avatar-pic" className="hover: w-10 rounded-full">
+              <img
+                alt="Tailwind CSS Navbar component"
+                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+              />
+            </div>
+          </div>
+          <ul
+            id="profile-drop"
+            tabIndex={0}
+            className="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box bg-white p-2 shadow"
+          >
+            <li className="">
+              <a className="justify-start hover:bg-sidebarColor hover:text-white">
+                <span>
+                  <CiUser />
+                </span>
+                Profile
+              </a>
+            </li>
+            <li>
+              <a className="justify-start hover:bg-sidebarColor hover:text-white">
+                <span>
+                  <LuWalletMinimal />
+                </span>
+                Wallet
+              </a>
+            </li>
+            <li>
+              <a className="justify-start hover:bg-sidebarColor hover:text-white">
+                <span>
+                  <IoSettingsOutline />
+                </span>
+                Settings
+              </a>
+            </li>
+            <li>
+              <a className="justify-start text-fallingPercentageColor hover:bg-sidebarColor hover:text-white">
+                <span>
+                  <IoLogOutOutline />
+                </span>
+                Logout
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </nav>
+    </div>
   );
 };
 

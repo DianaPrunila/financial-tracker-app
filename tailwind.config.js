@@ -5,6 +5,7 @@ export default {
     extend: {
       width: {
         "5prc": "5%",
+        xs: "370px",
       },
       colors: {
         sidebarColor: "#2f2cd8",
