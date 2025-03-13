@@ -16,7 +16,6 @@ import Goals from "./pages/Goals.tsx";
 import Support from "./pages/Support.tsx";
 import Wallets from "./pages/Wallets.tsx";
 import Profile from "./pages/Profile.tsx";
-import Check from "./pages/check.tsx";
 
 const routes = createBrowserRouter(
   createRoutesFromElements(
@@ -30,7 +29,6 @@ const routes = createBrowserRouter(
       <Route path="/Profile" element={<Profile />} />
       <Route path="/Affiliates" element={<Affiliates />} />
       <Route path="/Affiliates" element={<Affiliates />} />
-      <Route path="/Check" element={<Check />} />
 
       <Route
         path="*"

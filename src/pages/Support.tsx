@@ -1,5 +1,18 @@
+import { Container } from "react-bootstrap";
+
 const Support = () => {
-  return <div>Support</div>;
+  return (
+    <Container id="Support-page" className="-mt-4 pb-3">
+      <div id="page-up-info" className="mr-3 flex flex-col pt-4">
+        <div id="Support-up" className="-ml-3">
+          <h3 id="title-page">Support</h3>
+        </div>
+        <div id="Support-down" className="-ml-3 mb-5 mt-3 flex justify-between">
+          <p id="owner-page">Welcome to Vanja finance Management</p>
+        </div>
+      </div>
+    </Container>
+  );
 };
 
 export default Support;
