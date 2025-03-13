@@ -97,8 +97,7 @@ const Dashboard = () => {
           id="dashboard-down"
           className="-ml-3 mb-5 mt-3 flex justify-between"
         >
-          <p id="owner-page">Welcome to Prunila finance Management</p>
-          {/* <p>Home --- Dashboard</p> */}
+          <p id="owner-page">Welcome to Vanja finance Management</p>
         </div>
       </div>
       <div id="boxes" className="content-between px-0">
@@ -285,6 +284,7 @@ const Dashboard = () => {
               ))}
             </div>
           </Col>
+
           <Col
             id="income-vs-expenses-col"
             className="z-0 flex flex-col justify-between rounded-md bg-white pb-4 pr-5 shadow-md"
