@@ -12,7 +12,7 @@ const WELinechart = () => {
 
   interface WeeklyExpenses {
     id: number;
-    week: string;
+    month: string;
     a: string;
     b: string;
     c: string;
@@ -27,8 +27,8 @@ const WELinechart = () => {
   }, []);
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <BarChart data={weeklyExp} barSize="15%">
-        <XAxis dataKey="week" />
+      <BarChart data={weeklyExp} barSize="2.5%">
+        <XAxis dataKey="month" />
         <YAxis />
         <Tooltip />
 
