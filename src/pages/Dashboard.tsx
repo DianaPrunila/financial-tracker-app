@@ -1,5 +1,4 @@
 import Dropdown from "react-bootstrap/Dropdown";
-import { MDBTable, MDBTableHead, MDBTableBody } from "mdb-react-ui-kit";
 import { GoDotFill } from "react-icons/go";
 import { AiOutlineRise } from "react-icons/ai";
 import Container from "react-bootstrap/Container";
@@ -102,7 +101,7 @@ const Dashboard = () => {
       </div>
       <div id="boxes" className="content-between px-0">
         <Row
-          id="outer-frame-first-row"
+          id="dashboard-outer-frame-first-row"
           className="mr-1 grid grid-cols-1 gap-7 pr-2 sm:grid-cols-2 lg:grid-cols-4"
         >
           {firstR.map((f) => (
@@ -133,10 +132,13 @@ const Dashboard = () => {
           ))}
         </Row>
 
-        <Row id="outer-frame-second-row" className="mt-4 w-full gap-7">
+        <Row
+          id="dashboard-outer-frame-second-row"
+          className="mt-4 w-full gap-7"
+        >
           <Col id="balance-trends-col" xs={12} lg={8}>
             <Row
-              id="outer-frame-balance-trends"
+              id="dashboard-outer-frame-balance-trends"
               className="flex h-[90%] content-between rounded-md bg-white pr-7 pt-4 shadow-md"
             >
               <div
@@ -226,7 +228,7 @@ const Dashboard = () => {
           </Col>
         </Row>
 
-        <Row id="outer-frame-third-row" className="mt-4 w-full gap-7">
+        <Row id="dashboard-outer-frame-third-row" className="mt-4 w-full gap-7">
           <Col
             id="monthly-budget-col"
             className="rounded-md bg-white p-4 shadow-md"
@@ -300,7 +302,7 @@ const Dashboard = () => {
           </Col>
         </Row>
 
-        <Row id="outer-frame-forth-row" className="mt-4 w-full gap-7">
+        <Row id="dashboard-outer-frame-forth-row" className="mt-4 w-full gap-7">
           <Col
             id="weekly-expenses-col"
             className="flex flex-col justify-between rounded-md bg-white pb-3 pt-4 shadow-md"
@@ -354,7 +356,7 @@ const Dashboard = () => {
           </Col>
         </Row>
 
-        <Row id="outer-frame-fifth-row" className="mt-4 w-full gap-7">
+        <Row id="dashboard-outer-frame-fifth-row" className="mt-4 w-full gap-7">
           <Col
             id="saving-goals-col"
             className="h-fit rounded-md bg-white p-4 shadow-md"
