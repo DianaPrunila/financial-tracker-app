@@ -11,7 +11,7 @@ const Footer = () => {
       <div id="copyright" className="ml-14 text-center">
         © Copyright 2025{" "}
         <a className="font-bold" href="/">
-          Prunila{" "}
+          Vanja{" "}
         </a>
         | All Rights Reserved
       </div>
