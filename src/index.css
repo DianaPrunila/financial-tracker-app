@@ -17,6 +17,12 @@ body {
   width: 100%;
 }
 
+h2 {
+  color: #1f2c73;
+  font-weight: 500;
+  font-size: 1.875rem;
+}
+
 h3 {
   color: #1f2c73;
   font-weight: 500;
