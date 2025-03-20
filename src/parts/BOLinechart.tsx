@@ -29,7 +29,9 @@ const BOLinechart = () => {
         <Area
           type="monotone"
           dataKey="value"
-          stroke="##FF4B63"
+          stroke="#FF4861"
+          strokeWidth={2}
+          activeDot={{ r: 7 }}
           fillOpacity={0.5}
           fill="#FFEEF1"
         />
