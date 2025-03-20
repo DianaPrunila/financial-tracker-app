@@ -114,7 +114,7 @@ const Wallets = () => {
               </div>
             </Col>
           </Row>
-          <Row id="walletsCards-row-down" className="mb-5 gap-x-8">
+          <Row id="walletsCards-row-down" className="mb-4 gap-x-8">
             <Col
               id="walletsCards-col-down-big-left"
               className="mt-[1.875rem] rounded-md bg-white p-4 shadow-md"
@@ -157,10 +157,16 @@ const Wallets = () => {
         </Col>
       </Row>
       <Row
-        id="BalanceOvertime-outer-frame"
-        className="mr-2 grid h-[70%] w-full justify-items-end bg-white px-0 pb-5"
+        id="balance-overtime"
+        className="mb-4 mr-2 grid w-[72.3%] justify-self-end rounded-md bg-white px-4 pb-3 pt-4 shadow-md"
       >
-        <BOLinechart />
+        <Col id="BalanceOvertime-outer-frame" xs={12}>
+          <h4 className="-ml-2">Balance Overtime</h4>
+
+          <div className="-ml-10 h-[90%]">
+            <BOLinechart />
+          </div>
+        </Col>
       </Row>
       <Row className="mr-2 grid justify-items-end">
         <TraHi />
