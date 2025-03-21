@@ -9,6 +9,7 @@ import { AiOutlineRise } from "react-icons/ai";
 // import { LiaMoneyBillWaveAltSolid } from "react-icons/lia";
 import { RiVisaLine } from "react-icons/ri";
 import BOLinechart from "../parts/BOLinechart";
+import { MDBTable, MDBTableBody, MDBTableHead } from "mdb-react-ui-kit";
 // import visaLogo from "../.././images/visaLogo.svg";
 
 const Wallets = () => {
@@ -29,6 +30,23 @@ const Wallets = () => {
     fetch("/data/cards.json")
       .then((response) => response.json())
       .then((response) => setCrd(response))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
+  const [transactionH, setTransactionH] = useState<TransactionHistory[]>([]);
+  interface TransactionHistory {
+    id: number;
+    iconColor: string;
+    icon: React.ComponentType;
+    name: string;
+    date: string;
+    description: string;
+    amount: number;
+    currency: string;
+  }
+  useEffect(() => {
+    fetch("/data/transactionHistory.json")
+      .then((response) => response.json())
+      .then((response) => setTransactionH(response))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
   return (
@@ -158,7 +176,7 @@ const Wallets = () => {
       </Row>
       <Row
         id="balance-overtime"
-        className="mb-4 mr-2 grid w-[72.3%] justify-self-end rounded-md bg-white px-4 pb-3 pt-4 shadow-md"
+        className="xs:w-full mb-4 mr-2 grid justify-self-end rounded-md bg-white px-4 pb-3 pt-4 shadow-md lg:w-[72.3%]"
       >
         <Col id="BalanceOvertime-outer-frame" xs={12}>
           <h4 className="-ml-2">Balance Overtime</h4>
@@ -168,8 +186,69 @@ const Wallets = () => {
           </div>
         </Col>
       </Row>
-      <Row className="mr-2 grid justify-items-end">
-        <TraHi />
+
+      <Row id="transaction-history-row" className="">
+        <Col></Col>
+        <Col
+          id="transaction-history-col"
+          className="lg:mr- mr-5 grid justify-self-end rounded-md bg-white p-4 pb-0 shadow-md lg:w-[70.5%]"
+          xs={12}
+        >
+          <div id="title-transaction-history" className="mb-2">
+            <h4>Transaction History</h4>
+          </div>
+
+          <div className="overflow-x-scroll">
+            <MDBTable className="w-full min-w-max">
+              <MDBTableHead>
+                <tr>
+                  <th id="title-category" scope="col">
+                    Category
+                  </th>
+                  <th id="title-date" scope="col">
+                    Date
+                  </th>
+                  <th id="title-description" scope="col">
+                    Description
+                  </th>
+                  <th id="title-amount" scope="col">
+                    Amount
+                  </th>
+                  <th id="title-currency" scope="col">
+                    Currency
+                  </th>
+                </tr>
+              </MDBTableHead>
+              <MDBTableBody>
+                {transactionH.map((t) => (
+                  <tr key={t.id} className="align-middle text-small">
+                    <th scope="row" className="font-light text-black">
+                      <div className="flex items-center">
+                        <div
+                          id="table-icons"
+                          className="mr-2 rounded-full p-2 text-xl text-white"
+                          style={{ backgroundColor: t.iconColor }}
+                        >
+                          {/* {t.icon} */}
+                        </div>
+                        <div
+                          id="transaction-category-title"
+                          className="font-normal text-small"
+                        >
+                          {t.name}
+                        </div>
+                      </div>
+                    </th>
+                    <td>{t.date}</td>
+                    <td>{t.description}</td>
+                    <td>{t.amount}</td>
+                    <td>{t.currency}</td>
+                  </tr>
+                ))}
+              </MDBTableBody>
+            </MDBTable>
+          </div>
+        </Col>
       </Row>
     </Container>
   );
