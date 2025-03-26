@@ -1,16 +1,13 @@
 import { Col, Container, Dropdown, Row } from "react-bootstrap";
 import TraHi from "../parts/TraHi";
-import BO from "../parts/BOLinechart";
 import { useEffect, useState } from "react";
 import { AiOutlineRise } from "react-icons/ai";
 // import { CiBank } from "react-icons/ci";
 // import { CiCreditCard1 } from "react-icons/ci";
-// import { SiVisa } from "react-icons/si";
 // import { LiaMoneyBillWaveAltSolid } from "react-icons/lia";
 import { RiVisaLine } from "react-icons/ri";
 import BOLinechart from "../parts/BOLinechart";
 import { MDBTable, MDBTableBody, MDBTableHead } from "mdb-react-ui-kit";
-// import visaLogo from "../.././images/visaLogo.svg";
 
 const Wallets = () => {
   const [crd, setCrd] = useState<Crd[]>([]);
@@ -66,8 +63,8 @@ const Wallets = () => {
         <Col id="walletsLeft" lg={3} xs={12}>
           {crd.map((c) => (
             <Row
-              id=""
-              className="mb-4 h-[5.69rem] rounded-md bg-white p-4 shadow-md hover:bg-sidebarColor hover:text-white"
+              id="walletsLeft-cards"
+              className="mb-4 h-[5.69rem] rounded-md p-4 shadow-md hover:text-white"
               key={c.id}
             >
               <div id="cardContent" className="">
@@ -91,6 +88,7 @@ const Wallets = () => {
           >
             <h3>City Bank</h3>
           </Row>
+
           <Row id="walletsCards-row-up" className="gap-x-8">
             <Col
               id="walletsCards-col-up-big-left"
@@ -114,24 +112,27 @@ const Wallets = () => {
             </Col>
             <Col
               id="visaCard"
-              className="mt-[1.875rem] flex flex-col justify-between rounded-md bg-big p-4 shadow-md"
-              lg={6}
-              xs={12}
+              className="mt-[1.875rem] flex flex-col justify-between rounded-md bg-[#1E1B4B] p-4 shadow-md"
             >
-              <div className="flex justify-between align-top">
+              <div className="flex justify-between">
                 <h6 className="text-[#7184AD]">Debit Card</h6>
+                <img
+                  src="/images/visaLogo.svg"
+                  className="xs:h-1 -mt-6 max-lg:h-[4.5rem] md:h-16"
+                />
               </div>
-              <span className="text-bold my-10 text-xl leading-8 text-white">
+              <span className="text-bold m my-10 text-xl leading-8 text-white">
                 1234 5678 7890 9875
               </span>
               <div className="flex justify-between pt-2 align-bottom">
-                <p className="text-lg font-bold text-white">User Name</p>
+                <p className="text-lg font-medium text-white">User Name</p>
                 <p className="text-base text-white">
-                  EXP: <span className="font-bold">12/21</span>
+                  EXP: <span className="font-bold"> 12/21</span>
                 </p>
               </div>
             </Col>
           </Row>
+
           <Row id="walletsCards-row-down" className="mb-4 gap-x-8">
             <Col
               id="walletsCards-col-down-big-left"
@@ -174,6 +175,7 @@ const Wallets = () => {
           </Row>
         </Col>
       </Row>
+
       <Row
         id="balance-overtime"
         className="xs:w-full mb-4 mr-2 grid justify-self-end rounded-md bg-white px-4 pb-3 pt-4 shadow-md lg:w-[72.3%]"
@@ -181,17 +183,17 @@ const Wallets = () => {
         <Col id="BalanceOvertime-outer-frame" xs={12}>
           <h4 className="-ml-2">Balance Overtime</h4>
 
-          <div className="-ml-10 h-[90%]">
+          <div className="-ml-10 h-[92.5%]">
             <BOLinechart />
           </div>
         </Col>
       </Row>
 
-      <Row id="transaction-history-row" className="">
+      <Row id="transaction-history-row" className="mr-2">
         <Col></Col>
         <Col
           id="transaction-history-col"
-          className="lg:mr- mr-5 grid justify-self-end rounded-md bg-white p-4 pb-0 shadow-md lg:w-[70.5%]"
+          className="grid justify-self-end rounded-md bg-white p-4 pb-0 shadow-md lg:w-[72%]"
           xs={12}
         >
           <div id="title-transaction-history" className="mb-2">
