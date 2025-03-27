@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "City Bank",
+    "currency": "$",
+    "amount": "221,468"
+  },
+  {
+    "id": 2,
+    "title": "Debit Card",
+    "currency": "$",
+    "amount": "221,468"
+  },
+  {
+    "id": 3,
+    "title": "Visa Card",
+    "currency": "$",
+    "amount": "221,468"
+  },
+  {
+    "id": 4,
+    "title": "Cash",
+    "currency": "$",
+    "amount": "221,468"
+  }
+]
