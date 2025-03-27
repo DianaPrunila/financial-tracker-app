@@ -8,10 +8,11 @@ import { AiOutlineRise } from "react-icons/ai";
 import { RiVisaLine } from "react-icons/ri";
 import BOLinechart from "../parts/BOLinechart";
 import { MDBTable, MDBTableBody, MDBTableHead } from "mdb-react-ui-kit";
+import { GoDotFill } from "react-icons/go";
 
 const Wallets = () => {
-  const [crd, setCrd] = useState<Crd[]>([]);
-  interface Crd {
+  const [crdWl, setCrdWl] = useState<CrdWl[]>([]);
+  interface CrdWl {
     id: number;
     title: string;
     currency: symbol;
@@ -24,9 +25,9 @@ const Wallets = () => {
   //   { id: 4, icon: <LiaMoneyBillWaveAltSolid /> },
   // ];
   useEffect(() => {
-    fetch("/data/cards.json")
+    fetch("/data/cardsWalletsLeft.json")
       .then((response) => response.json())
-      .then((response) => setCrd(response))
+      .then((response) => setCrdWl(response))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
   const [transactionH, setTransactionH] = useState<TransactionHistory[]>([]);
@@ -50,7 +51,7 @@ const Wallets = () => {
     <Container id="wallets-page" className="-mt-4 pb-3">
       <div id="page-up-info" className="mr-3 flex flex-col pt-4">
         <div id="dashboard-up" className="-ml-3">
-          <h3 id="title-page">Dashboard</h3>
+          <h3 id="title-page">Wallets</h3>
         </div>
         <div
           id="dashboard-down"
@@ -61,17 +62,19 @@ const Wallets = () => {
       </div>
       <Row id="bigRow" className="mr-2 gap-x-8">
         <Col id="walletsLeft" lg={3} xs={12}>
-          {crd.map((c) => (
+          {crdWl.map((c) => (
             <Row
               id="walletsLeft-cards"
               className="mb-4 h-[5.69rem] rounded-md shadow-md hover:text-white"
               key={c.id}
             >
-              <div id="cardContent" className="">
+              <div id="cardContent" className="-ml-4 flex px-0">
                 <div id="cardContent-Left">
-                  {/* <span key={wI.id}>{wI.icon}</span> */}
+                  <span className="-mt-7 grid text-[7rem] text-[#E1E1F9]">
+                    <GoDotFill />
+                  </span>
                 </div>
-                <div id="cardContent-Right" className="flex flex-col">
+                <div id="cardContent-Right" className="-ml-3 flex flex-col">
                   <h3 id="cardTitle" className="text-lg">
                     {c.title}
                   </h3>
