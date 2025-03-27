@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "Grocery",
+    "currency": "$",
+    "amount": 1458.3,
+    "time": "Overtime"
+  },
+  {
+    "id": 2,
+    "title": "Clothes",
+    "currency": "$",
+    "amount": 1458.3,
+    "time": "Week"
+  },
+  {
+    "id": 3,
+    "title": "Transportation",
+    "currency": "$",
+    "amount": 1458.3,
+    "time": "Month"
+  },
+  {
+    "id": 4,
+    "title": "Education",
+    "currency": "$",
+    "amount": 1458.3,
+    "time": "Day"
+  }
+]
