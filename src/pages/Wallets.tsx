@@ -64,7 +64,7 @@ const Wallets = () => {
           {crd.map((c) => (
             <Row
               id="walletsLeft-cards"
-              className="mb-4 h-[5.69rem] rounded-md p-4 shadow-md hover:text-white"
+              className="mb-4 h-[5.69rem] rounded-md shadow-md hover:text-white"
               key={c.id}
             >
               <div id="cardContent" className="">
@@ -121,7 +121,7 @@ const Wallets = () => {
                   className="xs:h-1 -mt-6 max-lg:h-[4.5rem] md:h-16"
                 />
               </div>
-              <span className="text-bold m my-10 text-xl leading-8 text-white">
+              <span className="text-bold text-xl leading-8 text-white">
                 1234 5678 7890 9875
               </span>
               <div className="flex justify-between pt-2 align-bottom">

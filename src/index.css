@@ -64,6 +64,10 @@ p {
     color: white;
   }
 }
+#walletsLeft-cards {
+  padding: 1.2rem;
+  padding-left: 2rem;
+}
 
 .css-1qdzy9k-MuiBarElement-root {
   fill: red;
