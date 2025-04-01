@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "Car",
+    "currency": "$",
+    "amount": 1458.3,
+    "percentage": 20,
+    "total": 4580.85
+  },
+  {
+    "id": 2,
+    "title": "Laptop",
+    "currency": "$",
+    "amount": 1458.3,
+    "percentage": 20,
+    "total": 4580.85
+  },
+  {
+    "id": 3,
+    "title": "Vacantion",
+    "currency": "$",
+    "amount": 1458.3,
+    "percentage": 20,
+    "total": 4580.85
+  },
+  {
+    "id": 4,
+    "title": "Phone",
+    "currency": "$",
+    "amount": 1458.3,
+    "percentage": 20,
+    "total": 4580.85
+  }
+]
