@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { Col, Container, ProgressBar, Row } from "react-bootstrap";
-import { CircularProgressbar } from "react-circular-progressbar";
+import {
+  buildStyles,
+  CircularProgressbarWithChildren,
+} from "react-circular-progressbar";
+import { GoDotFill } from "react-icons/go";
 
 const Goals = () => {
   const [cardsGL, setCardsGL] = useState<CardsGoalsLeft[]>([]);
@@ -39,10 +43,18 @@ const Goals = () => {
             >
               <div id="cardContent" className="-ml-4 flex px-0">
                 <div id="cardContent-Left">
-                  <div className="ml-4 mr-8 w-14 text-3xl font-bold">
-                    <CircularProgressbar
+                  <div
+                    id="circularPB"
+                    className="ml-4 mr-8 w-14 text-5xl font-bold"
+                  >
+                    <CircularProgressbarWithChildren
                       value={cGL.percentage}
                       text={`${cGL.percentage}%`}
+                      styles={buildStyles({
+                        pathColor: "#51BB25",
+                        textColor: "#7184AD",
+                        textSize: "1.5rem",
+                      })}
                     />
                   </div>
                 </div>
@@ -128,6 +140,116 @@ const Goals = () => {
             className="mb-4 w-[103.5%] rounded-md bg-white px-3 py-4 shadow-md"
           >
             <h4>Available by Wallet</h4>
+            <div id="progrBarsx3" className="">
+              <div id="progrBar-second-row" className="flex">
+                <div
+                  id="dots"
+                  className="-mb-4 -ml-4 text-8xl"
+                  style={{ color: "#EAB308" }}
+                >
+                  <GoDotFill />
+                </div>
+                <div
+                  id="progrBar-first-row"
+                  className="flex w-full flex-col justify-center"
+                >
+                  <div
+                    id="budgets-right-up"
+                    className="flex w-full justify-between"
+                  >
+                    <div id="budgets-text" className="mb-[0.9rem]">
+                      <h5>City Bank</h5>
+                    </div>
+                    <div id="budge-nr" className="flex">
+                      <span className="font-medium text-big">150$</span>
+                    </div>
+                  </div>
+                  <div id="budgets-right-down" className="w-full">
+                    <ProgressBar className="h-[0.5rem] rounded-full">
+                      <div
+                        className="progress-bar"
+                        style={{
+                          width: `${75}%`,
+                          backgroundColor: "#2F2CD8",
+                        }}
+                      />
+                    </ProgressBar>
+                  </div>
+                </div>
+              </div>
+              <div id="progrBar-second-row" className="flex">
+                <div
+                  id="dots"
+                  className="-mb-4 -ml-4 text-8xl"
+                  style={{ color: "#6366F1" }}
+                >
+                  <GoDotFill />
+                </div>
+                <div
+                  id="progrBar-second-row"
+                  className="flex w-full flex-col justify-center"
+                >
+                  <div
+                    id="budgets-right-up"
+                    className="flex w-full justify-between"
+                  >
+                    <div id="budgets-text" className="mb-[0.9rem]">
+                      <h5>Cash Wallet</h5>
+                    </div>
+                    <div id="budge-nr" className="flex">
+                      <span className="font-medium text-big">150$</span>
+                    </div>
+                  </div>
+                  <div id="budgets-right-down" className="w-full">
+                    <ProgressBar className="h-[0.5rem] rounded-full">
+                      <div
+                        className="progress-bar"
+                        style={{
+                          width: `${50}%`,
+                          backgroundColor: "#12A347",
+                        }}
+                      />
+                    </ProgressBar>
+                  </div>
+                </div>
+              </div>
+              <div id="progrBar-first-row" className="flex">
+                <div
+                  id="dots"
+                  className="-ml-4 text-8xl"
+                  style={{ color: "#A855F7" }}
+                >
+                  <GoDotFill />
+                </div>
+                <div
+                  id="progrBar-first-row"
+                  className="flex w-full flex-col justify-center"
+                >
+                  <div
+                    id="budgets-right-up"
+                    className="flex w-full justify-between"
+                  >
+                    <div id="budgets-text" className="mb-[0.9rem]">
+                      <h5>Visa Card</h5>
+                    </div>
+                    <div id="budge-nr" className="flex">
+                      <span className="font-medium text-big">150$</span>
+                    </div>
+                  </div>
+                  <div id="budgets-right-down" className="w-full">
+                    <ProgressBar className="h-[0.5rem] rounded-full">
+                      <div
+                        className="progress-bar"
+                        style={{
+                          width: `${75}%`,
+                          backgroundColor: "#0E7CEB",
+                        }}
+                      />
+                    </ProgressBar>
+                  </div>
+                </div>
+              </div>
+            </div>
           </Row>
 
           <Row
