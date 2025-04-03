@@ -4,7 +4,11 @@ import {
   buildStyles,
   CircularProgressbarWithChildren,
 } from "react-circular-progressbar";
-import { GoDotFill } from "react-icons/go";
+import { BsBank } from "react-icons/bs";
+import { CiCreditCard1 } from "react-icons/ci";
+
+import { HiOutlineBanknotes } from "react-icons/hi2";
+import GH from "../parts/GH";
 
 const Goals = () => {
   const [cardsGL, setCardsGL] = useState<CardsGoalsLeft[]>([]);
@@ -63,7 +67,7 @@ const Goals = () => {
                     {cGL.title}
                   </h3>
                   <span id="cardTitle">
-                    ${cGL.amount} / ${cGL.total}
+                    <b>${cGL.amount}</b> / ${cGL.total}
                   </span>
                 </div>
               </div>
@@ -107,47 +111,44 @@ const Goals = () => {
             id="goals-thirdRow"
             className="mb-4 w-[103.5%] rounded-md bg-white px-3 py-4 shadow-md"
           >
-            <div className="flex justify-between">
-              <div id="goals-thirdRow-1" className="">
-                <span className="">Last Month</span>
-                <span className="mt-3 flex text-2xl font-medium text-big">
-                  $42,678
-                </span>
-              </div>
-              <div id="goals-thirdRow-2" className="">
-                <span className="">Expenses</span>
-                <span className="mt-3 flex text-2xl font-medium text-big">
-                  $1,798
-                </span>
-              </div>
-              <div id="goals-thirdRow-3" className="">
-                <span className="">Taxes</span>
-                <span className="mt-3 flex text-2xl font-medium text-big">
-                  $255.25
-                </span>
-              </div>
-              <div id="goals-thirdRow-4" className="">
-                <span className="">Debt</span>
-                <span className="mt-3 flex text-2xl font-medium text-big">
-                  $365,478
-                </span>
-              </div>
-            </div>
+            <Col id="goals-thirdCol-1" xs={12} sm={6} lg={3}>
+              <span className="">Last Month</span>
+              <span className="mt-3 flex text-2xl font-medium text-big">
+                $42,678
+              </span>
+            </Col>
+            <Col id="goals-thirdCol-2" xs={12} sm={6} lg={3}>
+              <span className="">Expenses</span>
+              <span className="mt-3 flex text-2xl font-medium text-big">
+                $1,798
+              </span>
+            </Col>
+            <Col id="goals-thirdCol-3" xs={12} sm={6} lg={3}>
+              <span className="">Taxes</span>
+              <span className="mt-3 flex text-2xl font-medium text-big">
+                $255.25
+              </span>
+            </Col>
+            <Col id="goals-thirdCol-4" xs={12} sm={6} lg={3}>
+              <span className="">Debt</span>
+              <span className="mt-3 flex text-2xl font-medium text-big">
+                $365,478
+              </span>
+            </Col>
           </Row>
 
           <Row
             id="goals-forthRow"
-            className="mb-4 w-[103.5%] rounded-md bg-white px-3 py-4 shadow-md"
+            className="mb-4 w-[103.5%] rounded-md bg-white px-3 pb-[2rem] pt-4 shadow-md"
           >
             <h4>Available by Wallet</h4>
             <div id="progrBarsx3" className="">
-              <div id="progrBar-second-row" className="flex">
+              <div id="progrBar-second-row" className="mt-4 flex">
                 <div
                   id="dots"
-                  className="-mb-4 -ml-4 text-8xl"
-                  style={{ color: "#EAB308" }}
+                  className="mr-4 rounded-full bg-[#EAB308] p-3 text-lg text-white"
                 >
-                  <GoDotFill />
+                  <BsBank />
                 </div>
                 <div
                   id="progrBar-first-row"
@@ -177,13 +178,12 @@ const Goals = () => {
                   </div>
                 </div>
               </div>
-              <div id="progrBar-second-row" className="flex">
+              <div id="progrBar-second-row" className="mt-4 flex">
                 <div
                   id="dots"
-                  className="-mb-4 -ml-4 text-8xl"
-                  style={{ color: "#6366F1" }}
+                  className="mr-4 rounded-full bg-[#6366F1] p-3 text-lg text-white"
                 >
-                  <GoDotFill />
+                  <HiOutlineBanknotes />
                 </div>
                 <div
                   id="progrBar-second-row"
@@ -213,13 +213,12 @@ const Goals = () => {
                   </div>
                 </div>
               </div>
-              <div id="progrBar-first-row" className="flex">
+              <div id="progrBar-first-row" className="mt-4 flex">
                 <div
                   id="dots"
-                  className="-ml-4 text-8xl"
-                  style={{ color: "#A855F7" }}
+                  className="mr-4 rounded-full bg-[#A855F7] p-3 text-lg text-white"
                 >
-                  <GoDotFill />
+                  <CiCreditCard1 />
                 </div>
                 <div
                   id="progrBar-first-row"
@@ -254,9 +253,9 @@ const Goals = () => {
 
           <Row
             id="goals-fifthRow"
-            className="mb-4 w-[103.5%] rounded-md bg-white px-3 py-4 shadow-md"
+            className="w-[103.5%] rounded-md bg-white px-3 pb-[2rem] pt-4 shadow-md"
           >
-            <h4>History</h4>
+            <GH />
           </Row>
         </Col>
       </Row>
