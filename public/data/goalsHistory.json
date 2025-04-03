@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "date": "29 Jan 2024",
+    "wallet": "Master Card",
+    "description": "Necessities",
+    "amount": "100.00",
+    "rest": "12.368"
+  },
+  {
+    "id": 2,
+    "date": "29 Jan 2024",
+    "wallet": "Master Card",
+    "description": "Necessities",
+    "amount": "100.00",
+    "rest": "12.368"
+  },
+  {
+    "id": 3,
+    "date": "29 Jan 2024",
+    "wallet": "Master Card",
+    "description": "Necessities",
+    "amount": "100.00",
+    "rest": "12.368"
+  },
+  {
+    "id": 4,
+    "date": "29 Jan 2024",
+    "wallet": "Master Card",
+    "description": "Necessities",
+    "amount": "100.00",
+    "rest": "12.368"
+  },
+  {
+    "id": 5,
+    "date": "29 Jan 2024",
+    "wallet": "Master Card",
+    "description": "Necessities",
+    "amount": "100.00",
+    "rest": "12.368"
+  }
+]
